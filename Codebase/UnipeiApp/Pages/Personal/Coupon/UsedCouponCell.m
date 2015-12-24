@@ -1,0 +1,54 @@
+//
+//  UsedCouponCell.m
+//  DymIOSApp
+//
+//  Created by 沈梦月 on 15/12/23.
+//  Copyright © 2015年 Dong Yiming. All rights reserved.
+//
+
+#import "UsedCouponCell.h"
+#import "IPDashedLineView.h"
+#import <Masonry.h>
+@interface UsedCouponCell()
+@property (weak, nonatomic) IBOutlet UIView *couponView;
+@property (weak, nonatomic) IBOutlet UILabel *couponNum;
+@property (weak, nonatomic) IBOutlet UILabel *couponPrice;
+@property (weak, nonatomic) IBOutlet UILabel *couponTitle;
+
+@end
+@implementation UsedCouponCell
+
+- (void)awakeFromNib {
+    // Initialization code
+}
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+    self.couponView.layer.cornerRadius = 5;
+    self.couponView.clipsToBounds = YES;
+    
+    //设置优惠劵的边框
+    self.couponView.layer.borderWidth = 1;
+    self.couponView.layer.borderColor= [[UIColor colorWithRed:80/255 green:80/255 blue:80/255 alpha:0.2]CGColor];
+    
+}
+-(void)config{
+    // 水平分隔线
+    IPDashedLineView *dashView = [IPDashedLineView new];
+    dashView.lineColor = [UIColor colorWithWhite:0.5 alpha:0.2];
+    dashView.lengthPattern = @[@2, @1];
+    [self.couponView addSubview:dashView];
+    [dashView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.couponNum.mas_bottom).with.offset(4);
+        make.left.equalTo(self.couponView).with.offset(0);
+        make.right.equalTo(self.couponView).with.offset(0);
+        make.height.equalTo(@1);
+    }];
+}
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end
