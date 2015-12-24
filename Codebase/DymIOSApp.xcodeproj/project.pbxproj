@@ -273,6 +273,8 @@
 		FA4C76711BFDAF6A00E90477 /* JPDealerChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C766F1BFDAF6A00E90477 /* JPDealerChooseCell.m */; };
 		FA4C76721BFDAF6A00E90477 /* JPDealerChooseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4C76701BFDAF6A00E90477 /* JPDealerChooseCell.xib */; };
 		FA4C76751BFDBAEE00E90477 /* JPDealerConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C76741BFDBAEE00E90477 /* JPDealerConstants.m */; };
+		FA5AB5711C2BDC5000E1FB6F /* Unipei_Lottery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5AB5701C2BDC5000E1FB6F /* Unipei_Lottery.storyboard */; };
+		FA5AB5741C2BDCCA00E1FB6F /* ShowLotteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5AB5731C2BDCCA00E1FB6F /* ShowLotteryViewController.m */; };
 		FA5E502B1C040F20004E04EE /* Unipei_Dealer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5E502A1C040F20004E04EE /* Unipei_Dealer.storyboard */; };
 		FA5E502E1C041130004E04EE /* JPDealerDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5E502D1C041130004E04EE /* JPDealerDetailVC.m */; };
 		FA5ECCE81BEB3E2600385A41 /* JPPickerPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5ECCE71BEB3E2600385A41 /* JPPickerPhotoButton.m */; };
@@ -796,6 +798,9 @@
 		FA4C76701BFDAF6A00E90477 /* JPDealerChooseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JPDealerChooseCell.xib; sourceTree = "<group>"; };
 		FA4C76731BFDBAEE00E90477 /* JPDealerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDealerConstants.h; sourceTree = "<group>"; };
 		FA4C76741BFDBAEE00E90477 /* JPDealerConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDealerConstants.m; sourceTree = "<group>"; };
+		FA5AB5701C2BDC5000E1FB6F /* Unipei_Lottery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Unipei_Lottery.storyboard; path = Pages/Unipei_Lottery.storyboard; sourceTree = "<group>"; };
+		FA5AB5721C2BDCCA00E1FB6F /* ShowLotteryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowLotteryViewController.h; sourceTree = "<group>"; };
+		FA5AB5731C2BDCCA00E1FB6F /* ShowLotteryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowLotteryViewController.m; sourceTree = "<group>"; };
 		FA5E502A1C040F20004E04EE /* Unipei_Dealer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Unipei_Dealer.storyboard; sourceTree = "<group>"; };
 		FA5E502C1C041130004E04EE /* JPDealerDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDealerDetailVC.h; sourceTree = "<group>"; };
 		FA5E502D1C041130004E04EE /* JPDealerDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDealerDetailVC.m; sourceTree = "<group>"; };
@@ -1122,6 +1127,7 @@
 				EA4E49741BDF189B0012BC8F /* Unipei_Order.storyboard */,
 				EAD578CA1BFDA13C0059DC04 /* Unipei_Inquiry.storyboard */,
 				FA5E502A1C040F20004E04EE /* Unipei_Dealer.storyboard */,
+				FA5AB5701C2BDC5000E1FB6F /* Unipei_Lottery.storyboard */,
 				EA61F1C01BA6BD4600858DDC /* Images.xcassets */,
 				EA61F1C21BA6BD4600858DDC /* LaunchScreen.xib */,
 				EA61F1B31BA6BD4600858DDC /* Supporting Files */,
@@ -1812,6 +1818,8 @@
 			children = (
 				FA4A19211C2AA97D008ECB4C /* LotteryDrawViewController.h */,
 				FA4A19221C2AA97D008ECB4C /* LotteryDrawViewController.m */,
+				FA5AB5721C2BDCCA00E1FB6F /* ShowLotteryViewController.h */,
+				FA5AB5731C2BDCCA00E1FB6F /* ShowLotteryViewController.m */,
 			);
 			path = Lottery;
 			sourceTree = "<group>";
@@ -1925,6 +1933,7 @@
 				EA61F1C41BA6BD4600858DDC /* LaunchScreen.xib in Resources */,
 				FA5E502B1C040F20004E04EE /* Unipei_Dealer.storyboard in Resources */,
 				FA4C76721BFDAF6A00E90477 /* JPDealerChooseCell.xib in Resources */,
+				FA5AB5711C2BDC5000E1FB6F /* Unipei_Lottery.storyboard in Resources */,
 				EAC89E981C1803AD00C9FD1B /* CommonImages.xcassets in Resources */,
 				6B9776631BF5713400226927 /* UNPMessageCenterVC.xib in Resources */,
 				EA38D41D1BF4572200C93243 /* EditVinViewController.xib in Resources */,
@@ -2197,6 +2206,7 @@
 				EAFB9E9E1BBA5B810053A9D0 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				EAFB9EB31BBA5B810053A9D0 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
 				EAF6F6AF1BE2161600099EE9 /* UNPOrderTrackVC.m in Sources */,
+				FA5AB5741C2BDCCA00E1FB6F /* ShowLotteryViewController.m in Sources */,
 				6B1D2FEA1BDDC537001C9289 /* UNPOrderItemCell.m in Sources */,
 				EAFB9E921BBA5B810053A9D0 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
 				EAC12A231BAD49D500DA7325 /* UNPChooseItemsView.m in Sources */,
