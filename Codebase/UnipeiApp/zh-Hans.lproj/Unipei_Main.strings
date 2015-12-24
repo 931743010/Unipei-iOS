@@ -1,0 +1,408 @@
+
+/* Class = "UILabel"; text = "采购描述"; ObjectID = "0E3-I0-X2S"; */
+"0E3-I0-X2S.text" = "采购描述";
+
+/* Class = "UILabel"; text = "2015/8/12 18:00"; ObjectID = "0KH-1s-4fi"; */
+"0KH-1s-4fi.text" = "2015/8/12 18:00";
+
+/* Class = "UILabel"; text = "湖北省武汉市江岸区燕子路"; ObjectID = "0nW-KN-h7D"; */
+"0nW-KN-h7D.text" = "湖北省武汉市江岸区燕子路";
+
+/* Class = "UIButton"; normalTitle = "确定"; ObjectID = "0oA-lK-9du"; */
+"0oA-lK-9du.normalTitle" = "确定";
+
+/* Class = "UILabel"; text = "待报价"; ObjectID = "1au-Lz-VGL"; */
+"1au-Lz-VGL.text" = "待报价";
+
+/* Class = "UIButton"; normalTitle = "起始时间"; ObjectID = "3Y8-Ss-bLY"; */
+"3Y8-Ss-bLY.normalTitle" = "起始时间";
+
+/* Class = "UILabel"; text = "17827738376"; ObjectID = "3tx-E5-puo"; */
+"3tx-E5-puo.text" = "17827738376";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "3xE-5H-BaQ"; */
+"3xE-5H-BaQ.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "撤消"; ObjectID = "5Qg-sV-eFE"; */
+"5Qg-sV-eFE.normalTitle" = "撤消";
+
+/* Class = "UILabel"; text = "燃油攻击系统"; ObjectID = "6Nx-zO-soq"; */
+"6Nx-zO-soq.text" = "燃油攻击系统";
+
+/* Class = "UILabel"; text = "经销商名称:"; ObjectID = "6Xi-Gd-PeA"; */
+"6Xi-Gd-PeA.text" = "经销商名称:";
+
+/* Class = "UILabel"; text = "已选中"; ObjectID = "7no-YB-esa"; */
+"7no-YB-esa.text" = "已选中";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "81s-Yk-DhR"; */
+"81s-Yk-DhR.title" = "Item";
+
+/* Class = "UILabel"; text = "大架号或VIN码"; ObjectID = "93H-rW-7yU"; */
+"93H-rW-7yU.text" = "大架号或VIN码";
+
+/* Class = "UILabel"; text = "15829383849"; ObjectID = "BaK-B6-0JL"; */
+"BaK-B6-0JL.text" = "15829383849";
+
+/* Class = "UILabel"; text = "1234567"; ObjectID = "C26-rG-s9l"; */
+"C26-rG-s9l.text" = "1234567";
+
+/* Class = "UILabel"; text = "商品编号 VN67777889"; ObjectID = "Cvm-qU-PCP"; */
+"Cvm-qU-PCP.text" = "商品编号 VN67777889";
+
+/* Class = "UILabel"; text = "17827738376"; ObjectID = "Deo-0U-k0v"; */
+"Deo-0U-k0v.text" = "17827738376";
+
+/* Class = "UILabel"; text = "BJ123423232"; ObjectID = "Doj-Gq-Ube"; */
+"Doj-Gq-Ube.text" = "BJ123423232";
+
+/* Class = "UILabel"; text = "奇瑞A1全年款"; ObjectID = "EmG-Hm-zll"; */
+"EmG-Hm-zll.text" = "奇瑞A1全年款";
+
+/* Class = "UINavigationItem"; title = "询报价"; ObjectID = "F3v-2L-agr"; */
+"F3v-2L-agr.title" = "询报价";
+
+/* Class = "UILabel"; text = "09/15"; ObjectID = "FA6-bV-XBj"; */
+"FA6-bV-XBj.text" = "09/15";
+
+/* Class = "UILabel"; text = "15892837837"; ObjectID = "GP7-vT-bQJ"; */
+"GP7-vT-bQJ.text" = "15892837837";
+
+/* Class = "UILabel"; text = "点击\"开始使用\", 即表示同意"; ObjectID = "Gon-JC-2HR"; */
+"Gon-JC-2HR.text" = "点击\"开始使用\", 即表示同意";
+
+/* Class = "UILabel"; text = "430000"; ObjectID = "HBD-BT-DWV"; */
+"HBD-BT-DWV.text" = "430000";
+
+/* Class = "UINavigationItem"; title = "登录"; ObjectID = "I1C-bh-Txe"; */
+"I1C-bh-Txe.title" = "登录";
+
+/* Class = "UILabel"; text = "保险杠支架"; ObjectID = "I9J-PO-seB"; */
+"I9J-PO-seB.text" = "保险杠支架";
+
+/* Class = "UILabel"; text = "标准名称"; ObjectID = "ICs-0n-f2S"; */
+"ICs-0n-f2S.text" = "标准名称";
+
+/* Class = "UILabel"; text = "x 2"; ObjectID = "IFp-mA-c8Y"; */
+"IFp-mA-c8Y.text" = "x 2";
+
+/* Class = "UILabel"; text = "6800"; ObjectID = "ITW-c8-90I"; */
+"ITW-c8-90I.text" = "6800";
+
+/* Class = "UILabel"; text = "保险杠支架"; ObjectID = "JNX-np-Ldw"; */
+"JNX-np-Ldw.text" = "保险杠支架";
+
+/* Class = "UILabel"; text = "数量"; ObjectID = "Jo9-MU-iFr"; */
+"Jo9-MU-iFr.text" = "数量";
+
+/* Class = "UILabel"; text = "街道地址:"; ObjectID = "Joc-Pv-gyC"; */
+"Joc-Pv-gyC.text" = "街道地址:";
+
+/* Class = "UILabel"; text = "原厂"; ObjectID = "Jsf-Uv-ySq"; */
+"Jsf-Uv-ySq.text" = "原厂";
+
+/* Class = "UILabel"; text = "OE号: 5878387384993"; ObjectID = "JwR-gI-dhW"; */
+"JwR-gI-dhW.text" = "OE号: 5878387384993";
+
+/* Class = "UILabel"; text = "语音"; ObjectID = "K9Z-Rv-GDA"; */
+"K9Z-Rv-GDA.text" = "语音";
+
+/* Class = "UITextField"; placeholder = "请输入密码"; ObjectID = "KjM-2N-Z2d"; */
+"KjM-2N-Z2d.placeholder" = "请输入密码";
+
+/* Class = "UITextField"; text = "123456"; ObjectID = "KjM-2N-Z2d"; */
+"KjM-2N-Z2d.text" = "123456";
+
+/* Class = "UILabel"; text = "已确认"; ObjectID = "LA1-Td-2HX"; */
+"LA1-Td-2HX.text" = "已确认";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "LKr-ft-igS"; */
+"LKr-ft-igS.title" = "Item";
+
+/* Class = "UITextField"; placeholder = "请输入收货姓名"; ObjectID = "LPj-YC-d92"; */
+"LPj-YC-d92.placeholder" = "请输入收货姓名";
+
+/* Class = "UILabel"; text = "语音"; ObjectID = "Lad-v4-mOC"; */
+"Lad-v4-mOC.text" = "语音";
+
+/* Class = "UILabel"; text = "燃油攻击系统"; ObjectID = "MlI-1Y-Wq1"; */
+"MlI-1Y-Wq1.text" = "燃油攻击系统";
+
+/* Class = "UILabel"; text = "地址"; ObjectID = "NDy-4j-CPj"; */
+"NDy-4j-CPj.text" = "地址";
+
+/* Class = "UILabel"; text = "单价: 260"; ObjectID = "OPj-Gd-7Qc"; */
+"OPj-Gd-7Qc.text" = "单价: 260";
+
+/* Class = "UILabel"; text = "别克君威"; ObjectID = "OYF-5x-s7Q"; */
+"OYF-5x-s7Q.text" = "别克君威";
+
+/* Class = "UILabel"; text = "嘉配经销商"; ObjectID = "OZo-eJ-BO6"; */
+"OZo-eJ-BO6.text" = "嘉配经销商";
+
+/* Class = "UIButton"; normalTitle = "下一步"; ObjectID = "Oa5-zE-a1X"; */
+"Oa5-zE-a1X.normalTitle" = "下一步";
+
+/* Class = "UILabel"; text = "商品编号 VN67777889"; ObjectID = "OcD-Xt-Fhh"; */
+"OcD-Xt-Fhh.text" = "商品编号 VN67777889";
+
+/* Class = "UILabel"; text = "address"; ObjectID = "Olx-sh-iMB"; */
+"Olx-sh-iMB.text" = "address";
+
+/* Class = "UIButton"; normalTitle = "方案三"; ObjectID = "Oxr-mG-DdI"; */
+"Oxr-mG-DdI.normalTitle" = "方案三";
+
+/* Class = "UIButton"; normalTitle = "报 价"; ObjectID = "Q7X-ZQ-cIb"; */
+"Q7X-ZQ-cIb.normalTitle" = "报 价";
+
+/* Class = "UIButton"; normalTitle = "清除全部选项"; ObjectID = "QHg-3X-8We"; */
+"QHg-3X-8We.normalTitle" = "清除全部选项";
+
+/* Class = "UILabel"; text = "凯哥牌"; ObjectID = "QSz-ey-WGm"; */
+"QSz-ey-WGm.text" = "凯哥牌";
+
+/* Class = "UIButton"; normalTitle = "方案二"; ObjectID = "Qg2-AO-jXE"; */
+"Qg2-AO-jXE.normalTitle" = "方案二";
+
+/* Class = "UILabel"; text = "测试：显示订单详情"; ObjectID = "QuV-hd-pRd"; */
+"QuV-hd-pRd.text" = "测试：显示订单详情";
+
+/* Class = "UILabel"; text = "收货姓名:"; ObjectID = "RNY-cN-cJg"; */
+"RNY-cN-cJg.text" = "收货姓名:";
+
+/* Class = "UILabel"; text = "联系电话:"; ObjectID = "Rb6-4b-Fpp"; */
+"Rb6-4b-Fpp.text" = "联系电话:";
+
+/* Class = "UILabel"; text = "联系电话:"; ObjectID = "RgT-Mg-yZj"; */
+"RgT-Mg-yZj.text" = "联系电话:";
+
+/* Class = "UILabel"; text = "燃油攻击系统"; ObjectID = "SZq-tg-Eck"; */
+"SZq-tg-Eck.text" = "燃油攻击系统";
+
+/* Class = "UITextField"; placeholder = "请输入邮政编码"; ObjectID = "TTi-HH-5FB"; */
+"TTi-HH-5FB.placeholder" = "请输入邮政编码";
+
+/* Class = "UILabel"; text = "1234567"; ObjectID = "TVa-zT-Xaz"; */
+"TVa-zT-Xaz.text" = "1234567";
+
+/* Class = "UIButton"; normalTitle = "方案一"; ObjectID = "Te6-nv-kK5"; */
+"Te6-nv-kK5.normalTitle" = "方案一";
+
+/* Class = "UIButton"; normalTitle = "编辑"; ObjectID = "Tu8-Wn-5gm"; */
+"Tu8-Wn-5gm.normalTitle" = "编辑";
+
+/* Class = "UILabel"; text = "总价(元):"; ObjectID = "UPh-D7-tdn"; */
+"UPh-D7-tdn.text" = "总价(元):";
+
+/* Class = "UILabel"; text = "阿斯顿∙马丁"; ObjectID = "VQA-4x-5fD"; */
+"VQA-4x-5fD.text" = "阿斯顿∙马丁";
+
+/* Class = "UILabel"; text = "数量"; ObjectID = "VXD-9m-XAf"; */
+"VXD-9m-XAf.text" = "数量";
+
+/* Class = "UILabel"; text = "选择状态"; ObjectID = "VXp-26-1xa"; */
+"VXp-26-1xa.text" = "选择状态";
+
+/* Class = "UILabel"; text = "报价单编号:"; ObjectID = "WXN-gO-hPo"; */
+"WXN-gO-hPo.text" = "报价单编号:";
+
+/* Class = "UILabel"; text = "待报价"; ObjectID = "WYT-B5-P1z"; */
+"WYT-B5-P1z.text" = "待报价";
+
+/* Class = "UILabel"; text = "X22"; ObjectID = "XYu-Lq-pCV"; */
+"XYu-Lq-pCV.text" = "X22";
+
+/* Class = "UILabel"; text = "大类"; ObjectID = "Y5h-Mj-DBi"; */
+"Y5h-Mj-DBi.text" = "大类";
+
+/* Class = "UILabel"; text = "齐鲁汽修厂"; ObjectID = "YhK-AE-JuS"; */
+"YhK-AE-JuS.text" = "齐鲁汽修厂";
+
+/* Class = "UILabel"; text = "车架号："; ObjectID = "YrA-C5-bc4"; */
+"YrA-C5-bc4.text" = "车架号：";
+
+/* Class = "UILabel"; text = "采购描述："; ObjectID = "ZDv-jL-uhZ"; */
+"ZDv-jL-uhZ.text" = "采购描述：";
+
+/* Class = "UILabel"; text = "燃油粉碎传感器"; ObjectID = "ZJn-74-p3I"; */
+"ZJn-74-p3I.text" = "燃油粉碎传感器";
+
+/* Class = "UILabel"; text = "报价时间:"; ObjectID = "ZMz-OU-Zqm"; */
+"ZMz-OU-Zqm.text" = "报价时间:";
+
+/* Class = "UIButton"; normalTitle = "由你配会员协议"; ObjectID = "ZxX-ry-6DI"; */
+"ZxX-ry-6DI.normalTitle" = "由你配会员协议";
+
+/* Class = "UILabel"; text = "由你配手机应用上线通知"; ObjectID = "aFh-zB-X7N"; */
+"aFh-zB-X7N.text" = "由你配手机应用上线通知";
+
+/* Class = "UILabel"; text = "单价: 260"; ObjectID = "aeH-pg-dLT"; */
+"aeH-pg-dLT.text" = "单价: 260";
+
+/* Class = "UILabel"; text = "适用车系："; ObjectID = "aia-Nf-qy8"; */
+"aia-Nf-qy8.text" = "适用车系：";
+
+/* Class = "UILabel"; text = "待报价"; ObjectID = "apm-Tz-8NN"; */
+"apm-Tz-8NN.text" = "待报价";
+
+/* Class = "UILabel"; text = "大类"; ObjectID = "bRy-3d-YP8"; */
+"bRy-3d-YP8.text" = "大类";
+
+/* Class = "UITextField"; placeholder = "请输入手机号码"; ObjectID = "c3u-I4-ieg"; */
+"c3u-I4-ieg.placeholder" = "请输入手机号码";
+
+/* Class = "UITextField"; placeholder = "点击输入车架号(大架号或VIN码)"; ObjectID = "c95-UB-Lxh"; */
+"c95-UB-Lxh.placeholder" = "点击输入车架号(大架号或VIN码)";
+
+/* Class = "UILabel"; text = "OE号: 5878387384993"; ObjectID = "dDZ-rc-wuo"; */
+"dDZ-rc-wuo.text" = "OE号: 5878387384993";
+
+/* Class = "UILabel"; text = "邮政编码:"; ObjectID = "eCP-JC-drU"; */
+"eCP-JC-drU.text" = "邮政编码:";
+
+/* Class = "UILabel"; text = "原厂"; ObjectID = "em8-ee-9k1"; */
+"em8-ee-9k1.text" = "原厂";
+
+/* Class = "UIButton"; normalTitle = "开始使用"; ObjectID = "f1x-d5-Xho"; */
+"f1x-d5-Xho.normalTitle" = "开始使用";
+
+/* Class = "UIButton"; normalTitle = "询 价"; ObjectID = "fGY-0C-kDC"; */
+"fGY-0C-kDC.normalTitle" = "询 价";
+
+/* Class = "UILabel"; text = "VT11223344556677"; ObjectID = "fSL-8e-l4T"; */
+"fSL-8e-l4T.text" = "VT11223344556677";
+
+/* Class = "UILabel"; text = "附件"; ObjectID = "faV-P8-6ge"; */
+"faV-P8-6ge.text" = "附件";
+
+/* Class = "UILabel"; text = "商品清单"; ObjectID = "fsh-LL-d96"; */
+"fsh-LL-d96.text" = "商品清单";
+
+/* Class = "UIButton"; normalTitle = "下一步"; ObjectID = "h5s-jR-gvf"; */
+"h5s-jR-gvf.normalTitle" = "下一步";
+
+/* Class = "UILabel"; text = "附件"; ObjectID = "hBm-w6-6Uh"; */
+"hBm-w6-6Uh.text" = "附件";
+
+/* Class = "UILabel"; text = "收货地址:"; ObjectID = "hIU-bD-Xac"; */
+"hIU-bD-Xac.text" = "收货地址:";
+
+/* Class = "UIButton"; normalTitle = "确  认"; ObjectID = "jEe-ui-3Aw"; */
+"jEe-ui-3Aw.normalTitle" = "确  认";
+
+/* Class = "UILabel"; text = "齐鲁汽修厂"; ObjectID = "jd4-2x-Jrk"; */
+"jd4-2x-Jrk.text" = "齐鲁汽修厂";
+
+/* Class = "UILabel"; text = "报价单名称:"; ObjectID = "jh8-Ke-GMt"; */
+"jh8-Ke-GMt.text" = "报价单名称:";
+
+/* Class = "UILabel"; text = "手机号码:"; ObjectID = "kBk-fH-wu4"; */
+"kBk-fH-wu4.text" = "手机号码:";
+
+/* Class = "UIButton"; normalTitle = "修改"; ObjectID = "kUO-I0-00g"; */
+"kUO-I0-00g.normalTitle" = "修改";
+
+/* Class = "UILabel"; text = "2015-9-16  18:00"; ObjectID = "kg5-aW-Ofw"; */
+"kg5-aW-Ofw.text" = "2015-9-16  18:00";
+
+/* Class = "UILabel"; text = "子类"; ObjectID = "kiQ-mr-FRb"; */
+"kiQ-mr-FRb.text" = "子类";
+
+/* Class = "UILabel"; text = "询价时间"; ObjectID = "lHm-gz-4ap"; */
+"lHm-gz-4ap.text" = "询价时间";
+
+/* Class = "UIButton"; normalTitle = "拒绝所有方案"; ObjectID = "lRY-Wb-Zga"; */
+"lRY-Wb-Zga.normalTitle" = "拒绝所有方案";
+
+/* Class = "UILabel"; text = "红红色的不要太弱哈"; ObjectID = "lkp-ku-0PQ"; */
+"lkp-ku-0PQ.text" = "红红色的不要太弱哈";
+
+/* Class = "UILabel"; text = "X22"; ObjectID = "mbS-I7-bEl"; */
+"mbS-I7-bEl.text" = "X22";
+
+/* Class = "UILabel"; text = "Boing"; ObjectID = "n7n-ei-kMj"; */
+"n7n-ei-kMj.text" = "Boing";
+
+/* Class = "UILabel"; text = "凯哥牌"; ObjectID = "nLU-Oh-JeE"; */
+"nLU-Oh-JeE.text" = "凯哥牌";
+
+/* Class = "UILabel"; text = "物流公司："; ObjectID = "oGD-Wq-AFC"; */
+"oGD-Wq-AFC.text" = "物流公司：";
+
+/* Class = "UILabel"; text = "燃油攻击系统"; ObjectID = "q77-1x-kdb"; */
+"q77-1x-kdb.text" = "燃油攻击系统";
+
+/* Class = "UILabel"; text = "BYD保险杠报价单"; ObjectID = "q92-zG-RIc"; */
+"q92-zG-RIc.text" = "BYD保险杠报价单";
+
+/* Class = "UITextField"; placeholder = "请输入街道地址"; ObjectID = "rPq-z1-p3T"; */
+"rPq-z1-p3T.placeholder" = "请输入街道地址";
+
+/* Class = "UILabel"; text = "齐鲁汽修厂"; ObjectID = "s8V-VN-XpF"; */
+"s8V-VN-XpF.text" = "齐鲁汽修厂";
+
+/* Class = "UILabel"; text = "别克君威"; ObjectID = "sCw-p4-Xp3"; */
+"sCw-p4-Xp3.text" = "别克君威";
+
+/* Class = "UILabel"; text = "燃油粉碎传感器"; ObjectID = "sLw-n8-qyw"; */
+"sLw-n8-qyw.text" = "燃油粉碎传感器";
+
+/* Class = "UILabel"; text = "东风日铲"; ObjectID = "sRr-b8-doG"; */
+"sRr-b8-doG.text" = "东风日铲";
+
+/* Class = "UILabel"; text = "2015-9-16  18:00"; ObjectID = "t1v-cg-2Pt"; */
+"t1v-cg-2Pt.text" = "2015-9-16  18:00";
+
+/* Class = "UILabel"; text = "标准名称"; ObjectID = "t7R-A5-opi"; */
+"t7R-A5-opi.text" = "标准名称";
+
+/* Class = "UILabel"; text = "武汉凯立德万里汽配"; ObjectID = "t9C-wg-AhI"; */
+"t9C-wg-AhI.text" = "武汉凯立德万里汽配";
+
+/* Class = "UILabel"; text = "经销商名称:"; ObjectID = "tEq-ZL-ZCA"; */
+"tEq-ZL-ZCA.text" = "经销商名称:";
+
+/* Class = "UILabel"; text = "17827738376"; ObjectID = "tu8-uY-rNI"; */
+"tu8-uY-rNI.text" = "17827738376";
+
+/* Class = "UILabel"; text = "询价单编号:"; ObjectID = "uO1-fe-zYe"; */
+"uO1-fe-zYe.text" = "询价单编号:";
+
+/* Class = "UILabel"; text = "子类"; ObjectID = "v1o-4X-Fcf"; */
+"v1o-4X-Fcf.text" = "子类";
+
+/* Class = "UILabel"; text = "主营车系"; ObjectID = "w5C-Q6-WJL"; */
+"w5C-Q6-WJL.text" = "主营车系";
+
+/* Class = "UITextField"; placeholder = "请输入帐号"; ObjectID = "wBP-B0-LDa"; */
+"wBP-B0-LDa.placeholder" = "请输入帐号";
+
+/* Class = "UITextField"; text = "liw"; ObjectID = "wBP-B0-LDa"; */
+"wBP-B0-LDa.text" = "liw";
+
+/* Class = "UIButton"; normalTitle = "结束时间"; ObjectID = "wC5-lW-3Jc"; */
+"wC5-lW-3Jc.normalTitle" = "结束时间";
+
+/* Class = "UILabel"; text = "别克君威"; ObjectID = "wYJ-kn-y78"; */
+"wYJ-kn-y78.text" = "别克君威";
+
+/* Class = "UIButton"; normalTitle = "选择车型"; ObjectID = "wow-xb-6PI"; */
+"wow-xb-6PI.normalTitle" = "选择车型";
+
+/* Class = "UILabel"; text = "2015-9-16  18:00"; ObjectID = "xmb-wx-Z4S"; */
+"xmb-wx-Z4S.text" = "2015-9-16  18:00";
+
+/* Class = "UILabel"; text = "添加配件品类"; ObjectID = "yb5-rC-VRy"; */
+"yb5-rC-VRy.text" = "添加配件品类";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "zG1-yx-VSR"; */
+"zG1-yx-VSR.title" = "Item";
+
+/* Class = "UILabel"; text = "报价单状态:"; ObjectID = "zGR-dj-4AD"; */
+"zGR-dj-4AD.text" = "报价单状态:";
+
+/* Class = "UILabel"; text = "name"; ObjectID = "zfp-ge-Quc"; */
+"zfp-ge-Quc.text" = "name";
+
+/* Class = "UILabel"; text = "采购描述"; ObjectID = "zgX-0e-GsI"; */
+"zgX-0e-GsI.text" = "采购描述";

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditVinViewController">
+            <connections>
+                <outlet property="submitBtn" destination="EqS-DI-as3" id="VDl-VG-BYF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="vinImageView" destination="YXL-Wa-a0D" id="R46-2e-eeg"/>
+                <outlet property="vinTextField" destination="uVR-br-w18" id="2Lr-qv-fxN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YXL-Wa-a0D">
+                    <rect key="frame" x="100" y="158" width="306" height="128"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="67" id="2Rn-Tf-XLy"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="306" id="EC8-AC-4Oz"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uVR-br-w18">
+                    <rect key="frame" x="124" y="350" width="272" height="40"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="Adr-Nx-miy"/>
+                        <constraint firstAttribute="height" constant="40" id="TXc-Q5-4jk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqS-DI-as3">
+                    <rect key="frame" x="16" y="468" width="568" height="37"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="0.52927968510000001" blue="0.067603056290000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="47" id="Fiy-yl-iCH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="确认">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="confirmVin:" destination="-1" eventType="touchUpInside" id="t65-Wd-VUi"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="请核对确认VIN码信息！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntu-4V-9wc">
+                    <rect key="frame" x="105" y="114" width="235" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="9Qm-ZF-mPj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ntu-4V-9wc" secondAttribute="trailing" constant="16" id="90M-6R-SoO"/>
+                <constraint firstItem="YXL-Wa-a0D" firstAttribute="top" secondItem="Ntu-4V-9wc" secondAttribute="bottom" constant="25" id="AYb-9P-QFy"/>
+                <constraint firstItem="EqS-DI-as3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uVR-br-w18" secondAttribute="bottom" constant="95" id="DnH-s8-hxq"/>
+                <constraint firstItem="EqS-DI-as3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="FN9-wf-TBd"/>
+                <constraint firstAttribute="bottom" secondItem="EqS-DI-as3" secondAttribute="bottom" constant="95" id="GBb-Sf-LqQ"/>
+                <constraint firstAttribute="trailing" secondItem="EqS-DI-as3" secondAttribute="trailing" constant="16" id="HmM-cR-jSk"/>
+                <constraint firstAttribute="trailing" secondItem="uVR-br-w18" secondAttribute="trailing" constant="16" id="Jl5-7R-sjx"/>
+                <constraint firstItem="uVR-br-w18" firstAttribute="top" secondItem="YXL-Wa-a0D" secondAttribute="bottom" constant="60" id="X6H-AN-rEG"/>
+                <constraint firstItem="EqS-DI-as3" firstAttribute="centerX" secondItem="Ntu-4V-9wc" secondAttribute="centerX" id="Xm9-vn-EPM"/>
+                <constraint firstItem="Ntu-4V-9wc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="anh-6N-HpH"/>
+                <constraint firstItem="Ntu-4V-9wc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="ehG-jB-L0Q"/>
+                <constraint firstItem="YXL-Wa-a0D" firstAttribute="centerX" secondItem="Ntu-4V-9wc" secondAttribute="centerX" id="hjx-Of-gbY"/>
+                <constraint firstItem="uVR-br-w18" firstAttribute="centerX" secondItem="Ntu-4V-9wc" secondAttribute="centerX" id="igt-oj-lYW"/>
+                <constraint firstItem="uVR-br-w18" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="vfN-ZO-ilm"/>
+                <constraint firstAttribute="trailing" secondItem="YXL-Wa-a0D" secondAttribute="trailing" constant="16" id="y8H-eY-XvD"/>
+                <constraint firstItem="YXL-Wa-a0D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="zum-pJ-gyj"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

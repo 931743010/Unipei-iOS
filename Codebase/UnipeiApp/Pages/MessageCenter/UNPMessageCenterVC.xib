@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UNPMessageCenterVC">
+            <connections>
+                <outlet property="tableView" destination="O2o-O1-dvC" id="tya-tE-yx7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O2o-O1-dvC">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Qnw-iN-w8w"/>
+                        <outlet property="delegate" destination="-1" id="0mN-Rd-RRo"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="O2o-O1-dvC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3em-4c-9GZ"/>
+                <constraint firstAttribute="bottom" secondItem="O2o-O1-dvC" secondAttribute="bottom" id="NWv-FH-rEm"/>
+                <constraint firstItem="O2o-O1-dvC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NeF-U8-ylp"/>
+                <constraint firstAttribute="trailing" secondItem="O2o-O1-dvC" secondAttribute="trailing" id="XCX-PJ-gLQ"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,42 @@
+4.16发送手机短信
+Function Description：
+发送邮件接口
+
+Path：
+http://172.23.3.47:8080/commonApi/sendMessage.do
+POST Parameters：
+Parameters	Required	Description	Memo
+phone	Y	电话号码
+type	Y	短信类型	1 技师注册
+
+2 技师找回密码
+3修理厂注册
+4修理厂注册成功通知
+5修理厂密码找回
+6运营人员导入及添加的经销商和修理厂成功后发送短信通知
+7待联系修理厂清单中点击发送邀请短信
+8向修理厂发起询价的经销商发送短信通知
+9修理厂确认报价后向确认的经销商发送确认通知
+10经销商发送报价后向修理厂发送短信通知
+msgTitle	N	短信内容	type为7，8，9，10时必传
+
+
+Input Format (JSON)：
+Key：param
+Value：{" phone ":"13971427336"," type ":"1"}
+Receive Status：
+Status code	Message	Memo
+200	執行成功
+
+Receive Sample (JSON)：
+{
+"header": {
+"code": "200",
+"success": true,
+"msg": "成功发送手机验证码"
+},
+"body": {
+"authCode": "628110",
+"sendTime": 1439604622
+}
+}
