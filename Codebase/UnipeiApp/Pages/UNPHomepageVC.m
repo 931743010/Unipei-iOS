@@ -205,8 +205,10 @@
     } else if (section == 1) {
         return 1;
     } else if (section == 2) {
+        if (_noticeData.count == 0) {
+            return 1;
+        }
         return _noticeData.count;
-//        return 5;
     }
     
     return 0;
@@ -297,16 +299,26 @@
         
 //  {"id": 2,  "imgUrl": "servicer/images/notices/201512221137057608.png",  "createTime": 1450688400,   "title": "test1",  "updateTime": 0, "digest": "test1"   "url": "http://www.dev.jiaparts.com/2"},
         
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsItemCell" forIndexPath:indexPath];
-        
-        UILabel *lblMessage = (UILabel *)([cell.contentView viewWithTag:100]);
-        lblMessage.text = [NSString stringWithFormat:@"%@",_noticeData[indexPath.row][@"title"]];
-        
-        UILabel *lblTime = (UILabel *)([cell.contentView viewWithTag:101]);
-        CGFloat ff = [_noticeData[indexPath.row][@"createTime"] doubleValue];
-        lblTime.text = [JPUtils dateStringFromStamp:ff];
-        
-        return cell;
+        if (_noticeData.count == 0) {
+            
+            UITableViewCell *cell = [[UITableViewCell alloc] init];
+            cell.textLabel.text = @"暂无公告";
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            return cell;
+        }else{
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsItemCell" forIndexPath:indexPath];
+            
+            UILabel *lblMessage = (UILabel *)([cell.contentView viewWithTag:100]);
+            lblMessage.text = [NSString stringWithFormat:@"%@",_noticeData[indexPath.row][@"title"]];
+            
+            UILabel *lblTime = (UILabel *)([cell.contentView viewWithTag:101]);
+            CGFloat ff = [_noticeData[indexPath.row][@"createTime"] doubleValue];
+            lblTime.text = [JPUtils dateStringFromStamp:ff];
+            
+            return cell;
+        }
         
     }
     
@@ -349,10 +361,15 @@
     
     if (indexPath.section == 2) {
         
-        NoticeVC *vc = [[NoticeVC alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.dataDic = _noticeData[indexPath.row];
-        [self.navigationController pushViewController:vc animated:YES];
+        if (_noticeData.count > 0) {
+            
+            NoticeVC *vc = [[NoticeVC alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.dataDic = _noticeData[indexPath.row];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }
+
 //        [[JLToast makeTextQuick:@"公告系统正在完善中"] show];
     }
 }
