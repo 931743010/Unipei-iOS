@@ -65,12 +65,15 @@ public struct JLToastDelay {
     }
 
     internal var window: UIWindow? {
-        for window in UIApplication.sharedApplication().windows as [UIWindow] {
-            if NSStringFromClass(window.dynamicType) == "UITextEffectsWindow" {
-                return window
-            }
-        }
-        return UIApplication.sharedApplication().windows.first
+        
+        return UIApplication.sharedApplication().windows.last
+        
+//        for window in UIApplication.sharedApplication().windows as [UIWindow] {
+//            if NSStringFromClass(window.dynamicType) == "UITextEffectsWindow" {
+//                return window
+//            }
+//        }
+//        return UIApplication.sharedApplication().windows.first
     }
     
     public class func makeTextQuick(text: String) -> JLToast {

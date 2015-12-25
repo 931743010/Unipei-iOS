@@ -15,10 +15,15 @@
 #import "UNPChooseBrandVC.h"
 #import "JPSidePopVC.h"
 #import "GGPredicate.h"
+#import <UnipeiApp-Swift.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface UNP4sQueryVC () <UITextFieldDelegate> {
+    
     UNPCarModelChooseVM     *_carModelChooseVM;
     NSString                *_vinString;
+    
+    id                      _vinInfo;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *bgChooseModel;
@@ -63,6 +68,7 @@
     _tfVinCode.backgroundColor = _tfOE.backgroundColor = _tfPart.backgroundColor = [UIColor clearColor];
     _tfVinCode.textField.placeholder = @"请输入17位Vin码字符/扫一扫";
     _tfVinCode.textField.delegate = self;
+    _tfVinCode.textField.returnKeyType = UIReturnKeySearch;
     
     _tfOE.textField.placeholder = @"请输入OE号/扫一扫";
     _tfPart.textField.placeholder = @"请填写配件名称";
@@ -94,6 +100,24 @@
         [[JPSidePopVC new] showVC:nc];
         [self.view endEditing:YES];
     }];
+    
+    [[_btnSubmit rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        [self actionSubmit];
+    }];
+}
+
+
+#pragma mark - actions
+-(void)actionSubmit {
+    if (_vinInfo == nil && _carModelChooseVM.modelVM.selectedItem == nil) {
+        [[JLToast makeText:@"请先选择车型"] show];
+    } else if (_tfOE.textField.text.length > 0 && ![GGPredicate checkCharacter:_tfOE.textField.text]) {
+        [[JLToast makeText:@"OE号必须由字母或数组组成"] show];
+        [_tfOE.textField becomeFirstResponder];
+    } else {
+        
+    }
 }
 
 
@@ -139,6 +163,49 @@
 
 
 #pragma mark - text field delegate
+//1G1BL52P7T0000000
+//LBVCU3106DSH37179
+//LDCC23141C1336812
+//LFV3B28RXC3003666
+//LSGPB64E9DD306118
+//LSVAA49J132047371
+//LWVAA1561CA010631
+//WVWZZZ1KZ90000000
+//cvV3B28RXC3003666
+
+//{"header":{"code":"200","success":true,"msg":"操作成功"},"body":{"cxi":"英朗","isexist":0,"cjmc":"上海通用","cx":"英朗XT","pp":"别克","nk":"2013","txt":"上海通用 别克 英朗 2013 英朗XT"}}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    @weakify(self)
+    if (textField == _tfVinCode.textField) {
+        
+        if (_vinString.length < 10) {
+            [[JLToast makeTextQuick:@"Vin码必须大于10位"] show];
+            return NO;
+        } else {
+            
+            DymCommonApi *api = [DymCommonApi new];
+            api.relativePath = PATH_commonApi_getVinInfo;
+            api.custom_organIdKey = @"organID";
+            api.params = @{@"vinCode": _vinString};
+            api.params = @{@"vinCode": @"LSGPB64E9DD306118"};
+            [[DymRequest commonApiSignal:api queue:self.apiQueue] subscribeNext:^(DymBaseRespModel *result) {
+                @strongify(self)
+                if (result.success) {
+                    self->_vinInfo = result.body;
+                    [self->_btnChooseModel setTitle:result.body[@"txt"] forState:UIControlStateNormal];
+                } else {
+                    self->_vinInfo = nil;
+                    [SVProgressHUD showInfoWithStatus:@"此VIN码未能匹配到任何车型"];
+                }
+            }];
+        }
+        
+    }
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+
 -(void)textFieldDidEndEditing:(UITextField *)textField {
     if (textField == _tfVinCode.textField) {
         _tfVinCode.textField.text = [_tfVinCode.textField.text uppercaseString];
