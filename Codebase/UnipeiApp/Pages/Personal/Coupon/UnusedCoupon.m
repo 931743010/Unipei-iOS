@@ -8,21 +8,27 @@
 
 #import "UnusedCoupon.h"
 #import "UnusedCouponCell.h"
-#import "MoreCell.h"
 #import "UsedCouponCell.h"
-
+#import "JPAppStatus.h"
+#import "CouponModelManager.h"
+#import <MJRefresh.h>
+typedef NS_ENUM(NSInteger, EJPCouponState) {
+    kJPCouponStateAvailable = 0
+    , kJPCouponStateUsed = 1
+    , kJPCouponStateOutOfDate =2
+};
 @interface UnusedCoupon ()<UITableViewDataSource,UITableViewDelegate>
+{
+    int _page;
+}
 @property (weak, nonatomic) IBOutlet UITableView *unUsedTable;
-@property(nonatomic,assign)int stateMore;
-
-
 @end
 
 @implementation UnusedCoupon
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.stateMore = 1;
-    
+    _page = 1;
+    [self loadData:_page];
     //设置unUsedTable相关属性
     self.unUsedTable.delegate = self;
     self.unUsedTable.dataSource = self;
@@ -30,11 +36,69 @@
     [self.unUsedTable registerNib:[UINib nibWithNibName:@"UnusedCouponCell" bundle:nil]forCellReuseIdentifier:@"cellName"];
     [self.unUsedTable registerNib:[UINib nibWithNibName:@"MoreCell" bundle:nil]forCellReuseIdentifier:@"moreCell"];
     [self.unUsedTable registerNib:[UINib nibWithNibName:@"UsedCouponCell" bundle:nil]forCellReuseIdentifier:@"cellID"];
-
+    [self creatRefresh];
 
 }
+// Pull to Refresh
+-(void)creatRefresh{
+    self.unUsedTable.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downRefresh)];
+    
+    self.unUsedTable.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(upRefresh)];
+}
+//上拉加载
+-(void)upRefresh{
+    _page++;
+    [self loadData:_page];
+    
+}
+//下拉刷新
+-(void)downRefresh{
+    if (self.dateArray.count>0) {
+        //先删除旧数据
+        [self.dateArray removeAllObjects];
+    }
+    [self loadData:1];
+}
+-(NSMutableArray *)dateArray{
+    if (_dateArray == nil) {
+        self.dateArray = [[NSMutableArray alloc]init];
+    }
+    return _dateArray;
+}
 #pragma mark - 加载数据
--(void)loadData{
+-(void)loadData:(int)page{
+    @weakify(self);
+    DymCommonApi *api = [DymCommonApi new];
+    api.apiVersion = @"V2.2";
+    api.custom_organIdClass = [NSString class];
+    api.relativePath = PAth_inquiryApi_Coupon;
+    NSString *pageStr = [NSString stringWithFormat:@"%d",page];
+    if (self.typeCoupon == kJPCouponStateAvailable) {
+        api.params = @{@"state":[@(kJPCouponStateAvailable) stringValue]
+                       ,@"page":pageStr,@"pageSize":@"10"};
+    }else if (self.typeCoupon == kJPCouponStateUsed){
+        api.params = @{@"state":[@(kJPCouponStateUsed) stringValue]
+                       ,@"page":pageStr,@"pageSize":@"10"};
+    }else{
+        api.params = @{@"state":[@(kJPCouponStateOutOfDate) stringValue]
+                       ,@"page":pageStr,@"pageSize":@"10"};
+    }
+    
+    [[DymRequest commonApiSignal:api queue:nil] subscribeNext:^(DymBaseRespModel *result) {
+        @strongify(self);
+        if (result.success) {
+            [self.dateArray addObjectsFromArray:[CouponModelManager arrayWithDic:result.body]];
+            //如果请求的数据比10小则不显示尾部
+            if ([CouponModelManager arrayWithDic:result.body].count < 10) {
+                self.unUsedTable.footer = nil;
+            }
+            [self.unUsedTable reloadData];
+            [self.unUsedTable.header endRefreshing];
+            [self.unUsedTable.footer endRefreshing];
+        }
+        
+        [self showEmptyView:self.dateArray.count == 0 text:@"暂无优惠劵"];
+    }];
  
 }
 #pragma mark -UITableViewDataSource代理方法
@@ -43,55 +107,31 @@
 
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (self.couponType == 0) {
-        if (self.stateMore == 1) {
-            return 4;
-        }else{
-            return 7;
-        }
-    }else if (self.couponType == 1)
-    {
-        return 3;
-    }else{
-        return 5;
-    }
+    return self.dateArray.count;
   
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.couponType == 0) {
-        if (indexPath.row == 3 && self.stateMore == 1) {
-            MoreCell *cell = [tableView dequeueReusableCellWithIdentifier:@"moreCell"];
-            return cell;
-        }else{
-            UnusedCouponCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellName"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell config];
-            return cell;
+    if (self.typeCoupon == kJPCouponStateAvailable) {
+        UnusedCouponCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellName"];
+        if (self.dateArray.count >0) {
+            [cell configWithModel:self.dateArray[indexPath.row]];
         }
+        
+        return cell;
     }else{
         UsedCouponCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-        [cell config];
+        if (self.dateArray.count >0) {
+            [cell configWithModel:self.dateArray[indexPath.row]];
+        }
         return cell;
-    
     }
+   
   
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.couponType == 0&&indexPath.row == 3 && self.stateMore == 1) {
-        return 60;
-    }else{
-        return 133;
-    }
+    return 133;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 3) {
-        self.stateMore = 0;
-        [self.unUsedTable reloadData];
-    }
-    
-
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

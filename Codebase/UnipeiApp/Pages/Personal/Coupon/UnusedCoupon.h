@@ -9,5 +9,6 @@
 #import "DymBaseVC.h"
 
 @interface UnusedCoupon : DymBaseVC
-@property(nonatomic,assign)int couponType;
+@property(nonatomic,assign)int typeCoupon;
+@property(nonatomic,strong)NSMutableArray *dateArray;
 @end

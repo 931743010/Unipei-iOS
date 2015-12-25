@@ -100,7 +100,6 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 
 -(void)checkNewVersion {
-    
     if (_didCheckNewVersion) {
         return;
     }
