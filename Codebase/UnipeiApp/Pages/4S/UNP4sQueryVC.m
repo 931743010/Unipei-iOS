@@ -96,9 +96,12 @@
     
     [self.observerQueue addObject:observer];
     
+    
     // 按钮事件
     [[_btnChooseModel rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
+        
+#error 选择车型，一选到底，去掉不确定XX
         UNPChooseBrandVC *vc = [UNPChooseBrandVC newFromStoryboard];
         vc.viewModel = [self->_carModelChooseVM copy];
         UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
