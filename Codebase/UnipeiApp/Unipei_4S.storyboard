@@ -16,18 +16,18 @@
                         <sections>
                             <tableViewSection headerTitle="车型选择" id="l19-Z6-mNV">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="143" id="sAm-zQ-9F6">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="143"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="177" id="sAm-zQ-9F6">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="177"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sAm-zQ-9F6" id="r64-lw-RYJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPj-Pv-Iiv" userLabel="bgChooseModel">
-                                                    <rect key="frame" x="16" y="8" width="343" height="126"/>
+                                                    <rect key="frame" x="16" y="8" width="343" height="160"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="USY-qW-6IM" userLabel="btnChooseModel" customClass="JPSubmitButton">
-                                                            <rect key="frame" x="16" y="16" width="311" height="30"/>
+                                                            <rect key="frame" x="16" y="16" width="311" height="31"/>
                                                             <color key="backgroundColor" red="0.90263047476228364" green="0.82475589713451281" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <state key="normal" title="选择车型">
@@ -35,19 +35,32 @@
                                                             </state>
                                                         </button>
                                                         <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gfh-jX-iEZ" userLabel="tfVinCode" customClass="JPBorderedTextField">
-                                                            <rect key="frame" x="16" y="62" width="311" height="48"/>
+                                                            <rect key="frame" x="16" y="63" width="311" height="48"/>
                                                             <color key="backgroundColor" red="1" green="0.95497926390570032" blue="0.90553248221570048" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="48" id="nyq-qx-jja"/>
                                                             </constraints>
                                                         </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bDg-7q-jnE" userLabel="lblMessage">
+                                                            <rect key="frame" x="16" y="119" width="311" height="25"/>
+                                                            <color key="backgroundColor" red="0.99337121212121215" green="0.99337121212121215" blue="0.99337121212121215" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="Sae-Gn-5uX"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" red="0.55066287878787878" green="0.55066287878787878" blue="0.55066287878787878" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="bDg-7q-jnE" secondAttribute="bottom" constant="16" id="0OO-Dg-iQ9"/>
                                                         <constraint firstAttribute="trailing" secondItem="USY-qW-6IM" secondAttribute="trailing" constant="16" id="7s1-ef-zj5"/>
+                                                        <constraint firstItem="bDg-7q-jnE" firstAttribute="leading" secondItem="iPj-Pv-Iiv" secondAttribute="leading" constant="16" id="9g4-KM-U0V"/>
                                                         <constraint firstItem="USY-qW-6IM" firstAttribute="top" secondItem="iPj-Pv-Iiv" secondAttribute="top" constant="16" id="Aid-wb-0nC"/>
-                                                        <constraint firstAttribute="bottom" secondItem="gfh-jX-iEZ" secondAttribute="bottom" constant="16" id="AzT-2a-KLs"/>
+                                                        <constraint firstItem="bDg-7q-jnE" firstAttribute="top" secondItem="gfh-jX-iEZ" secondAttribute="bottom" constant="8" id="Smq-pi-XdK"/>
                                                         <constraint firstAttribute="trailing" secondItem="gfh-jX-iEZ" secondAttribute="trailing" constant="16" id="Vea-GS-cL1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="bDg-7q-jnE" secondAttribute="trailing" constant="16" id="gPk-fZ-Xkp"/>
                                                         <constraint firstItem="gfh-jX-iEZ" firstAttribute="top" secondItem="USY-qW-6IM" secondAttribute="bottom" constant="16" id="hSF-Kh-Fua"/>
                                                         <constraint firstItem="gfh-jX-iEZ" firstAttribute="leading" secondItem="iPj-Pv-Iiv" secondAttribute="leading" constant="16" id="n8a-Yo-1qm"/>
                                                         <constraint firstItem="USY-qW-6IM" firstAttribute="leading" secondItem="iPj-Pv-Iiv" secondAttribute="leading" constant="16" id="xFc-D8-kFT"/>
@@ -68,7 +81,7 @@
                             <tableViewSection headerTitle="OE号" id="ENt-Q7-gTI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="97" id="Ngt-CK-9ox">
-                                        <rect key="frame" x="0.0" y="244" width="375" height="97"/>
+                                        <rect key="frame" x="0.0" y="278" width="375" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ngt-CK-9ox" id="I3g-hc-FbM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -108,7 +121,7 @@
                             <tableViewSection headerTitle="配件名称" id="YNY-ME-czk">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="97" id="2w9-u4-mgt">
-                                        <rect key="frame" x="0.0" y="392" width="375" height="97"/>
+                                        <rect key="frame" x="0.0" y="426" width="375" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2w9-u4-mgt" id="p3S-OQ-1aP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -148,7 +161,7 @@
                             <tableViewSection id="3vd-aZ-FTq">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="62" id="WGN-FE-yIs">
-                                        <rect key="frame" x="0.0" y="525" width="375" height="62"/>
+                                        <rect key="frame" x="0.0" y="559" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WGN-FE-yIs" id="fu6-8A-3JW">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
@@ -188,6 +201,7 @@
                         <outlet property="bgPart" destination="imZ-d3-nR1" id="Bj0-K8-FXc"/>
                         <outlet property="btnChooseModel" destination="USY-qW-6IM" id="nX4-dF-612"/>
                         <outlet property="btnSubmit" destination="Jp0-2J-glM" id="o4X-Xu-47P"/>
+                        <outlet property="lblMessage" destination="bDg-7q-jnE" id="tTi-3E-xbJ"/>
                         <outlet property="tfOE" destination="quv-8e-yuw" id="Umn-PK-ccZ"/>
                         <outlet property="tfPart" destination="efo-bO-AiW" id="l3z-kS-4SK"/>
                         <outlet property="tfVinCode" destination="gfh-jX-iEZ" id="CLP-jR-PU9"/>

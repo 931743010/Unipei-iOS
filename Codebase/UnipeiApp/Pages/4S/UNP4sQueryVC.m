@@ -17,6 +17,8 @@
 #import "GGPredicate.h"
 #import <UnipeiApp-Swift.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "NSString+GGAddOn.h"
+#import "JPDesignSpec.h"
 
 @interface UNP4sQueryVC () <UITextFieldDelegate> {
     
@@ -29,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UIView *bgChooseModel;
 @property (weak, nonatomic) IBOutlet JPSubmitButton *btnChooseModel;
 @property (weak, nonatomic) IBOutlet JPBorderedTextField *tfVinCode;
+@property (weak, nonatomic) IBOutlet UILabel *lblMessage;
+
 
 @property (weak, nonatomic) IBOutlet UIView *bgOE;
 @property (weak, nonatomic) IBOutlet JPBorderedTextField *tfOE;
@@ -53,6 +57,8 @@
     self.navigationItem.title = @"4S报价查询";
     
     _carModelChooseVM = [UNPCarModelChooseVM new];
+    
+    _lblMessage.text = nil;
     
     _bgChooseModel.layer.masksToBounds = _bgOE.layer.masksToBounds = _bgPart.layer.masksToBounds = YES;
     _bgChooseModel.layer.cornerRadius = _bgOE.layer.cornerRadius = _bgPart.layer.cornerRadius = 5;
@@ -110,13 +116,59 @@
 
 #pragma mark - actions
 -(void)actionSubmit {
-    if (_vinInfo == nil && _carModelChooseVM.modelVM.selectedItem == nil) {
+    
+    [self.view endEditing:YES];
+    
+    NSString *oeString = _tfOE.textField.text.trim;
+    NSString *partString = _tfPart.textField.text.trim;
+    
+    if (_vinInfo[@"modelID"] == nil && _carModelChooseVM.modelVM.selectedItem == nil) {
         [[JLToast makeText:@"请先选择车型"] show];
-    } else if (_tfOE.textField.text.length > 0 && ![GGPredicate checkCharacter:_tfOE.textField.text]) {
+    } else if (oeString.length <= 0 && partString.length <= 0) {
+        [[JLToast makeText:@"OE号和配件至少选填一项"] show];
+    } else if (oeString.length > 0 && ![GGPredicate checkCharacter:oeString]) {
         [[JLToast makeText:@"OE号必须由字母或数组组成"] show];
         [_tfOE.textField becomeFirstResponder];
     } else {
         
+        // type=0,表示根据oe号查询 type=1,表示根据配件名称查询 type=2表示oe号，配件名称都填
+        // {"type":"0", "token": "0", "modelId":"1001001","oeno":"S","name":"AB"}
+        
+        DymCommonApi *api = [DymCommonApi new];
+        api.relativePath = @"foursApi/allfoursList.do";
+        api.apiVersion = @"V2.2";
+        
+        NSInteger type = 0;
+        if (oeString.length > 0 && partString.length > 0) {
+            type = 2;
+        } else if (partString.length > 0) {
+            type = 1;
+        }
+        
+        //{"header":{"code":"200","success":true,"msg":"操作成功"},"body":{"cxi":"英朗","isexist":0,"cjmc":"上海通用","cx":"英朗XT","pp":"别克","nk":"2013","txt":"上海通用 别克 英朗 2013 英朗XT"}}
+        
+        NSInteger modelId = 0;
+        if (_vinInfo[@"modelID"]) {
+            modelId = [_vinInfo[@"modelID"] integerValue];
+        } else {
+            modelId = [((JPCarModel *)(_carModelChooseVM.modelVM.selectedItem)).modelid integerValue];
+        }
+        
+        NSMutableDictionary *params = @{@"type": [@(type) stringValue], @"modelId": [@(modelId) stringValue]}.mutableCopy;
+        if (oeString.length > 0) {
+            [params setObject:oeString forKey:@"oeno"];
+        }
+        if (partString.length > 0) {
+            [params setObject:partString forKey:@"name"];
+        }
+        
+        api.params = params;
+        
+        [[DymRequest commonApiSignal:api queue:self.apiQueue] subscribeNext:^(DymBaseRespModel *result) {
+            if (result.success) {
+                NSArray *allfoursList = result.body[@"allfoursList"];
+            }
+        }];
     }
 }
 
@@ -179,7 +231,7 @@
     if (textField == _tfVinCode.textField) {
         
         if (_vinString.length < 10) {
-            [[JLToast makeTextQuick:@"Vin码必须大于10位"] show];
+            [[JLToast makeTextQuick:@"VIN码必须大于10位"] show];
             return NO;
         } else {
             
@@ -187,15 +239,23 @@
             api.relativePath = PATH_commonApi_getVinInfo;
             api.custom_organIdKey = @"organID";
             api.params = @{@"vinCode": _vinString};
-            api.params = @{@"vinCode": @"LSGPB64E9DD306118"};
+//            api.params = @{@"vinCode": @"LFV3B28RXC3003666"};
             [[DymRequest commonApiSignal:api queue:self.apiQueue] subscribeNext:^(DymBaseRespModel *result) {
                 @strongify(self)
                 if (result.success) {
                     self->_vinInfo = result.body;
-                    [self->_btnChooseModel setTitle:result.body[@"txt"] forState:UIControlStateNormal];
+                    self.lblMessage.textColor = [JPDesignSpec colorGrayDark];
+                    
+                    NSString *message = [NSString stringWithFormat:@"%@", result.body[@"txt"]];
+                    self.lblMessage.text = message;
+                    if (result.body[@"modelID"]) {
+                        [self->_btnChooseModel setTitle:result.body[@"txt"] forState:UIControlStateNormal];
+                    }
                 } else {
                     self->_vinInfo = nil;
-                    [SVProgressHUD showInfoWithStatus:@"此VIN码未能匹配到任何车型"];
+                    self.lblMessage.textColor = [[UIColor redColor] colorWithAlphaComponent:0.8];
+                    self.lblMessage.text = @"此VIN码未能匹配到任何车型";
+//                    [SVProgressHUD showInfoWithStatus:@"此VIN码未能匹配到任何车型"];
                 }
             }];
         }
