@@ -33,6 +33,7 @@
 
 -(void)doInit {
     _textField = [UITextField new];
+    _textField.font = [UIFont systemFontOfSize:14];
     [self addSubview:_textField];
     
     _rightButton = [UIButton new];
@@ -53,11 +54,11 @@
         make.trailing.equalTo(_rightButton.mas_leading).offset(-8);
     }];
     
-    self.layer.borderColor = [UIColor colorWithWhite:0.95 alpha:1].CGColor;
+    self.layer.borderColor = [UIColor colorWithWhite:0.85 alpha:1].CGColor;
     self.layer.borderWidth = 0.5;
     self.layer.cornerRadius = 5;
     
-    [self tintMe];
+//    [self tintMe];
 }
 
 @end

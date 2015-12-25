@@ -93,6 +93,7 @@
     if (indexPath.section == 0) {
         
         UNP4sQueryVC *vc = [UNP4sQueryVC newFromStoryboard];
+        vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
         
         return;
