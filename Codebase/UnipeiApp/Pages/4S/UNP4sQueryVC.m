@@ -14,9 +14,11 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "UNPChooseBrandVC.h"
 #import "JPSidePopVC.h"
+#import "GGPredicate.h"
 
-@interface UNP4sQueryVC () {
+@interface UNP4sQueryVC () <UITextFieldDelegate> {
     UNPCarModelChooseVM     *_carModelChooseVM;
+    NSString                *_vinString;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *bgChooseModel;
@@ -60,6 +62,8 @@
     
     _tfVinCode.backgroundColor = _tfOE.backgroundColor = _tfPart.backgroundColor = [UIColor clearColor];
     _tfVinCode.textField.placeholder = @"请输入17位Vin码字符/扫一扫";
+    _tfVinCode.textField.delegate = self;
+    
     _tfOE.textField.placeholder = @"请输入OE号/扫一扫";
     _tfPart.textField.placeholder = @"请填写配件名称";
     _tfPart.rightButton.hidden = YES;
@@ -92,6 +96,8 @@
     }];
 }
 
+
+#pragma mark - table View delegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
 }
@@ -129,5 +135,43 @@
     
     return header;
 }
+
+
+
+#pragma mark - text field delegate
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    if (textField == _tfVinCode.textField) {
+        _tfVinCode.textField.text = [_tfVinCode.textField.text uppercaseString];
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == _tfVinCode.textField) {
+        
+        _vinString = [textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        if (range.length == 0) {
+            if (![GGPredicate checkCharacter:string]) {
+                return NO;
+            } else if (_vinString.length >= 17) {
+                return NO;
+            }
+        }
+        
+        [self formatingTfInputVin];
+    }
+    
+    return YES;
+}
+
+-(void)formatingTfInputVin {
+    NSString *formatedString = [JPUtils vinFormatedString:_vinString];
+    _tfVinCode.textField.text = formatedString;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _tfVinCode.textField.text = [_tfVinCode.textField.text uppercaseString];
+    });
+}
+
 
 @end
