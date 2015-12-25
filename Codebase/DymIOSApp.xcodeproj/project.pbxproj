@@ -96,6 +96,9 @@
 		EA38D4251BF459DA00C93243 /* MediaToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA38D4241BF459DA00C93243 /* MediaToolbox.framework */; };
 		EA38D4271BF459E700C93243 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA38D4261BF459E700C93243 /* AVFoundation.framework */; };
 		EA38D4291BF45A0700C93243 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA38D4281BF45A0700C93243 /* AudioToolbox.framework */; };
+		EA431A111C2CD6FB004E7AD8 /* Unipei_4S.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA431A101C2CD6FB004E7AD8 /* Unipei_4S.storyboard */; };
+		EA431A151C2CDA96004E7AD8 /* JPBorderedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EA431A141C2CDA96004E7AD8 /* JPBorderedTextField.m */; };
+		EA431A191C2CF048004E7AD8 /* UNP4sQueryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA431A181C2CF048004E7AD8 /* UNP4sQueryVC.m */; };
 		EA44C0CC1BE20BF8002068DF /* DymCommonApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA44C0CB1BE20BF8002068DF /* DymCommonApi.m */; };
 		EA4E49751BDF189B0012BC8F /* Unipei_Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4E49741BDF189B0012BC8F /* Unipei_Order.storyboard */; };
 		EA4E497B1BDF69F90012BC8F /* UNPAddressManageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4E497A1BDF69F90012BC8F /* UNPAddressManageVC.m */; };
@@ -463,6 +466,11 @@
 		EA38D4241BF459DA00C93243 /* MediaToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaToolbox.framework; path = System/Library/Frameworks/MediaToolbox.framework; sourceTree = SDKROOT; };
 		EA38D4261BF459E700C93243 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EA38D4281BF45A0700C93243 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EA431A101C2CD6FB004E7AD8 /* Unipei_4S.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Unipei_4S.storyboard; sourceTree = "<group>"; };
+		EA431A131C2CDA96004E7AD8 /* JPBorderedTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPBorderedTextField.h; sourceTree = "<group>"; };
+		EA431A141C2CDA96004E7AD8 /* JPBorderedTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPBorderedTextField.m; sourceTree = "<group>"; };
+		EA431A171C2CF048004E7AD8 /* UNP4sQueryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNP4sQueryVC.h; sourceTree = "<group>"; };
+		EA431A181C2CF048004E7AD8 /* UNP4sQueryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNP4sQueryVC.m; sourceTree = "<group>"; };
 		EA44C0CA1BE20BF8002068DF /* DymCommonApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DymCommonApi.h; sourceTree = "<group>"; };
 		EA44C0CB1BE20BF8002068DF /* DymCommonApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DymCommonApi.m; sourceTree = "<group>"; };
 		EA4E49741BDF189B0012BC8F /* Unipei_Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Unipei_Order.storyboard; sourceTree = "<group>"; };
@@ -1143,6 +1151,24 @@
 			path = vin;
 			sourceTree = "<group>";
 		};
+		EA431A121C2CDA5C004E7AD8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA431A131C2CDA96004E7AD8 /* JPBorderedTextField.h */,
+				EA431A141C2CDA96004E7AD8 /* JPBorderedTextField.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EA431A161C2CF01A004E7AD8 /* 4S */ = {
+			isa = PBXGroup;
+			children = (
+				EA431A171C2CF048004E7AD8 /* UNP4sQueryVC.h */,
+				EA431A181C2CF048004E7AD8 /* UNP4sQueryVC.m */,
+			);
+			path = 4S;
+			sourceTree = "<group>";
+		};
 		EA4E49801BDF76ED0012BC8F /* Address */ = {
 			isa = PBXGroup;
 			children = (
@@ -1171,6 +1197,7 @@
 		EA61F1B21BA6BD4600858DDC /* UnipeiApp */ = {
 			isa = PBXGroup;
 			children = (
+				EA431A121C2CDA5C004E7AD8 /* Views */,
 				EAC12A061BAD3D5700DA7325 /* ViewModels */,
 				EA6346541BA7F8CA007B739A /* Cells */,
 				EA61F2081BA6C23000858DDC /* Pages */,
@@ -1185,6 +1212,7 @@
 				EAD578CA1BFDA13C0059DC04 /* Unipei_Inquiry.storyboard */,
 				FA5E502A1C040F20004E04EE /* Unipei_Dealer.storyboard */,
 				FA5AB5701C2BDC5000E1FB6F /* Unipei_Lottery.storyboard */,
+				EA431A101C2CD6FB004E7AD8 /* Unipei_4S.storyboard */,
 				EA61F1C01BA6BD4600858DDC /* Images.xcassets */,
 				EA61F1C21BA6BD4600858DDC /* LaunchScreen.xib */,
 				EA61F1B31BA6BD4600858DDC /* Supporting Files */,
@@ -1204,6 +1232,7 @@
 		EA61F2081BA6C23000858DDC /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				EA431A161C2CF01A004E7AD8 /* 4S */,
 				FA4A191D1C2AA813008ECB4C /* Lottery */,
 				EA06F3401C06D2AD002C728D /* Intro */,
 				FAAF53B41BFB1CC600D8860D /* Dealer */,
@@ -1974,6 +2003,7 @@
 				6B9776871BF5E95A00226927 /* UNPMessageClassifyCell.xib in Resources */,
 				FAAF53BE1BFB1D0200D8860D /* FullVehiclePartViewController.xib in Resources */,
 				FA65FB971BFBF38E00790E38 /* JPDealerVehicleCell.xib in Resources */,
+				EA431A111C2CD6FB004E7AD8 /* Unipei_4S.storyboard in Resources */,
 				6B9775F81BF2EAFD00226927 /* test.caf in Resources */,
 				6B97768C1BF5EAB300226927 /* UNPSystemMessageVC.xib in Resources */,
 				EAC12A251BAD49EB00DA7325 /* UNPChooseItemsView.xib in Resources */,
@@ -2138,6 +2168,7 @@
 				EA2489F81BB13EC40044E34D /* UNPChooseChildPartVC.m in Sources */,
 				EA61F1ED1BA6BE9100858DDC /* DymBaseTabbarVC.m in Sources */,
 				EA38D41C1BF4572200C93243 /* EditVinViewController.m in Sources */,
+				EA431A151C2CDA96004E7AD8 /* JPBorderedTextField.m in Sources */,
 				EAB84F931BE0A6D500D1A520 /* UNPGoodsDetailVC.m in Sources */,
 				EAC12A1B1BAD48B000DA7325 /* UNPChooseSeriesVC.m in Sources */,
 				EA61F1E71BA6BE9100858DDC /* JPCountDownTimer.m in Sources */,
@@ -2232,6 +2263,7 @@
 				EA4E498F1BDF76ED0012BC8F /* InquiryApi_AddReciveAddress.m in Sources */,
 				94F4265E1C2BD5F300E96FE3 /* IPDashedLineView.m in Sources */,
 				EA61F1EC1BA6BE9100858DDC /* DymBaseAppDelegate.m in Sources */,
+				EA431A191C2CF048004E7AD8 /* UNP4sQueryVC.m in Sources */,
 				EA61F1B61BA6BD4600858DDC /* main.m in Sources */,
 				EA61F1F71BA6BEB300858DDC /* ModelPictureApi_FindYearList.m in Sources */,
 				EAC27E991BD78A8500D793F4 /* JPOptionButtonsView.m in Sources */,
