@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
 @interface UnusedCoupon ()<UITableViewDataSource,UITableViewDelegate>
 {
     int _page;
+    NSString *_typeStr;
 }
 @property (weak, nonatomic) IBOutlet UITableView *unUsedTable;
 @end
@@ -27,8 +28,17 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
 @implementation UnusedCoupon
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //初始化页面的类型
+    if (self.typeCoupon == kJPCouponStateAvailable) {
+        _typeStr = [@(kJPCouponStateAvailable) stringValue];
+    }else if (self.typeCoupon == kJPCouponStateUsed){
+        _typeStr = [@(kJPCouponStateUsed) stringValue];
+    }else{
+        _typeStr = [@(kJPCouponStateOutOfDate) stringValue];
+    }
     _page = 1;
     [self loadData:_page];
+    
     //设置unUsedTable相关属性
     self.unUsedTable.delegate = self;
     self.unUsedTable.dataSource = self;
@@ -37,7 +47,7 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
     [self.unUsedTable registerNib:[UINib nibWithNibName:@"MoreCell" bundle:nil]forCellReuseIdentifier:@"moreCell"];
     [self.unUsedTable registerNib:[UINib nibWithNibName:@"UsedCouponCell" bundle:nil]forCellReuseIdentifier:@"cellID"];
     [self creatRefresh];
-
+    
 }
 // Pull to Refresh
 -(void)creatRefresh{
@@ -72,18 +82,8 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
     api.apiVersion = @"V2.2";
     api.custom_organIdClass = [NSString class];
     api.relativePath = PAth_inquiryApi_Coupon;
-    NSString *pageStr = [NSString stringWithFormat:@"%d",page];
-    if (self.typeCoupon == kJPCouponStateAvailable) {
-        api.params = @{@"state":[@(kJPCouponStateAvailable) stringValue]
-                       ,@"page":pageStr,@"pageSize":@"10"};
-    }else if (self.typeCoupon == kJPCouponStateUsed){
-        api.params = @{@"state":[@(kJPCouponStateUsed) stringValue]
-                       ,@"page":pageStr,@"pageSize":@"10"};
-    }else{
-        api.params = @{@"state":[@(kJPCouponStateOutOfDate) stringValue]
-                       ,@"page":pageStr,@"pageSize":@"10"};
-    }
-    
+    api.params = @{@"state":_typeStr
+                   ,@"page":[@(page) stringValue],@"pageSize":@"10"};
     [[DymRequest commonApiSignal:api queue:nil] subscribeNext:^(DymBaseRespModel *result) {
         @strongify(self);
         if (result.success) {

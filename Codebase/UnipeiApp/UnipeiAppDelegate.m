@@ -100,6 +100,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 
 -(void)checkNewVersion {
+#warning 暂时使用，需要删除
+    return;
     if (_didCheckNewVersion) {
         return;
     }
