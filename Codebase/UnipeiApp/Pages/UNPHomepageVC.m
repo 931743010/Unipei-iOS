@@ -299,29 +299,39 @@
         
 //  {"id": 2,  "imgUrl": "servicer/images/notices/201512221137057608.png",  "createTime": 1450688400,   "title": "test1",  "updateTime": 0, "digest": "test1"   "url": "http://www.dev.jiaparts.com/2"},
         
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsItemCell" forIndexPath:indexPath];
+            
+        UILabel *lblMessage = (UILabel *)([cell.contentView viewWithTag:100]);
+        
+        UILabel *lblTime = (UILabel *)([cell.contentView viewWithTag:101]);
+        
+        UIImageView *ivIsNew = [UIImageView new];
+        ivIsNew.image = [UIImage imageNamed:@"icon_notice_new"];
+        [cell addSubview:ivIsNew];
+        [ivIsNew mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(lblMessage.mas_trailing);
+            make.trailing.equalTo(lblTime.mas_leading);
+            make.centerY.equalTo(lblMessage.mas_centerY);
+            make.width.equalTo(@24);
+            make.height.equalTo(@24);
+        }];
+        
         if (_noticeData.count == 0) {
             
-            UITableViewCell *cell = [[UITableViewCell alloc] init];
-            cell.textLabel.text = @"暂无公告";
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            lblMessage.text = @"暂无公告";
+            lblTime.text = nil;
             
-            return cell;
         }else{
             
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsItemCell" forIndexPath:indexPath];
-            
-            UILabel *lblMessage = (UILabel *)([cell.contentView viewWithTag:100]);
             lblMessage.text = [NSString stringWithFormat:@"%@",_noticeData[indexPath.row][@"title"]];
             
-            UILabel *lblTime = (UILabel *)([cell.contentView viewWithTag:101]);
             CGFloat ff = [_noticeData[indexPath.row][@"createTime"] doubleValue];
             lblTime.text = [JPUtils dateStringFromStamp:ff];
-            
-            return cell;
+
         }
         
+        return cell;
     }
-    
     
     return [UITableViewCell new];
 }

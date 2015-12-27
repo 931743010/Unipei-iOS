@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UNPRegistedUpLoadPicCell" rowHeight="100" id="KGk-i7-Jjw" customClass="UNPRegistedUpLoadPicCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传附件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KX-eY-oGG">
+                        <rect key="frame" x="8" y="8" width="80" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="JDe-NU-qSD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" red="0.22658222853535348" green="0.22658222853535348" blue="0.22658222853535348" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJN-Ea-x72" customClass="JPAddPhotoView">
+                        <rect key="frame" x="88" y="33" width="224" height="58"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zm3-aM-VIq">
+                        <rect key="frame" x="88" y="7" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="DaX-ty-cmx"/>
+                            <constraint firstAttribute="height" constant="20" id="guj-Ad-Yek"/>
+                        </constraints>
+                        <state key="normal" image="icon_radio_selected"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="营业执照" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abe-aZ-1X4">
+                        <rect key="frame" x="112" y="9" width="60" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="KSL-yx-NPw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" red="0.25366950757575757" green="0.25366950757575757" blue="0.25366950757575757" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivm-ye-qzp">
+                        <rect key="frame" x="176" y="7" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="1YH-dh-MGS"/>
+                            <constraint firstAttribute="width" constant="20" id="hnB-iP-baa"/>
+                        </constraints>
+                        <state key="normal" image="icon_radio_unselected"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="门店照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jye-6o-bTg">
+                        <rect key="frame" x="200" y="9" width="60" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="GYR-Zr-crB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" red="0.25366950760000001" green="0.25366950760000001" blue="0.25366950760000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIo-l9-3A4">
+                        <rect key="frame" x="264" y="8" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="EUd-2H-BBt"/>
+                            <constraint firstAttribute="width" constant="20" id="anS-o8-qYe"/>
+                        </constraints>
+                        <state key="normal" image="icon_radio_unselected"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkh-o3-Kra">
+                        <rect key="frame" x="288" y="10" width="30" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="85d-zh-2VK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" red="0.25366950760000001" green="0.25366950760000001" blue="0.25366950760000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Zm3-aM-VIq" firstAttribute="centerY" secondItem="3KX-eY-oGG" secondAttribute="centerY" id="1jV-yT-wcU"/>
+                    <constraint firstItem="abe-aZ-1X4" firstAttribute="centerY" secondItem="Zm3-aM-VIq" secondAttribute="centerY" id="66O-Qd-wDY"/>
+                    <constraint firstAttribute="trailing" secondItem="bJN-Ea-x72" secondAttribute="trailing" constant="8" id="DlV-1f-76I"/>
+                    <constraint firstItem="rIo-l9-3A4" firstAttribute="leading" secondItem="jye-6o-bTg" secondAttribute="trailing" constant="4" id="HIO-5b-4jc"/>
+                    <constraint firstItem="jye-6o-bTg" firstAttribute="centerY" secondItem="ivm-ye-qzp" secondAttribute="centerY" id="Hfy-gL-z5G"/>
+                    <constraint firstItem="abe-aZ-1X4" firstAttribute="leading" secondItem="Zm3-aM-VIq" secondAttribute="trailing" constant="4" id="IAc-ac-USd"/>
+                    <constraint firstItem="3KX-eY-oGG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KoO-TN-Pzo"/>
+                    <constraint firstItem="Mkh-o3-Kra" firstAttribute="centerY" secondItem="rIo-l9-3A4" secondAttribute="centerY" id="O6J-9v-zZY"/>
+                    <constraint firstAttribute="bottom" secondItem="bJN-Ea-x72" secondAttribute="bottom" constant="8" id="R5x-QB-2rJ"/>
+                    <constraint firstItem="ivm-ye-qzp" firstAttribute="leading" secondItem="abe-aZ-1X4" secondAttribute="trailing" constant="4" id="biB-HW-APq"/>
+                    <constraint firstItem="ivm-ye-qzp" firstAttribute="centerY" secondItem="abe-aZ-1X4" secondAttribute="centerY" id="dFz-aq-mK3"/>
+                    <constraint firstItem="bJN-Ea-x72" firstAttribute="top" secondItem="Zm3-aM-VIq" secondAttribute="bottom" constant="6" id="egr-ca-dKr"/>
+                    <constraint firstItem="Zm3-aM-VIq" firstAttribute="leading" secondItem="3KX-eY-oGG" secondAttribute="trailing" id="f3r-5Z-wTx"/>
+                    <constraint firstItem="jye-6o-bTg" firstAttribute="leading" secondItem="ivm-ye-qzp" secondAttribute="trailing" constant="4" id="f72-Dy-eOl"/>
+                    <constraint firstItem="Mkh-o3-Kra" firstAttribute="leading" secondItem="rIo-l9-3A4" secondAttribute="trailing" constant="4" id="g6p-JE-IYG"/>
+                    <constraint firstItem="bJN-Ea-x72" firstAttribute="leading" secondItem="Zm3-aM-VIq" secondAttribute="leading" id="hXx-vQ-wk2"/>
+                    <constraint firstItem="3KX-eY-oGG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ltl-fy-oaP"/>
+                    <constraint firstItem="rIo-l9-3A4" firstAttribute="centerY" secondItem="jye-6o-bTg" secondAttribute="centerY" id="ueK-aY-LeO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addPhotoView" destination="bJN-Ea-x72" id="eNC-60-avB"/>
+                <outlet property="btnCard" destination="rIo-l9-3A4" id="9uh-Fj-pfQ"/>
+                <outlet property="btnLicense" destination="Zm3-aM-VIq" id="Yrh-vC-1Xo"/>
+                <outlet property="btnStore" destination="ivm-ye-qzp" id="r3L-Dq-v6y"/>
+                <outlet property="lblTitle" destination="3KX-eY-oGG" id="vZQ-kq-8St"/>
+            </connections>
+            <point key="canvasLocation" x="397" y="349"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_radio_selected" width="24" height="24"/>
+        <image name="icon_radio_unselected" width="24" height="24"/>
+    </resources>
+</document>

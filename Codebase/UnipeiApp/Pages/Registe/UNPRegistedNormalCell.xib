@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="UNPRegistedNormalCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="修理厂名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKZ-rJ-HgP">
+                        <rect key="frame" x="8" y="13" width="80" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="8y5-QN-Ymm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="名称需要与营业执照注册名称一致" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L5t-d9-J4A">
+                        <rect key="frame" x="88" y="14" width="216" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择修理厂类别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BX4-At-Tc1">
+                        <rect key="frame" x="88" y="13" width="198" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20050110479797978" green="0.20050110479797978" blue="0.20050110479797978" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_tri_corner" translatesAutoresizingMaskIntoConstraints="NO" id="bwr-DZ-TV3">
+                        <rect key="frame" x="302" y="20" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="9cv-W5-qJh"/>
+                            <constraint firstAttribute="height" constant="10" id="vwS-gh-y6I"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bwr-DZ-TV3" secondAttribute="trailing" constant="8" id="0Gm-Ch-kgO"/>
+                    <constraint firstItem="BX4-At-Tc1" firstAttribute="centerY" secondItem="uKZ-rJ-HgP" secondAttribute="centerY" id="9yB-o0-95P"/>
+                    <constraint firstItem="bwr-DZ-TV3" firstAttribute="bottom" secondItem="BX4-At-Tc1" secondAttribute="bottom" id="EQr-qL-7va"/>
+                    <constraint firstItem="BX4-At-Tc1" firstAttribute="leading" secondItem="L5t-d9-J4A" secondAttribute="leading" id="LAZ-8o-IDD"/>
+                    <constraint firstItem="uKZ-rJ-HgP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NgT-uX-5vN"/>
+                    <constraint firstItem="L5t-d9-J4A" firstAttribute="leading" secondItem="uKZ-rJ-HgP" secondAttribute="trailing" id="Nye-8N-k4W"/>
+                    <constraint firstItem="bwr-DZ-TV3" firstAttribute="leading" secondItem="BX4-At-Tc1" secondAttribute="trailing" constant="16" id="PAJ-xK-6JQ"/>
+                    <constraint firstItem="uKZ-rJ-HgP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="afc-j9-IjL"/>
+                    <constraint firstItem="bwr-DZ-TV3" firstAttribute="leading" secondItem="BX4-At-Tc1" secondAttribute="trailing" constant="16" id="clr-vI-gpv"/>
+                    <constraint firstItem="bwr-DZ-TV3" firstAttribute="top" secondItem="L5t-d9-J4A" secondAttribute="bottom" constant="1" id="kVE-yh-bgB"/>
+                    <constraint firstAttribute="trailing" secondItem="L5t-d9-J4A" secondAttribute="trailing" constant="16" id="plW-Vx-Pni"/>
+                    <constraint firstItem="L5t-d9-J4A" firstAttribute="centerY" secondItem="uKZ-rJ-HgP" secondAttribute="centerY" id="sPI-VT-a7A"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="PAJ-xK-6JQ"/>
+                        <exclude reference="kVE-yh-bgB"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ivChoose" destination="bwr-DZ-TV3" id="EYH-rI-E6p"/>
+                <outlet property="lblChoose" destination="BX4-At-Tc1" id="wwu-Pc-12f"/>
+                <outlet property="lblTitle" destination="uKZ-rJ-HgP" id="VFJ-mB-dJG"/>
+                <outlet property="tfContent" destination="L5t-d9-J4A" id="t2G-bt-Url"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_tri_corner" width="16" height="16"/>
+    </resources>
+</document>
