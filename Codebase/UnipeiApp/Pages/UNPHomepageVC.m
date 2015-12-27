@@ -21,6 +21,10 @@
 #import <UnipeiApp-Swift.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "NoticeVC.h"
+
+#import "UNP4sQueryVC.h"
+
+
 @interface UNPHomepageVC () {
     UITableViewCell     *_headerCell;
     UITableViewCell     *_menuCell;
@@ -271,7 +275,7 @@
             
             _btnInquiry.ivLogo.image = [UIImage imageNamed:@"icon_home_inquiry"];
             _btnDealer.ivLogo.image = [UIImage imageNamed:@"icon_home_dealer"];
-            _btn4S.ivLogo.image = [UIImage imageNamed:@"icon_home_4s"];
+            _btn4S.ivLogo.image = [UIImage imageNamed:@"home_btn_4s"];
             
             _btnInquiry.lblTitle.text = @"询报价";
             _btnDealer.lblTitle.text = @"经销商";
@@ -290,6 +294,12 @@
             [[_btnDealer rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
                 self.tabBarController.selectedIndex = 2;
                 
+            }];
+            
+            [[_btn4S rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+                UNP4sQueryVC *vc = [UNP4sQueryVC newFromStoryboard];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
             }];
             
         }

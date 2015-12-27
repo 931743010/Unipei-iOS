@@ -74,7 +74,7 @@
     NSString *title = [self titleForState:UIControlStateNormal];
     CGSize calcSize = [title boundingRectWithSize:sizeMax options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: self.titleLabel.font} context:nil].size;
     
-    return CGSizeMake(calcSize.width, calcSize.height + 16);
+    return CGSizeMake(calcSize.width, calcSize.height + 16 + _verticalWhiteSpace);
 }
 
 @end

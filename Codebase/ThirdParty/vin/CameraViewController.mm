@@ -449,25 +449,25 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 #pragma mark -- 内联函数适配屏幕 --
 
-CG_INLINE CGRect
-CGRectMakeImage(CGFloat x, CGFloat y, CGFloat width, CGFloat height)
-{
-    CGRect rect;
-    
-    if (kScreenHeight==480) {
-        rect.origin.y = y-20;
-        rect.origin.x = x;
-        rect.size.width = width;
-        rect.size.height = height;
-    }else{
-        rect.origin.x = x * kAutoSizeScale;
-        rect.origin.y = y * kAutoSizeScale;
-        rect.size.width = width * kAutoSizeScale;
-        rect.size.height = height * kAutoSizeScale;
-        
-    }
-    return rect;
-}
+//CG_INLINE CGRect
+//CGRectMakeImage(CGFloat x, CGFloat y, CGFloat width, CGFloat height)
+//{
+//    CGRect rect;
+//    
+//    if (kScreenHeight==480) {
+//        rect.origin.y = y-20;
+//        rect.origin.x = x;
+//        rect.size.width = width;
+//        rect.size.height = height;
+//    }else{
+//        rect.origin.x = x * kAutoSizeScale;
+//        rect.origin.y = y * kAutoSizeScale;
+//        rect.size.width = width * kAutoSizeScale;
+//        rect.size.height = height * kAutoSizeScale;
+//        
+//    }
+//    return rect;
+//}
 
 #pragma mark - Vin返回按钮处理
 #pragma mark - 功能：返回处理
