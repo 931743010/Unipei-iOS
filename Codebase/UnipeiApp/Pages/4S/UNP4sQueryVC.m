@@ -57,6 +57,7 @@
     self.navigationItem.title = @"4S报价查询";
     
     _carModelChooseVM = [UNPCarModelChooseVM new];
+    _carModelChooseVM.hideUnsureOptions = YES;
     
     _lblMessage.text = nil;
     
@@ -83,7 +84,7 @@
     self.tableView.estimatedRowHeight = 100;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(5, 0, 0, 0);
     
     //通知
     id observer = [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFY_String_carModelSelected object:nil queue:nil usingBlock:^(NSNotification *note) {
@@ -101,7 +102,7 @@
     [[_btnChooseModel rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
         
-#error 选择车型，一选到底，去掉不确定XX
+//#error 选择车型，一选到底，去掉不确定XX
         UNPChooseBrandVC *vc = [UNPChooseBrandVC newFromStoryboard];
         vc.viewModel = [self->_carModelChooseVM copy];
         UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -186,6 +187,9 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 3) {
+        return 4;
+    }
     return 20;
 }
 
