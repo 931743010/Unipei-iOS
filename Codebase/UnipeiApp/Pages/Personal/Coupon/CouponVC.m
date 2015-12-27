@@ -127,7 +127,7 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(18, 10, [UIScreen mainScreen].bounds.size.width-36, 250-20)];
     label.numberOfLines = 0;
-    label.text = @"优惠券使用说明：\n1、优惠券是通过由你配平台抽奖、派送等形式发放给修理厂，用于减免订单应付商品金额的惠民措施。\n2、由你配平台发放的商品优惠券仅能在由你配平台（pc端、手机app）提交订单时抵减应付商品金额，不能进行兑现或其他用途。\n3、使用由你配平台优惠券的订单，若发生退货时，优惠券不予返还。\n4、由你配平台发放所有优惠券严禁出售或转让，如经发现并证实的，该券将予以作废处理。";
+    label.text = @"优惠券使用说明：\n\n1、优惠券是通过由你配平台抽奖、派送等形式发放给修理厂，用于减免订单应付商品金额的惠民措施。\n2、由你配平台发放的商品优惠券仅能在由你配平台（pc端、手机app）提交订单时抵减应付商品金额，不能进行兑现或其他用途。\n3、使用由你配平台优惠券的订单，若发生退货时，优惠券不予返还。\n4、由你配平台发放所有优惠券严禁出售或转让，如经发现并证实的，该券将予以作废处理。";
     label.font = [UIFont systemFontOfSize:14];
     label.textColor = [UIColor lightGrayColor];
     [_illustrateView addSubview:label];

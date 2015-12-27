@@ -21,7 +21,6 @@
 #import <UnipeiApp-Swift.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "NoticeVC.h"
-
 @interface UNPHomepageVC () {
     UITableViewCell     *_headerCell;
     UITableViewCell     *_menuCell;
@@ -290,7 +289,9 @@
             
             [[_btnDealer rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
                 self.tabBarController.selectedIndex = 2;
+                
             }];
+            
         }
         
         return _menuCell;
