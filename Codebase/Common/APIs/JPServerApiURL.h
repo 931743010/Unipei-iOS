@@ -112,7 +112,7 @@ static NSString *PATH_inquiryApi_deleteReceiveAddressById = @"inquiryApi/deleteR
 static NSString *PATH_inquiryApi_findState = @"inquiryApi/findState.do";
 static NSString *PATH_inquiryApi_findCity = @"inquiryApi/findCity.do";
 static NSString *PATH_inquiryApi_findDistrict = @"inquiryApi/findDistrict.do";
-
+static NSString *PAth_inquiryApi_Coupon =@"commonApi/getCouponManage.do";//优惠劵
 
 /// 订单相关
 static NSString *PATH_orderApi_orderList = @"orderApi/orderList.do";    // 订单列表

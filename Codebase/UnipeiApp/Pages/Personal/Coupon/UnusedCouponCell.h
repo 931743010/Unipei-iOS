@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CouponModel.h"
 @interface UnusedCouponCell : UITableViewCell
--(void)config;
+-(void)configWithModel:(CouponModel *)model;
 @end

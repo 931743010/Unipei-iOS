@@ -37,7 +37,7 @@
     self.couponView.layer.borderColor= [[UIColor colorWithRed:80/255 green:80/255 blue:80/255 alpha:0.2]CGColor];
     
 }
--(void)config{
+-(void)configWithModel:(CouponModel *)model{
     // 水平分隔线
     IPDashedLineView *dashView = [IPDashedLineView new];
     dashView.lineColor = [UIColor colorWithWhite:0.5 alpha:0.2];
@@ -49,6 +49,13 @@
         make.right.equalTo(self.couponView).with.offset(0);
         make.height.equalTo(@1);
     }];
+    self.couponNum.text = [NSString stringWithFormat:@"%@",model.CouponSn];
+    self.couponPrice.text = [NSString stringWithFormat:@"%@",model.Amount];
+    self.couponTitle.text = model.Title;
+    [self.couponFull setTitle:model.OrderMinAmount forState:UIControlStateNormal];
+    [self.couponTime setTitle:model.Validity forState:UIControlStateNormal];
+    
+    
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
