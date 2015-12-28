@@ -8,6 +8,7 @@
 
 #import "UNPAgreementVC.h"
 #import "JPSubmitButton.h"
+#import "UNPChangeInitPwdVC.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface UNPAgreementVC () <UIWebViewDelegate>
@@ -24,6 +25,7 @@
 }
 
 - (void)viewDidLoad {
+    @weakify(self)
     [super viewDidLoad];
     self.navigationItem.title = @"服务协议";
     
@@ -38,6 +40,13 @@
     
     [[_btnAgree rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *button) {
         button.selected = !button.selected;
+    }];
+    
+    [[_btnNext rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        UNPChangeInitPwdVC *vc = [UNPChangeInitPwdVC newFromStoryboard];
+        vc.loginInfo = self.loginInfo;
+        [self.navigationController pushViewController:vc animated:YES];
     }];
 }
 

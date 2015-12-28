@@ -7,7 +7,8 @@
 //
 
 #import "DymBaseVC.h"
+#import "ShopApi_Login.h"
 
 @interface UNPAgreementVC : DymBaseVC
-
+@property (nonatomic, strong) ShopApi_Login_Result *loginInfo;
 @end

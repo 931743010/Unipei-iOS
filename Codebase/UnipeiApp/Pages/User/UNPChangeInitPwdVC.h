@@ -6,8 +6,9 @@
 //  Copyright © 2015年 Dong Yiming. All rights reserved.
 //
 
-#import "DymBaseVC.h"
+#import "DymBaseTableVC.h"
+#import "ShopApi_Login.h"
 
-@interface UNPChangeInitPwdVC : DymBaseVC
-
+@interface UNPChangeInitPwdVC : DymBaseTableVC
+@property (nonatomic, strong) ShopApi_Login_Result *loginInfo;
 @end

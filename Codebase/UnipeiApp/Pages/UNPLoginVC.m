@@ -124,6 +124,7 @@
                  if ([result.status integerValue] == kJPLoginStatusNotActivated) {
                      // 未激活
                      UNPAgreementVC *vc = [UNPAgreementVC newFromStoryboard];
+                     vc.loginInfo = result;
                      [self.navigationController pushViewController:vc animated:YES];
                      
                  } else if ([result.status integerValue] == kJPLoginStatusProfileNotCompleted) {
