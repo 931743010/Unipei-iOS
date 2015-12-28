@@ -138,9 +138,7 @@
         CommonApi_UploadImage_Result *resp = api.responseModel;
         
         NSMutableDictionary *info = [NSMutableDictionary dictionary];
-        [info setObjectSafe:resp.picPath forKey:@"picpath"];
-        [info setObjectSafe:[resp.picPath lastPathComponent] forKey:@"picname"];
-        [info setObjectSafe:@(api.fileType) forKey:@"type"];
+        [info setObjectSafe:resp.picPath forKey:@"path"];
         
         [uploadedFileInfos addObject:info];
     }
