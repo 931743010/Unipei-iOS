@@ -14,6 +14,9 @@
 #import "JPSidePopVC.h"
 #import <Masonry/Masonry.h>
 #import "UNPIntroVC.h"
+#import "LotteryDrawViewController.h"
+#import "OfferInqueryResultFor4sViewController.h"
+
 
 @interface UNPDeveloperVC () {
     NSArray             *_testCases;
@@ -70,6 +73,8 @@
                    
                    , @{@"name":@"接口测试：搜索品牌经销商"
                        , @"method":@"testSearchDealer"}
+                   , @{@"name":@"接口测试：搜索品牌经销商"
+                       , @"method":@"testSearchDealer"}
                    ];
 }
 
@@ -88,6 +93,13 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //测试抽奖
+    if(indexPath.row==0){
+        [self testDrawLottery];
+//         [self testOfferInquery4s];
+     return;
+    }
     
     if (indexPath.section == 0) {
         
@@ -124,6 +136,29 @@
     
     return cell;
 }
+
+
+
+
+#pragma mark 测试方法
+-(void)testDrawLottery{
+    
+    LotteryDrawViewController *lotteryDrawVC = (LotteryDrawViewController *)[UNPDeveloperVC viewFromStoryboard];
+    [self.navigationController pushViewController:lotteryDrawVC animated:YES];
+    NSLog(@"===%s",__FUNCTION__);
+}
+
++(instancetype)viewFromStoryboard {
+    return [[DymStoryboard unipei_Lottery_Storyboard] instantiateViewControllerWithIdentifier:@"lotterydraw"];
+}
+-(void)testOfferInquery4s{
+    OfferInqueryResultFor4sViewController *offerVC = (OfferInqueryResultFor4sViewController *)
+    [[DymStoryboard unipei_Lottery_Storyboard] instantiateViewControllerWithIdentifier:@"offerInquery4s"];
+    
+     [self.navigationController pushViewController:offerVC animated:YES];
+}
+
+
 
 
 @end

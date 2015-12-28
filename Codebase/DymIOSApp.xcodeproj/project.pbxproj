@@ -290,12 +290,16 @@
 		FA5E502B1C040F20004E04EE /* Unipei_Dealer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5E502A1C040F20004E04EE /* Unipei_Dealer.storyboard */; };
 		FA5E502E1C041130004E04EE /* JPDealerDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5E502D1C041130004E04EE /* JPDealerDetailVC.m */; };
 		FA5ECCE81BEB3E2600385A41 /* JPPickerPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5ECCE71BEB3E2600385A41 /* JPPickerPhotoButton.m */; };
+		FA658EBB1C2D0857004E0CD6 /* ShowLotteryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA658EBA1C2D0857004E0CD6 /* ShowLotteryViewController.xib */; };
+		FA658EBE1C2D23DB004E0CD6 /* OfferInqueryResultFor4sViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA658EBD1C2D23DB004E0CD6 /* OfferInqueryResultFor4sViewController.m */; };
+		FA658EC11C2D3F24004E0CD6 /* OfferInquery4sCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA658EC01C2D3F24004E0CD6 /* OfferInquery4sCell.m */; };
 		FA65FB961BFBF38E00790E38 /* JPDealerVehicleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA65FB941BFBF38E00790E38 /* JPDealerVehicleCell.m */; };
 		FA65FB971BFBF38E00790E38 /* JPDealerVehicleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA65FB951BFBF38E00790E38 /* JPDealerVehicleCell.xib */; };
 		FAAF53BB1BFB1D0200D8860D /* FrequentPartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAF53B61BFB1D0200D8860D /* FrequentPartViewController.m */; };
 		FAAF53BC1BFB1D0200D8860D /* FrequentPartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAF53B71BFB1D0200D8860D /* FrequentPartViewController.xib */; };
 		FAAF53BD1BFB1D0200D8860D /* FullVehiclePartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAF53B91BFB1D0200D8860D /* FullVehiclePartViewController.m */; };
 		FAAF53BE1BFB1D0200D8860D /* FullVehiclePartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAF53BA1BFB1D0200D8860D /* FullVehiclePartViewController.xib */; };
+		FAF75BF11C2FDEB9007557D8 /* OfferInquery4sHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75BF01C2FDEB9007557D8 /* OfferInquery4sHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -837,6 +841,11 @@
 		FA5E502D1C041130004E04EE /* JPDealerDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDealerDetailVC.m; sourceTree = "<group>"; };
 		FA5ECCE61BEB3E2600385A41 /* JPPickerPhotoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPickerPhotoButton.h; sourceTree = "<group>"; };
 		FA5ECCE71BEB3E2600385A41 /* JPPickerPhotoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPickerPhotoButton.m; sourceTree = "<group>"; };
+		FA658EBA1C2D0857004E0CD6 /* ShowLotteryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowLotteryViewController.xib; sourceTree = "<group>"; };
+		FA658EBC1C2D23DB004E0CD6 /* OfferInqueryResultFor4sViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OfferInqueryResultFor4sViewController.h; path = ../OfferInqueryResultFor4sViewController.h; sourceTree = "<group>"; };
+		FA658EBD1C2D23DB004E0CD6 /* OfferInqueryResultFor4sViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OfferInqueryResultFor4sViewController.m; path = ../OfferInqueryResultFor4sViewController.m; sourceTree = "<group>"; };
+		FA658EBF1C2D3F24004E0CD6 /* OfferInquery4sCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferInquery4sCell.h; sourceTree = "<group>"; };
+		FA658EC01C2D3F24004E0CD6 /* OfferInquery4sCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferInquery4sCell.m; sourceTree = "<group>"; };
 		FA65FB931BFBF38E00790E38 /* JPDealerVehicleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDealerVehicleCell.h; sourceTree = "<group>"; };
 		FA65FB941BFBF38E00790E38 /* JPDealerVehicleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDealerVehicleCell.m; sourceTree = "<group>"; };
 		FA65FB951BFBF38E00790E38 /* JPDealerVehicleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JPDealerVehicleCell.xib; sourceTree = "<group>"; };
@@ -846,6 +855,8 @@
 		FAAF53B81BFB1D0200D8860D /* FullVehiclePartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FullVehiclePartViewController.h; path = Dealer/FullVehiclePartViewController.h; sourceTree = "<group>"; };
 		FAAF53B91BFB1D0200D8860D /* FullVehiclePartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FullVehiclePartViewController.m; path = Dealer/FullVehiclePartViewController.m; sourceTree = "<group>"; };
 		FAAF53BA1BFB1D0200D8860D /* FullVehiclePartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FullVehiclePartViewController.xib; path = Dealer/FullVehiclePartViewController.xib; sourceTree = "<group>"; };
+		FAF75BEF1C2FDEB9007557D8 /* OfferInquery4sHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferInquery4sHeaderView.h; sourceTree = "<group>"; };
+		FAF75BF01C2FDEB9007557D8 /* OfferInquery4sHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferInquery4sHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1870,6 +1881,13 @@
 				FA4A19221C2AA97D008ECB4C /* LotteryDrawViewController.m */,
 				FA5AB5721C2BDCCA00E1FB6F /* ShowLotteryViewController.h */,
 				FA5AB5731C2BDCCA00E1FB6F /* ShowLotteryViewController.m */,
+				FA658EBA1C2D0857004E0CD6 /* ShowLotteryViewController.xib */,
+				FA658EBF1C2D3F24004E0CD6 /* OfferInquery4sCell.h */,
+				FA658EC01C2D3F24004E0CD6 /* OfferInquery4sCell.m */,
+				FA658EBC1C2D23DB004E0CD6 /* OfferInqueryResultFor4sViewController.h */,
+				FA658EBD1C2D23DB004E0CD6 /* OfferInqueryResultFor4sViewController.m */,
+				FAF75BEF1C2FDEB9007557D8 /* OfferInquery4sHeaderView.h */,
+				FAF75BF01C2FDEB9007557D8 /* OfferInquery4sHeaderView.m */,
 			);
 			path = Lottery;
 			sourceTree = "<group>";
@@ -1989,6 +2007,7 @@
 				94F4266D1C2BD60600E96FE3 /* UnusedCouponCell.xib in Resources */,
 				FA5AB5711C2BDC5000E1FB6F /* Unipei_Lottery.storyboard in Resources */,
 				EAC89E981C1803AD00C9FD1B /* CommonImages.xcassets in Resources */,
+				FA658EBB1C2D0857004E0CD6 /* ShowLotteryViewController.xib in Resources */,
 				6B9776631BF5713400226927 /* UNPMessageCenterVC.xib in Resources */,
 				EA38D41D1BF4572200C93243 /* EditVinViewController.xib in Resources */,
 				EA61F1C11BA6BD4600858DDC /* Images.xcassets in Resources */,
@@ -2121,6 +2140,7 @@
 				EAD29EFB1BB26FB500CFE7DB /* amrFileCodec.m in Sources */,
 				EAEB9E6F1C0DA04800159FA0 /* DymBaseModel.m in Sources */,
 				EAFC125B1BF1964D0034B188 /* JPLazyBlock.m in Sources */,
+				FAF75BF11C2FDEB9007557D8 /* OfferInquery4sHeaderView.m in Sources */,
 				FA46C0AE1BEA0F0F0060C988 /* ELCImagePickerController+Helper.m in Sources */,
 				EA4E49901BDF76ED0012BC8F /* InquiryApi_FindCity.m in Sources */,
 				EAB214D71BC91BC500AB51B7 /* JPAddressItemCell.m in Sources */,
@@ -2150,6 +2170,7 @@
 				EADDC9A01C116296009084B8 /* UNPWebVC.m in Sources */,
 				EA4E49951BDF76ED0012BC8F /* InquiryApi_UpdateReciveAddress.m in Sources */,
 				EABE46641BB5441D00901B88 /* UNPInquiryDetailVC.m in Sources */,
+				FA658EBE1C2D23DB004E0CD6 /* OfferInqueryResultFor4sViewController.m in Sources */,
 				EAD3BBA41BDDD0B9005DEDFB /* UNPOrderDetailVC.m in Sources */,
 				EA61F1DB1BA6BE7200858DDC /* UIViewController+PSContainment.m in Sources */,
 				EA38D41B1BF4572200C93243 /* CameraViewController.mm in Sources */,
@@ -2251,6 +2272,7 @@
 				EA61F1F61BA6BEB300858DDC /* ModelPictureApi_FindSeriesList.m in Sources */,
 				EA05189C1BCF48D500D8F82F /* UNPInquiryAddressModifyVC.m in Sources */,
 				EAA912D71BB93A6A009FB9CC /* InquiryApi_GetInquiryInfo.m in Sources */,
+				FA658EC11C2D3F24004E0CD6 /* OfferInquery4sCell.m in Sources */,
 				6B777D7B1BE84514003DC752 /* MyOrderFilterStatusCell.m in Sources */,
 				EAD29F131BB2992700CFE7DB /* InquiryApi_ChoiceDealer.m in Sources */,
 				EAC89E941C17DC7500C9FD1B /* JPLimitedTextField.m in Sources */,

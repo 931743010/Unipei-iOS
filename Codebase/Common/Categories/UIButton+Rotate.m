@@ -35,6 +35,8 @@ static char directionKeyButton;
     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
     // Add animation to the layer and make it so
+    
+    self.layer.zPosition ++;
     [self.layer addAnimation:rotationAnimation forKey:@"rotationAnimationUIButton"];
     
 }

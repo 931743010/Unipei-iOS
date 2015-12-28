@@ -8,7 +8,7 @@
 
 #import "MoreCell.h"
 @interface MoreCell()
-@property (weak, nonatomic) IBOutlet UIButton *moreButton;
+
 @end
 @implementation MoreCell
 

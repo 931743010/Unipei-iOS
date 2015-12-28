@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MoreCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UIButton *moreButton;
 @end
