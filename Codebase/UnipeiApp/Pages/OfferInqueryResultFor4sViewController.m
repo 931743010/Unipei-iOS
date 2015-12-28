@@ -12,6 +12,9 @@
 #import "NSString+GGAddOn.h"
 
 @interface OfferInqueryResultFor4sViewController ()
+{
+    OfferInquery4sHeaderView *_headerView;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -24,26 +27,23 @@
     self.tableView.estimatedRowHeight = 100;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.navigationItem.title = @"4S报价查询结果";
 
-    OfferInquery4sHeaderView *headerView = [OfferInquery4sHeaderView new];
-    
-    NSString *title = [self trim :self.titleContent];
-    
-    headerView.lblCarName.text = title;
-    self.tableView.tableHeaderView = headerView;
+    _headerView = [OfferInquery4sHeaderView new];
+    self.tableView.tableHeaderView = _headerView;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     if ([_allfoursList count]==0) {
         [self showEmptyView:YES text:@"暂无报价信息"];
+    }else{
+        NSString *title = [self trim :self.titleContent];
+        _headerView.lblCarName.text = title;
     }
-    
 }
 
 -(NSString *)trim:(NSString *)string{
