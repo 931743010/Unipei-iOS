@@ -18,7 +18,7 @@
 #import <UnipeiApp-Swift.h>
 #import <Masonry/Masonry.h>
 #import "JPSensibleButton.h"
-
+#import "SupplementInfo.h"
 
 @interface UNPLoginVC () <UIPickerViewDataSource, UIPickerViewDelegate> {
     UIPickerView    *_pickerView;
@@ -138,9 +138,12 @@
 //                 }
                  
                  
-             } else {
-                 
-                 [[JLToast makeText:result.msg] show];
+             } else {//需要完善信息
+                 if([result.msg isEqualToString:@"账号需完善公司信息,请去网站完善公司信息"]){
+                     SupplementInfo *supplementVC = [[SupplementInfo alloc]init];
+                     [self.navigationController pushViewController:supplementVC animated:YES];
+                 }
+                 //[[JLToast makeText:result.msg] show];
                  
              }
              

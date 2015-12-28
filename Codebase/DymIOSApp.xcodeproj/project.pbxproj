@@ -54,8 +54,13 @@
 		6BD283F11BF9B490000E9348 /* UNPMessageOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD283EF1BF9B490000E9348 /* UNPMessageOrderCell.m */; };
 		6BD283F21BF9B490000E9348 /* UNPMessageOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BD283F01BF9B490000E9348 /* UNPMessageOrderCell.xib */; };
 		6BD283FB1BFAD4C5000E9348 /* UNPSystemMessageDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD283F91BFAD4C5000E9348 /* UNPSystemMessageDetailVC.m */; };
-
+		94052A411C30DDBE004E9EF0 /* SupplementInfoImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 94052A3F1C30DDBE004E9EF0 /* SupplementInfoImage.m */; settings = {ASSET_TAGS = (); }; };
+		94052A421C30DDBE004E9EF0 /* SupplementInfoImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94052A401C30DDBE004E9EF0 /* SupplementInfoImage.xib */; settings = {ASSET_TAGS = (); }; };
 		943BA2241C2D27E700461411 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 943BA2231C2D27E700461411 /* UIView+Layout.m */; settings = {ASSET_TAGS = (); }; };
+		943E699A1C2FC22B00A43C94 /* SupplementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 943E69991C2FC22B00A43C94 /* SupplementInfo.m */; settings = {ASSET_TAGS = (); }; };
+		943E699E1C2FC7E700A43C94 /* SupplementInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 943E699C1C2FC7E700A43C94 /* SupplementInfoCell.m */; settings = {ASSET_TAGS = (); }; };
+		943E699F1C2FC7E700A43C94 /* SupplementInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 943E699D1C2FC7E700A43C94 /* SupplementInfoCell.xib */; settings = {ASSET_TAGS = (); }; };
+		943E69A21C2FCB6A00A43C94 /* SupplementInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 943E69A11C2FCB6A00A43C94 /* SupplementInfoModel.m */; settings = {ASSET_TAGS = (); }; };
 		94F426541C2BD5E400E96FE3 /* CouponVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426521C2BD5E400E96FE3 /* CouponVC.m */; settings = {ASSET_TAGS = (); }; };
 		94F426551C2BD5E400E96FE3 /* CouponVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F426531C2BD5E400E96FE3 /* CouponVC.xib */; settings = {ASSET_TAGS = (); }; };
 		94F4265D1C2BD5F300E96FE3 /* IPDashedBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426571C2BD5F300E96FE3 /* IPDashedBorderedView.m */; settings = {ASSET_TAGS = (); }; };
@@ -69,7 +74,6 @@
 		94F426711C2BD6DA00E96FE3 /* UNPChatHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426701C2BD6DA00E96FE3 /* UNPChatHomeVC.m */; settings = {ASSET_TAGS = (); }; };
 		94F426741C2BF56100E96FE3 /* CouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426731C2BF56100E96FE3 /* CouponModel.m */; settings = {ASSET_TAGS = (); }; };
 		94F4267A1C2BF90100E96FE3 /* CouponModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426791C2BF90100E96FE3 /* CouponModelManager.m */; settings = {ASSET_TAGS = (); }; };
-
 		EA02BBD11BBB722D008C7C73 /* JPDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EA02BBCE1BBB722D008C7C73 /* JPDatePicker.m */; };
 		EA02BBD51BBB7252008C7C73 /* JPDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA02BBD21BBB7252008C7C73 /* JPDatePicker.xib */; };
 		EA05189C1BCF48D500D8F82F /* UNPInquiryAddressModifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA05189B1BCF48D500D8F82F /* UNPInquiryAddressModifyVC.m */; };
@@ -385,8 +389,18 @@
 		6BD283F81BFAD4C5000E9348 /* UNPSystemMessageDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNPSystemMessageDetailVC.h; sourceTree = "<group>"; };
 		6BD283F91BFAD4C5000E9348 /* UNPSystemMessageDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNPSystemMessageDetailVC.m; sourceTree = "<group>"; };
 		794C96B07E19AE8C50B211E7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		94052A3E1C30DDBE004E9EF0 /* SupplementInfoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementInfoImage.h; sourceTree = "<group>"; };
+		94052A3F1C30DDBE004E9EF0 /* SupplementInfoImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementInfoImage.m; sourceTree = "<group>"; };
+		94052A401C30DDBE004E9EF0 /* SupplementInfoImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupplementInfoImage.xib; sourceTree = "<group>"; };
 		943BA2221C2D27E700461411 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		943BA2231C2D27E700461411 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		943E69981C2FC22B00A43C94 /* SupplementInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementInfo.h; sourceTree = "<group>"; };
+		943E69991C2FC22B00A43C94 /* SupplementInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementInfo.m; sourceTree = "<group>"; };
+		943E699B1C2FC7E700A43C94 /* SupplementInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementInfoCell.h; sourceTree = "<group>"; };
+		943E699C1C2FC7E700A43C94 /* SupplementInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementInfoCell.m; sourceTree = "<group>"; };
+		943E699D1C2FC7E700A43C94 /* SupplementInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupplementInfoCell.xib; sourceTree = "<group>"; };
+		943E69A01C2FCB6A00A43C94 /* SupplementInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementInfoModel.h; sourceTree = "<group>"; };
+		943E69A11C2FCB6A00A43C94 /* SupplementInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementInfoModel.m; sourceTree = "<group>"; };
 		94F426511C2BD5E400E96FE3 /* CouponVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponVC.h; sourceTree = "<group>"; };
 		94F426521C2BD5E400E96FE3 /* CouponVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponVC.m; sourceTree = "<group>"; };
 		94F426531C2BD5E400E96FE3 /* CouponVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponVC.xib; sourceTree = "<group>"; };
@@ -999,6 +1013,23 @@
 			path = Personal;
 			sourceTree = "<group>";
 		};
+		943E69941C2FC0DF00A43C94 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				943E69981C2FC22B00A43C94 /* SupplementInfo.h */,
+				943E69991C2FC22B00A43C94 /* SupplementInfo.m */,
+				943E699B1C2FC7E700A43C94 /* SupplementInfoCell.h */,
+				943E699C1C2FC7E700A43C94 /* SupplementInfoCell.m */,
+				943E699D1C2FC7E700A43C94 /* SupplementInfoCell.xib */,
+				943E69A01C2FCB6A00A43C94 /* SupplementInfoModel.h */,
+				943E69A11C2FCB6A00A43C94 /* SupplementInfoModel.m */,
+				94052A3E1C30DDBE004E9EF0 /* SupplementInfoImage.h */,
+				94052A3F1C30DDBE004E9EF0 /* SupplementInfoImage.m */,
+				94052A401C30DDBE004E9EF0 /* SupplementInfoImage.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		94F426501C2BD5A500E96FE3 /* Coupon */ = {
 			isa = PBXGroup;
 			children = (
@@ -1239,6 +1270,7 @@
 		EA61F2081BA6C23000858DDC /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				943E69941C2FC0DF00A43C94 /* Login */,
 				EA431A161C2CF01A004E7AD8 /* 4S */,
 				FA4A191D1C2AA813008ECB4C /* Lottery */,
 				EA06F3401C06D2AD002C728D /* Intro */,
@@ -2005,6 +2037,7 @@
 			files = (
 				94F4266B1C2BD60600E96FE3 /* UnusedCoupon.xib in Resources */,
 				94F4266F1C2BD60600E96FE3 /* UsedCouponCell.xib in Resources */,
+				94052A421C30DDBE004E9EF0 /* SupplementInfoImage.xib in Resources */,
 				EA4E497C1BDF6E860012BC8F /* Common.storyboard in Resources */,
 				6BD283F21BF9B490000E9348 /* UNPMessageOrderCell.xib in Resources */,
 				EA38D41E1BF4572200C93243 /* license.lic in Resources */,
@@ -2034,6 +2067,7 @@
 				EAC12A2A1BAD4EDC00DA7325 /* UNPChooseItemCell.xib in Resources */,
 				EAD578CB1BFDA13C0059DC04 /* Unipei_Inquiry.storyboard in Resources */,
 				6B97766E1BF5729E00226927 /* UNPTextModifyVC.xib in Resources */,
+				943E699F1C2FC7E700A43C94 /* SupplementInfoCell.xib in Resources */,
 				EA70A0071C20FF0F006C3793 /* test in Resources */,
 				94F426551C2BD5E400E96FE3 /* CouponVC.xib in Resources */,
 				6B9776731BF5769200226927 /* UNPPersonalInformationCell.xib in Resources */,
@@ -2159,10 +2193,12 @@
 				EA0518A31BCF83AA00D8F82F /* UNPChooseCityVC.m in Sources */,
 				94F426741C2BF56100E96FE3 /* CouponModel.m in Sources */,
 				EA4E49981BDF77310012BC8F /* InquiryApi_UpdateDefaultAddress.m in Sources */,
+				943E699E1C2FC7E700A43C94 /* SupplementInfoCell.m in Sources */,
 				EA61F2031BA6BEB300858DDC /* DymRequest.m in Sources */,
 				EA4E49911BDF76ED0012BC8F /* InquiryApi_FindDistrict.m in Sources */,
 				EAB76DF71C043580008B92AA /* JPRedDotView.m in Sources */,
 				6BAA98C71BD77AE800A02628 /* MineBigCell.m in Sources */,
+				943E69A21C2FCB6A00A43C94 /* SupplementInfoModel.m in Sources */,
 				EA61F1E61BA6BE9100858DDC /* JPAppStatus.m in Sources */,
 				EABE46651BB5441D00901B88 /* UNPMyInquiryVC.m in Sources */,
 				94F426541C2BD5E400E96FE3 /* CouponVC.m in Sources */,
@@ -2170,6 +2206,7 @@
 				EAFB9E651BBA5B810053A9D0 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
 				6B9775FB1BF322E600226927 /* UnipeiAppDelegate+APNS.m in Sources */,
 				EA10729A1BB8DE330093823F /* InquiryApi_InquiryDetail.m in Sources */,
+				943E699A1C2FC22B00A43C94 /* SupplementInfo.m in Sources */,
 				EA83550F1BB23F3100A8A2E6 /* KLAudioManager.m in Sources */,
 				EA0A5A541BF9BA6900B51049 /* JPGuessMyKey.m in Sources */,
 				EAD29EFB1BB26FB500CFE7DB /* amrFileCodec.m in Sources */,
@@ -2250,6 +2287,7 @@
 				FA4A191B1C2AA7AE008ECB4C /* UIButton+Rotate.m in Sources */,
 				EABE46601BB5441D00901B88 /* UNPCreateInquiryDealersVC.m in Sources */,
 				EA61F1F01BA6BE9100858DDC /* GTMBase64.m in Sources */,
+				94052A411C30DDBE004E9EF0 /* SupplementInfoImage.m in Sources */,
 				6B1D2FDA1BD8C903001C9289 /* XMBadgeView.m in Sources */,
 				EA0518A91BCF84AD00D8F82F /* UNPAddressChooseVM.m in Sources */,
 				94F4266E1C2BD60600E96FE3 /* UsedCouponCell.m in Sources */,
