@@ -18,6 +18,7 @@
 #import <UnipeiApp-Swift.h>
 #import <Masonry/Masonry.h>
 #import "JPSensibleButton.h"
+#import "UNPRegistedVC.h"
 
 
 @interface UNPLoginVC () <UIPickerViewDataSource, UIPickerViewDelegate> {
@@ -29,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnPeek;
 @property (weak, nonatomic) IBOutlet UITextField *tfPassword;
 @property (weak, nonatomic) IBOutlet UITextField *tfUsername;
+@property (weak, nonatomic) IBOutlet UIButton *btnRegiste;
 
 @end
 
@@ -87,6 +89,7 @@
     }];
     
     RAC(self.btnLogin, enabled) = signInValidSignal;
+    RAC(self.btnRegiste, enabled) = signInValidSignal;
     
 //    [signInValidSignal subscribeNext:^(NSNumber *signInValid) {
 //        @strongify(self)
@@ -147,6 +150,12 @@
          }
          
      }];
+    
+    //注册 跳注册页面
+    [[self.btnRegiste rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        UNPRegistedVC *vc = [[UNPRegistedVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
     
     ///
     [self updateServerPicker];
