@@ -31,6 +31,11 @@
 +(UIStoryboard *) unipei_Dealer_Storyboard {
     return [UIStoryboard storyboardWithName:@"Unipei_Dealer" bundle:nil];
 }
+
++(UIStoryboard *) unipei_Lottery_Storyboard {
+    return [UIStoryboard storyboardWithName:@"Unipei_Lottery" bundle:nil];
+}
+
 #pragma mark - Unipei main login vc
 +(UIViewController *) unipeiMainLoginNC {
     return [[self unipeiMain_Storyboard] instantiateViewControllerWithIdentifier:@"loginNC"];

@@ -27,4 +27,6 @@
 
 - (NSString *)md5Str;
 
+-(NSString *)trimEnterCharacter:(NSString *)string;
+
 @end

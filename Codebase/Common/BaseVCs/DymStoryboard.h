@@ -15,6 +15,7 @@
 +(UIStoryboard *) unipeiInquiry_Storyboard;
 +(UIStoryboard *) common_Storyboard;
 +(UIStoryboard *) unipei_Dealer_Storyboard;
++(UIStoryboard *) unipei_Lottery_Storyboard;
 /// Unipei 登录VC
 +(UIViewController *) unipeiMainLoginNC;
 

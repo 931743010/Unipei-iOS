@@ -316,17 +316,7 @@
         
         UILabel *lblTime = (UILabel *)([cell.contentView viewWithTag:101]);
         
-//        UIImageView *ivIsNew = [UIImageView new];
-//        ivIsNew.image = [UIImage imageNamed:@"icon_notice_new"];
-//        ivIsNew.hidden = YES;
-//        [cell addSubview:ivIsNew];
-//        [ivIsNew mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.leading.equalTo(lblMessage.mas_trailing);
-//            make.trailing.lessThanOrEqualTo(lblTime.mas_leading);
-//            make.centerY.equalTo(lblMessage.mas_centerY);
-//            make.width.equalTo(@24);
-//            make.height.equalTo(@24);
-//        }];
+        UIImageView *ivIsNew = (UIImageView *)[cell.contentView viewWithTag:102];
         
         if (_noticeData.count == 0) {
             
@@ -334,6 +324,10 @@
             lblTime.text = nil;
             
         }else{
+            BOOL isTop = [_noticeData[indexPath.row][@"isTop"] boolValue];
+            if (isTop) {
+                ivIsNew.hidden = NO;
+            }
             //TODO 判断ivIsnew是否显示
             lblMessage.text = [NSString stringWithFormat:@"%@",_noticeData[indexPath.row][@"title"]];
             

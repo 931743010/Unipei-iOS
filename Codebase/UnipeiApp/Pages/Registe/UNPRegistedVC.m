@@ -102,9 +102,13 @@
     
     self.tableView.tableHeaderView = header;
     
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 70;
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self updateServerPicker];
+    
 }
 #pragma mark -
 #pragma mark - table数据源
@@ -113,18 +117,18 @@
     
     return 10;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (indexPath.row == 6) {
-        return 75;
-    }else if (indexPath.row == 7){
-        return 100;
-    }else if (indexPath.row == 9){
-        return 60;
-    }
-    return 48;
-    
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    if (indexPath.row == 6) {
+//        return 75;
+//    }else if (indexPath.row == 7){
+//        return 100;
+//    }else if (indexPath.row == 9){
+//        return 60;
+//    }
+//    return 48;
+//    
+//}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     @weakify(self)
@@ -188,7 +192,7 @@
         cell.lblTitle.text = @"老板手机号";
         cell.tfContent.tag = kJPRegistedTextFieldTypePhone;
         cell.lblTitle.textColor = [JPDesignSpec colorMajor];
-        cell.tfContent.keyboardType = UIKeyboardTypeNamePhonePad;
+        cell.tfContent.keyboardType = UIKeyboardTypeNumberPad;
         cell.tfContent.placeholder = @"点击输入";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 

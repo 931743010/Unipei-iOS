@@ -18,6 +18,8 @@
 #import "GGPredicate.h"
 #import "UNPChooseCouponVC.h"
 #import "DymNavigationController.h"
+#import "LotteryDrawViewController.h"
+
 
 static NSString *keyLogisticCompany = @"logisticscompany";
 
@@ -164,6 +166,13 @@ static NSString *keyLogisticCompany = @"logisticscompany";
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:JP_NOTIFICATION_INQUIRY_CHANGED object:nil];
                 
+                /// wait 3 sec
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    LotteryDrawViewController *lotteryDrawVC = (LotteryDrawViewController *)[UNPInquiryAddressVC viewFromStoryboard];
+                    [[JPUtils topMostVC] presentViewController:lotteryDrawVC animated:YES completion:nil];
+                });
+                
+                
             } else {
                 
                 NSString *errorMessage = result.msg;
@@ -197,6 +206,10 @@ static NSString *keyLogisticCompany = @"logisticscompany";
     
     [self.observerQueue addObject:observer];
 }
++(instancetype)viewFromStoryboard {
+    return [[DymStoryboard unipei_Lottery_Storyboard] instantiateViewControllerWithIdentifier:@"lotterydraw"];
+}
+
 //判断空格
 - (BOOL) isBlankString:(NSString *)string {
     if (string == nil || string == NULL) {

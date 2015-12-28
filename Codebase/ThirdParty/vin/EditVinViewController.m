@@ -22,18 +22,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-//
     self.title = @"核对VIN码信息";
     self.submitBtn.clipsToBounds = YES;
     self.submitBtn.layer.cornerRadius = 5.0;
-    
      _retValue = [NSMutableDictionary new];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    if (self.scanType) {
+        NSString *_title1 = [NSString stringWithFormat:@"核对%@信息",self.scanType];
+        self.title =_title1;;
+        self.lblPrompt.text = [NSString stringWithFormat:@"请核对确认%@信息",self.scanType];
+    }
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -77,6 +78,13 @@
     @weakify(self)
     [[self vinInfoSignal] subscribeNext:^(DymBaseRespModel *result) {
         @strongify(self)
+        
+        if (self.scanType) {
+            [_retValue setObject: self.scanType forKey:@"scanType"];
+        }else{
+            [_retValue setObject: @"VIN" forKey:@"scanType"];
+        }
+
         [_retValue setObject: result forKey:@"result"];
         [_retValue setObject:self.vinTextField.text forKey:@"vinCode"];
         [[NSNotificationCenter defaultCenter] postNotificationName:JP_NOTIFICATION_VIN_CODE_RECOGNIZED object:_retValue];

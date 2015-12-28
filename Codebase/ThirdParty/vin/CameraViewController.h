@@ -38,4 +38,5 @@
 @property(strong, nonatomic) UIImage *resultImg;
 @property (copy, nonatomic) NSString *nsCompanyName; //公司名称
 @property (copy, nonatomic) NSString *vinResult; //识别结果
+@property (copy, nonatomic) NSString *scanType; //识别类型
 @end

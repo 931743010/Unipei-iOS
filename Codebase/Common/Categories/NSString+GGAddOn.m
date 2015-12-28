@@ -147,4 +147,11 @@
             ];
 }
 
+-(NSString *)trimEnterCharacter:(NSString *)string{
+    NSString *trimString = nil;
+    trimString = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    trimString = [trimString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    return  trimString;
+}
+
 @end
