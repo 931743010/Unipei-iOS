@@ -34,4 +34,6 @@
 -(void)testFindBrandListDealer;
 /// 接口测试：搜索品牌经销商
 -(void)testSearchDealer;
+/// 接口测试：抽奖
+-(void)testDrawLottery;
 @end
