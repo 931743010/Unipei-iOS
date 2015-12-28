@@ -134,6 +134,7 @@ static int angle = 10;
 
 -(void)abortDraw:(UIButton *)sender{
     NSLog(@"===abortDraw");
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 -(void) showLotteryView:(UIButton *)sender{
     sender.layer.zPosition = 100;
