@@ -307,6 +307,7 @@
         
         UIImageView *ivIsNew = [UIImageView new];
         ivIsNew.image = [UIImage imageNamed:@"icon_notice_new"];
+        ivIsNew.hidden = YES;
         [cell addSubview:ivIsNew];
         [ivIsNew mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(lblMessage.mas_trailing);
@@ -322,7 +323,7 @@
             lblTime.text = nil;
             
         }else{
-            
+            //TODO 判断ivIsnew是否显示
             lblMessage.text = [NSString stringWithFormat:@"%@",_noticeData[indexPath.row][@"title"]];
             
             CGFloat ff = [_noticeData[indexPath.row][@"createTime"] doubleValue];

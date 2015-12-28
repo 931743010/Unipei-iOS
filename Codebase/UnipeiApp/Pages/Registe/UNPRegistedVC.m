@@ -26,7 +26,6 @@
     UNPRegistedReferrerCell              *_referrerCell;
     UNPRegistedUpLoadPicCell             *_upLoadPicCell;
     UNPRegistedLisenceNumCell            *_lisenceNumCell;
-    UNPRegistedNormalCell                *_organNameCell;
     UIPickerView                         *_pickerView;
     NSArray                              *_pickerData;
     UNPAddressChooseVM                   *_addressViewModel;
@@ -132,6 +131,7 @@
         return cell;
         
     }else if (indexPath.row == 1) {
+        
         static NSString *serviceType = @"UNPRegistedNormalCell";
         UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:serviceType];
@@ -146,6 +146,7 @@
         return cell;
         
     }else if (indexPath.row == 2){
+        
         static NSString *name = @"UNPRegistedNormalCell";
         UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:name];
@@ -160,6 +161,7 @@
         return cell;
 
     }else if (indexPath.row == 3){
+        
         static NSString *phone = @"UNPRegistedNormalCell";
         UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:phone];
@@ -175,6 +177,7 @@
         return cell;
 
     }else if (indexPath.row == 4){
+        
         static NSString *adress = @"UNPRegistedNormalCell";
         UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:adress];
@@ -191,6 +194,7 @@
         return cell;
 
     }else if (indexPath.row == 5){
+        
         static NSString *detailAdress = @"UNPRegistedNormalCell";
         UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:detailAdress];
