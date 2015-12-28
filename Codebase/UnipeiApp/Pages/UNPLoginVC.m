@@ -20,6 +20,7 @@
 #import "JPSensibleButton.h"
 #import "UNPRegistedVC.h"
 #import "UNPAgreementVC.h"
+#import "SupplementInfo.h"
 
 
 @interface UNPLoginVC () <UIPickerViewDataSource, UIPickerViewDelegate> {
@@ -132,6 +133,10 @@
                      
                  } else if ([result.status integerValue] == kJPLoginStatusProfileNotCompleted) {
                      // 需要完善资料
+                     SupplementInfo *supplementVC = [[SupplementInfo alloc]init];
+                     supplementVC.loginInfo = result;
+                     [self.navigationController pushViewController:supplementVC animated:YES];
+                     
                  } else {
                      // 正常登录
                      
@@ -147,9 +152,9 @@
                  }
                  
                  
-             } else {
+             } else if (result.msg) {//需要完善信息
                  
-                 [[JLToast makeText:result.msg] show];
+                [[JLToast makeText:result.msg] show];
                  
              }
              

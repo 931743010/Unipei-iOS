@@ -12,6 +12,7 @@
 #import "JPAppStatus.h"
 #import "CouponModelManager.h"
 #import <MJRefresh.h>
+
 typedef NS_ENUM(NSInteger, EJPCouponState) {
     kJPCouponStateAvailable = 0
     , kJPCouponStateUsed = 1
