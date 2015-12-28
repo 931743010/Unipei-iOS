@@ -82,7 +82,12 @@ static int angle = 10;
     }];
     
     _btnDrawLottery  = [UIButton new];
-    [_btnDrawLottery setImage:[UIImage imageNamed:@"redenvelopebutton"] forState:UIControlStateNormal];
+//    [_btnDrawLottery setImage:[UIImage imageNamed:@"redenvelopebutton"] forState:UIControlStateNormal];
+    _btnDrawLottery.layer.cornerRadius = 40;
+    _btnDrawLottery.backgroundColor = [UIColor yellowColor];
+    [_btnDrawLottery setTitle:@"奖" forState:UIControlStateNormal];
+    _btnDrawLottery.titleLabel.font = [UIFont systemFontOfSize:30];
+    [_btnDrawLottery setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [_btnDrawLottery addTarget:self action:@selector(showLotteryView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btnDrawLottery];
     [_btnDrawLottery mas_makeConstraints:^(MASConstraintMaker *make) {
