@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, EJPInquiryStatus) {
     , kJPInquiryStatusCancelled             = 3
     , kJPInquiryStatusRefused               = 4
     , kJPInquiryStatusInvalidated           = 5
+    , kJPInquiryStatusHandling              = 20   // 正在处理中
     
     , kJPInquiryStatusAll                   = 999
 };

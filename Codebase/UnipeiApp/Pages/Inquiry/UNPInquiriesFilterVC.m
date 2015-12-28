@@ -67,15 +67,17 @@
                             , @(kJPInquiryStatusConformed)
                             , @(kJPInquiryStatusCancelled)
                             , @(kJPInquiryStatusRefused)
-                            , @(kJPInquiryStatusInvalidated)];
-        titles = @[@"全部", @"待报价", @"已报价待确认", @"已确认", @"已撤消", @"已拒绝", @"已失效"];
+                            , @(kJPInquiryStatusInvalidated)
+                            , @(kJPInquiryStatusHandling)];
+        titles = @[@"全部", @"待报价", @"已报价待确认", @"已确认", @"已撤消", @"已拒绝", @"已失效", @"正在处理中"];
     } else {
         values = @[@(kJPInquiryStatusAll)
                    , @(kJPInquiryStatusWaitingConfirmation)
                    , @(kJPInquiryStatusConformed)
                    , @(kJPInquiryStatusRefused)
-                   , @(kJPInquiryStatusInvalidated)];
-        titles = @[@"全部", @"已报价待确认", @"已确认", @"已拒绝", @"已失效"];
+                   , @(kJPInquiryStatusInvalidated)
+                   , @(kJPInquiryStatusHandling)];
+        titles = @[@"全部", @"已报价待确认", @"已确认", @"已拒绝", @"已失效", @"正在处理中"];
     }
     
     [_optionsButtonsView setValues:values titles:titles];
