@@ -32,15 +32,23 @@
 
     OfferInquery4sHeaderView *headerView = [OfferInquery4sHeaderView new];
     
-    NSString *title = [self.titleContent stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet ]];
+//    NSString *title = [self.titleContent stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet ]];
     
-    [title stringByReplacingOccurrencesOfString: @"\r" withString:@""];
-    [title stringByReplacingOccurrencesOfString: @"\n" withString:@""];
+//    [title stringByReplacingOccurrencesOfString: @"\r" withString:@""];
+//    [title stringByReplacingOccurrencesOfString: @"\n" withString:@""];
+    
+    NSString *title = [self trim :self.titleContent];
     
     headerView.lblCarName.text = title;
     self.tableView.tableHeaderView = headerView;
 }
 
+-(NSString *)trim:(NSString *)string{
+    NSString *trimString = nil;
+    trimString = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    trimString = [trimString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    return  trimString;
+}
 
 
 #pragma mark UITableView DataSource
