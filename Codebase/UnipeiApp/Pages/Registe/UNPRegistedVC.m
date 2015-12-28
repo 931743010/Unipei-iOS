@@ -73,14 +73,24 @@
         @strongify(self)
         if ([note.object isKindOfClass:[UNPAddressChooseVM class]]) {
             self->_addressViewModel = note.object;
-//            self->_lblAddress.text = [self->_addressViewModel fullAddress];
             
-            [self.tableView reloadData];
+            if (_addressViewModel.provinceVM.selectedItem) {
+                self->_province = [JPUtils stringValueSafe:(_addressViewModel.provinceVM.selectedItem)[@"id"]];
+            }
+            if (_addressViewModel.cityVM.selectedItem) {
+                self->_city = [JPUtils stringValueSafe:(_addressViewModel.cityVM.selectedItem)[@"id"]];
+            }
+            if (_addressViewModel.districtVM.selectedItem) {
+                self->_area = [JPUtils stringValueSafe:(_addressViewModel.districtVM.selectedItem)[@"id"]];
+            }
+            
+            UNPRegistedNormalCell *cell = [self.tableView cellForRowAtIndexPath:_currentIndexPath];
+            cell.lblChoose.text = [self->_addressViewModel fullAddress];
+            
         }
     }];
     
     [self.observerQueue addObject:observer];
-
     
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 30)];
     header.backgroundColor = [JPDesignSpec colorSilver];
@@ -91,6 +101,8 @@
     [header addSubview:lblNotice];
     
     self.tableView.tableHeaderView = header;
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self updateServerPicker];
 }
@@ -118,10 +130,11 @@
     @weakify(self)
     if (indexPath.row == 0) {
         
-        static NSString *organName = @"UNPRegistedNormalCell";
-        UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:organName];
-        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:organName];
+        static NSString *organName = @"organName";
+        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:organName];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
+        }
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"修理厂名称";
         cell.tfContent.tag = kJPRegistedTextFieldTypeOrganName;
@@ -132,10 +145,11 @@
         
     }else if (indexPath.row == 1) {
         
-        static NSString *serviceType = @"UNPRegistedNormalCell";
-        UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:serviceType];
-        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:serviceType];
+        static NSString *serviceType = @"serviceType";
+        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:serviceType ];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
+        }
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"修理厂类别";
         cell.tfContent.hidden = YES;
@@ -147,10 +161,12 @@
         
     }else if (indexPath.row == 2){
         
-        static NSString *name = @"UNPRegistedNormalCell";
-        UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:name];
-        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:name];
+        static NSString *name = @"name";
+        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:name ];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
+        }
+
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"老板姓名";
         cell.tfContent.tag = kJPRegistedTextFieldTypeName;
@@ -162,10 +178,12 @@
 
     }else if (indexPath.row == 3){
         
-        static NSString *phone = @"UNPRegistedNormalCell";
-        UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:phone];
-        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:phone];
+        static NSString *phone = @"phone";
+        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:phone ];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
+        }
+
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"老板手机号";
         cell.tfContent.tag = kJPRegistedTextFieldTypePhone;
@@ -178,10 +196,11 @@
 
     }else if (indexPath.row == 4){
         
-        static NSString *adress = @"UNPRegistedNormalCell";
-        UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:adress];
-        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:adress];
+        static NSString *adress = @"adress";
+        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:adress];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
+        }
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"地址";
         cell.lblTitle.textColor = [JPDesignSpec colorMajor];
@@ -195,10 +214,12 @@
 
     }else if (indexPath.row == 5){
         
-        static NSString *detailAdress = @"UNPRegistedNormalCell";
-        UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:detailAdress];
-        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:detailAdress];
+        static NSString *detailAdress = @"detailAdress";
+        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:detailAdress ];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
+        }
+
         cell.tfContent.delegate = self;
         cell.lblTitle.hidden = YES;
         cell.tfContent.placeholder = @"请输入详细地址";
@@ -212,7 +233,7 @@
         static NSString *cellID = @"UNPRegistedReferrerCell";
         UINib *nib = [UINib nibWithNibName:@"UNPRegistedReferrerCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:cellID];
-        _referrerCell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        _referrerCell = [tableView dequeueReusableCellWithIdentifier:cellID ];
         _referrerCell.tfName.delegate = self;
         _referrerCell.tfName.tag = kJPRegistedTextFieldTypeRecommend;
         NSArray *btnArr = @[_referrerCell.btnDealer,_referrerCell.btnSalesman];
@@ -231,7 +252,7 @@
         static NSString *cellID = @"UNPRegistedUpLoadPicCell";
         UINib *nib = [UINib nibWithNibName:@"UNPRegistedUpLoadPicCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:cellID];
-        _upLoadPicCell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        _upLoadPicCell = [tableView dequeueReusableCellWithIdentifier:cellID ];
         _upLoadPicCell.lblTitle.textColor = [JPDesignSpec colorMajor];
         
         _upLoadPicCell.addPhotoView.presentingVC = self;
@@ -257,7 +278,7 @@
         static NSString *cellID = @"UNPRegistedLisenceNumCell";
         UINib *nib = [UINib nibWithNibName:@"UNPRegistedLisenceNumCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:cellID];
-        _lisenceNumCell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        _lisenceNumCell = [tableView dequeueReusableCellWithIdentifier:cellID ];
         _lisenceNumCell.lblLisenceNum.textColor = [JPDesignSpec colorMajor];
         _lisenceNumCell.tfLisence.delegate = self;
         _lisenceNumCell.tfLisence.tag = kJPRegistedTextFieldTypeRegistration;
@@ -271,7 +292,7 @@
         static NSString *cellID = @"UNPRegistedConfirmCell";
         UINib *nib = [UINib nibWithNibName:@"UNPRegistedConfirmCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:cellID];
-        _confirmCell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        _confirmCell = [tableView dequeueReusableCellWithIdentifier:cellID ];
         _confirmCell.btnConfirm.style = kJPButtonOrange;
         _confirmCell.backgroundColor = [JPDesignSpec colorSilver];
         [_confirmCell.btnConfirm addTarget:self action:@selector(confirmToRegisted:) forControlEvents:UIControlEventTouchUpInside];
@@ -286,7 +307,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     _currentIndexPath = indexPath;
-//    NSLog(@"%ld",indexPath.row);
+    NSLog(@"%ld",indexPath.row);
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -354,7 +375,7 @@
 //    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     UNPRegistedNormalCell *cell = [self.tableView cellForRowAtIndexPath:_currentIndexPath];
     cell.lblChoose.text = _pickerData[row];
-    _servicetype = [JPUtils stringValueSafe:@(row)];
+    _servicetype = _pickerData[row];
     [self hideServerPicker];
         
 }
@@ -470,15 +491,15 @@
             api.params = @{@"organname":_organname,
                            @"name":_name,
                            @"phone":_phone,
-                           @"province":@"230000",
-                           @"city":@"230100",
-                           @"area":@"230102",
+                           @"province":_province,
+                           @"city":_city,
+                           @"area":_area,
                            @"address":_address,
                            @"recommend":_recommend,
                            @"phototype":_phototype,
                            @"photo":result.picPath,
                            @"recomType":_recomType,
-                           @"registration":@"registration",
+                           @"registration":_registration,
                            @"servicetype":_servicetype
                            };
             

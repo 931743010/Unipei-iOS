@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnPeek;
 @property (weak, nonatomic) IBOutlet UITextField *tfPassword;
 @property (weak, nonatomic) IBOutlet UITextField *tfUsername;
-@property (weak, nonatomic) IBOutlet JPSubmitButton *btnRegiste;
+@property (weak, nonatomic) IBOutlet UIButton *btnRegiste;
 
 @end
 
@@ -51,7 +51,6 @@
     [super viewDidLoad];
     
     self.btnLogin.style = kJPButtonOrange;
-    self.btnRegiste.style = kJPButtonOrange;
     
     
 #if DEBUG

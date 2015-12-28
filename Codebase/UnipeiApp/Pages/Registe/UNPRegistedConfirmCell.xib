@@ -21,10 +21,23 @@
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwD-dh-0pK">
+                        <rect key="frame" x="0.0" y="58" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.70160590277777779" green="0.70160590277777779" blue="0.70160590277777779" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="GzK-TK-vry"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.19769965277777779" green="0.19769965277777779" blue="0.19769965277777779" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="dwD-dh-0pK" secondAttribute="trailing" id="EGG-yd-drn"/>
+                    <constraint firstAttribute="bottom" secondItem="dwD-dh-0pK" secondAttribute="bottom" id="LrF-ec-L3i"/>
                     <constraint firstItem="eGG-ay-pf8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="cb3-FG-eFs"/>
                     <constraint firstItem="eGG-ay-pf8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="dXU-MK-hLk"/>
+                    <constraint firstItem="dwD-dh-0pK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eNU-ra-uy1"/>
                     <constraint firstAttribute="trailing" secondItem="eGG-ay-pf8" secondAttribute="trailing" constant="16" id="m2x-Ob-1uc"/>
                     <constraint firstAttribute="bottom" secondItem="eGG-ay-pf8" secondAttribute="bottom" constant="10" id="xQ0-pu-fX3"/>
                 </constraints>

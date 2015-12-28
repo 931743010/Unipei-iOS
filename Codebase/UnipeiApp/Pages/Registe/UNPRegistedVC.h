@@ -9,14 +9,14 @@
 #import "DymBaseVC.h"
 typedef NS_ENUM(NSInteger, EJPRegistedPhotoType) {
 
-    kJPRegistedPhotoTypeLisence = 0
+    kJPRegistedPhotoTypeLisence = 1
     , kJPRegistedPhotoTypeStore
     , kJPRegistedPhotoTypeCard
     
 };
 typedef NS_ENUM(NSInteger, EJPRegistedRecomType) {
 
-    kJPRegistedRecomTypeDealer = 0
+    kJPRegistedRecomTypeDealer = 1
     , kJPRegistedRecomTypeSalesman
 
 };

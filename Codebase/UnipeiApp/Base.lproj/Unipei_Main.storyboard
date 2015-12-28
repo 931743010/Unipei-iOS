@@ -543,11 +543,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="180" id="ngC-MJ-Ni1">
-                                        <rect key="frame" x="0.0" y="204" width="375" height="180"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="130" id="ngC-MJ-Ni1">
+                                        <rect key="frame" x="0.0" y="204" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ngC-MJ-Ni1" id="dtO-NA-x0T">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1x-d5-Xho" customClass="JPSubmitButton">
@@ -562,49 +562,23 @@
                                                         <color key="titleShadowColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMc-uW-5Z0" userLabel="protocolBgView">
-                                                    <rect key="frame" x="68" y="128" width="240" height="40"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="点击&quot;开始使用&quot;, 即表示同意" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gon-JC-2HR">
-                                                            <rect key="frame" x="0.0" y="13" width="148" height="15"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxX-ry-6DI">
-                                                            <rect key="frame" x="156" y="7" width="84" height="27"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                                            <state key="normal" title="由你配会员协议">
-                                                                <color key="titleColor" red="1" green="0.40988739870375357" blue="0.19648132164496634" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstItem="ZxX-ry-6DI" firstAttribute="leading" secondItem="Gon-JC-2HR" secondAttribute="trailing" constant="8" id="18g-mH-yUO"/>
-                                                        <constraint firstAttribute="height" constant="40" id="7Kc-Ec-HgQ"/>
-                                                        <constraint firstItem="Gon-JC-2HR" firstAttribute="leading" secondItem="uMc-uW-5Z0" secondAttribute="leading" id="GQO-hs-6wf"/>
-                                                        <constraint firstItem="ZxX-ry-6DI" firstAttribute="baseline" secondItem="Gon-JC-2HR" secondAttribute="baseline" id="Ycg-e4-acT"/>
-                                                        <constraint firstAttribute="centerY" secondItem="Gon-JC-2HR" secondAttribute="centerY" id="naE-Si-MPK"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ZxX-ry-6DI" secondAttribute="trailing" id="z4N-WM-PzE"/>
-                                                    </constraints>
-                                                </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tu4-qW-vVV" customClass="JPSubmitButton">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tu4-qW-vVV">
                                                     <rect key="frame" x="40" y="74" width="295" height="44"/>
-                                                    <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                    <state key="normal" title="申请加入">
-                                                        <color key="titleColor" red="0.23921568627450981" green="0.23921568627450981" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <state key="normal">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="还没有账号？立即申请加入！">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.23921568627450981" green="0.23921568627450981" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <font key="NSFont" size="12" name="PingFangSC-Regular"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                     </state>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerX" secondItem="uMc-uW-5Z0" secondAttribute="centerX" id="2Sj-FU-Tfn"/>
                                                 <constraint firstItem="Tu4-qW-vVV" firstAttribute="trailing" secondItem="f1x-d5-Xho" secondAttribute="trailing" id="6mX-Tf-pBA"/>
-                                                <constraint firstItem="uMc-uW-5Z0" firstAttribute="top" secondItem="Tu4-qW-vVV" secondAttribute="bottom" constant="10" id="Bxx-0v-kcq"/>
                                                 <constraint firstAttribute="trailing" secondItem="f1x-d5-Xho" secondAttribute="trailing" constant="40" id="ONf-gm-oGH"/>
                                                 <constraint firstItem="Tu4-qW-vVV" firstAttribute="top" secondItem="f1x-d5-Xho" secondAttribute="bottom" constant="10" id="euW-4g-vEc"/>
                                                 <constraint firstItem="f1x-d5-Xho" firstAttribute="top" secondItem="dtO-NA-x0T" secondAttribute="top" constant="20" id="gzf-JI-spZ"/>
@@ -628,7 +602,7 @@
                     <connections>
                         <outlet property="btnLogin" destination="f1x-d5-Xho" id="Uzs-I4-HNm"/>
                         <outlet property="btnPeek" destination="hZz-hM-FLH" id="KiP-ES-9hT"/>
-                        <outlet property="btnRegiste" destination="Tu4-qW-vVV" id="4p8-JT-CGu"/>
+                        <outlet property="btnRegiste" destination="Tu4-qW-vVV" id="UIA-fy-tvc"/>
                         <outlet property="tfPassword" destination="KjM-2N-Z2d" id="dFR-9C-kkF"/>
                         <outlet property="tfUsername" destination="wBP-B0-LDa" id="XWM-lx-ymC"/>
                     </connections>

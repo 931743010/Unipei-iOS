@@ -62,11 +62,23 @@
                         <color key="textColor" red="0.22271543560606055" green="0.22271543560606055" blue="0.22271543560606055" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-cV-r31">
+                        <rect key="frame" x="0.0" y="73" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.73232323232323226" green="0.73232323232323226" blue="0.73232323232323226" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="DKF-EL-8oX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.19032118055555558" green="0.19032118055555558" blue="0.19032118055555558" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="aHf-wb-UNx" firstAttribute="top" secondItem="uwO-GJ-L6j" secondAttribute="bottom" constant="8" id="2Hg-RP-tVQ"/>
                     <constraint firstItem="yTI-t3-8Mx" firstAttribute="centerY" secondItem="LgD-Er-z6J" secondAttribute="centerY" id="5Dz-pU-ETZ"/>
+                    <constraint firstAttribute="bottom" secondItem="YEn-cV-r31" secondAttribute="bottom" id="8pV-Hh-k3L"/>
                     <constraint firstAttribute="trailing" secondItem="aHf-wb-UNx" secondAttribute="trailing" constant="8" id="C3y-D7-U7k"/>
+                    <constraint firstAttribute="trailing" secondItem="YEn-cV-r31" secondAttribute="trailing" id="Ciw-Ml-tUB"/>
                     <constraint firstItem="Iuj-fa-Mg3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Jxv-4c-9SC"/>
                     <constraint firstItem="yTI-t3-8Mx" firstAttribute="leading" secondItem="LgD-Er-z6J" secondAttribute="trailing" constant="4" id="R9C-vo-WQP"/>
                     <constraint firstItem="4my-Os-Svl" firstAttribute="centerY" secondItem="uwO-GJ-L6j" secondAttribute="centerY" id="T5y-jB-Ee6"/>
@@ -74,6 +86,7 @@
                     <constraint firstItem="LgD-Er-z6J" firstAttribute="centerY" secondItem="4my-Os-Svl" secondAttribute="centerY" id="W4s-So-k8z"/>
                     <constraint firstItem="uwO-GJ-L6j" firstAttribute="leading" secondItem="Iuj-fa-Mg3" secondAttribute="trailing" id="XnO-qO-iw9"/>
                     <constraint firstItem="Iuj-fa-Mg3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="epZ-c7-3BY"/>
+                    <constraint firstItem="YEn-cV-r31" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="faK-cn-5GH"/>
                     <constraint firstItem="aHf-wb-UNx" firstAttribute="leading" secondItem="uwO-GJ-L6j" secondAttribute="leading" id="iH3-sg-uGa"/>
                     <constraint firstItem="LgD-Er-z6J" firstAttribute="leading" secondItem="4my-Os-Svl" secondAttribute="trailing" constant="4" id="iTl-1H-1dg"/>
                     <constraint firstAttribute="bottom" secondItem="aHf-wb-UNx" secondAttribute="bottom" constant="8" id="kWl-Z5-7eQ"/>

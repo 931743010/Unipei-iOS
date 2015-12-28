@@ -28,12 +28,25 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDH-6S-ZyK">
+                        <rect key="frame" x="0.0" y="42" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.70006707702020199" green="0.70006707702020199" blue="0.70006707702020199" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="uMC-ra-qZT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.20529513888888884" green="0.20529513888888884" blue="0.20529513888888884" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SF6-5N-SBS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="23" id="Brd-Zo-Ypb"/>
                     <constraint firstItem="SF6-5N-SBS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="M7v-SV-SbZ"/>
                     <constraint firstItem="2eb-SA-lbP" firstAttribute="centerY" secondItem="SF6-5N-SBS" secondAttribute="centerY" id="SGE-5T-oQq"/>
+                    <constraint firstAttribute="trailing" secondItem="yDH-6S-ZyK" secondAttribute="trailing" id="TBL-FH-QeL"/>
                     <constraint firstAttribute="trailing" secondItem="2eb-SA-lbP" secondAttribute="trailing" constant="8" id="Xvo-fA-02r"/>
+                    <constraint firstItem="yDH-6S-ZyK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="agq-lt-XE1"/>
+                    <constraint firstAttribute="bottom" secondItem="yDH-6S-ZyK" secondAttribute="bottom" id="cQd-iN-OYr"/>
                     <constraint firstItem="2eb-SA-lbP" firstAttribute="leading" secondItem="SF6-5N-SBS" secondAttribute="trailing" id="li9-wk-Pnu"/>
                 </constraints>
             </tableViewCellContentView>
