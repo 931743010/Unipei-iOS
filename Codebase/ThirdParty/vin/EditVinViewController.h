@@ -13,9 +13,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *vinImageView;
 @property (weak, nonatomic) IBOutlet UITextField *vinTextField;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (weak, nonatomic) IBOutlet UILabel *lblPrompt;
 
 
-
+@property(nonatomic,copy) NSString *scanType;  //识别类型
 @property(nonatomic,copy) NSString *vinResultTxt;
 @property(nonatomic,strong) UIImage *vinResultImage;
 

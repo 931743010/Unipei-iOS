@@ -538,7 +538,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 -(void)navigateToEditVinViewController
 {
-    NSLog(@"==navigateToEditVinViewController");
+    _editVinViewController.scanType = self.scanType;
     [self.navigationController pushViewController:_editVinViewController animated:YES];
 }
 

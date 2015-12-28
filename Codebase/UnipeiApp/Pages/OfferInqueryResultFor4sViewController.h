@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DymBaseVC.h"
 
-@interface OfferInqueryResultFor4sViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface OfferInqueryResultFor4sViewController : DymBaseVC<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) NSArray *allfoursList;
 @property (strong, nonatomic) NSString *titleContent;

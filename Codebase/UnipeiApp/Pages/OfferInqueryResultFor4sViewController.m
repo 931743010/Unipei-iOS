@@ -27,20 +27,23 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.navigationItem.title = @"4S报价查询结果";
 
     OfferInquery4sHeaderView *headerView = [OfferInquery4sHeaderView new];
     
-//    NSString *title = [self.titleContent stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet ]];
-    
-//    [title stringByReplacingOccurrencesOfString: @"\r" withString:@""];
-//    [title stringByReplacingOccurrencesOfString: @"\n" withString:@""];
-    
     NSString *title = [self trim :self.titleContent];
     
     headerView.lblCarName.text = title;
     self.tableView.tableHeaderView = headerView;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    if ([_allfoursList count]==0) {
+        [self showEmptyView:YES text:@"暂无报价信息"];
+    }
+    
 }
 
 -(NSString *)trim:(NSString *)string{

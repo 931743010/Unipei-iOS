@@ -20,14 +20,25 @@
 #import "NSString+GGAddOn.h"
 #import "JPDesignSpec.h"
 #import "OfferInqueryResultFor4sViewController.h"
+#import "CameraViewController.h"
+#import "DymNavigationController.h"
 
 
-@interface UNP4sQueryVC () <UITextFieldDelegate> {
+static NSString *VIN = @"VIN码";
+static NSString *OE = @"OE号";
+
+
+@interface UNP4sQueryVC () <UITextFieldDelegate,CameraDelegate> {
     
     UNPCarModelChooseVM     *_carModelChooseVM;
     NSString                *_vinString;
     
     id                      _vinInfo;
+    CameraViewController *_cameraView ;
+    DymBaseRespModel *_vinScanReturnValue;
+    DymBaseRespModel *_veScanReturnValue;
+    NSString *_vinCode;
+    NSString *_veCode;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *bgChooseModel;
@@ -81,9 +92,21 @@
     _tfVinCode.backgroundColor = _tfOE.backgroundColor = _tfPart.backgroundColor = [UIColor clearColor];
     _tfVinCode.textField.placeholder = @"请输入17位Vin码字符/扫一扫";
     _tfVinCode.textField.delegate = self;
+    
+    [[ _tfVinCode.rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+            @strongify(self)
+            [self takeVinPhoto];
+     }];
     _tfVinCode.textField.returnKeyType = UIReturnKeySearch;
     
     _tfOE.textField.placeholder = @"请输入OE号/扫一扫";
+    [[ _tfOE.rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self)
+        [self takeVEPhoto];
+    }];
+
+    
+    
     _tfPart.textField.placeholder = @"请填写配件名称";
     _tfPart.rightButton.hidden = YES;
     
@@ -104,6 +127,11 @@
     [self.observerQueue addObject:observer];
     
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleVinCodeRec:) name:JP_NOTIFICATION_VIN_CODE_RECOGNIZED object:nil];
+    
+
+    
+    
     // 按钮事件
     [[_btnChooseModel rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
@@ -121,6 +149,12 @@
         @strongify(self)
         [self actionSubmit];
     }];
+    
+    
+    //vin 识别
+    _cameraView= [[CameraViewController alloc]init];
+    _cameraView.nsCompanyName = @"北京嘉配科技有限公司";
+    _cameraView.delegate = self;
 }
 
 
@@ -186,6 +220,51 @@
     }
 }
 
+
+- (void)takeVinPhoto {
+        DymNavigationController *nc = [[DymNavigationController alloc] initWithRootViewController:_cameraView];
+         _cameraView.scanType = VIN;
+        _cameraView.navigationController.navigationBarHidden = YES;
+        [self presentViewController:nc animated:YES completion:nil];
+}
+
+- (void)takeVEPhoto {
+    DymNavigationController *nc = [[DymNavigationController alloc] initWithRootViewController:_cameraView];
+    _cameraView.scanType = OE;
+    _cameraView.navigationController.navigationBarHidden = YES;
+    [self presentViewController:nc animated:YES completion:nil];
+}
+
+-(void)handleVinCodeRec:(NSNotification *)note {
+    
+//    self.vinCode = note.object[@"vinCode"];
+    
+    //            cjmc = "奇瑞汽车";
+    //            cx = "1.3L 手动舒适型";  //车系
+    //            cxi = A1;
+    //            isexist = 1;
+    //            makeID = 1000000;
+    //            modelID = 1001004;
+    //            nk = 2008;
+    //            pp = "奇瑞";
+    //            seriesID = 1001000;
+    //            txt = "奇瑞汽车 奇瑞 A1 2008 1.3L 手动舒适型";
+    
+    NSString *scanType = note.object[@"scanType"];
+    NSLog(@"scanType = %@",scanType);
+    NSString *code = note.object[@"vinCode"];
+    if ([scanType isEqualToString:VIN]) {
+        _vinString = code;
+        _tfVinCode.textField.text = code;
+        [self formatingTfInputVin];
+        [self validateVinCode];
+    }
+    if ([scanType isEqualToString:OE]) {
+        _tfOE.textField.text = code;
+    }
+
+//    [self.tableView reloadData];
+}
 
 -(OfferInqueryResultFor4sViewController *)getOfferInqueryResultFor4sVC{
     OfferInqueryResultFor4sViewController *offerVC = (OfferInqueryResultFor4sViewController *)
@@ -290,6 +369,38 @@
     return YES;
 }
 
+
+-(void) validateVinCode{
+  @weakify(self)
+    if (_vinString.length < 10) {
+        [[JLToast makeTextQuick:@"VIN码必须大于10位"] show];
+    } else {
+        DymCommonApi *api = [DymCommonApi new];
+        api.relativePath = PATH_commonApi_getVinInfo;
+        api.custom_organIdKey = @"organID";
+        api.params = @{@"vinCode": _vinString};
+        //            api.params = @{@"vinCode": @"LFV3B28RXC3003666"};
+        [[DymRequest commonApiSignal:api queue:self.apiQueue] subscribeNext:^(DymBaseRespModel *result) {
+            @strongify(self)
+            if (result.success) {
+                self->_vinInfo = result.body;
+                self.lblMessage.textColor = [JPDesignSpec colorGrayDark];
+                
+                NSString *message = [NSString stringWithFormat:@"%@", result.body[@"txt"]];
+                self.lblMessage.text = message;
+                if (result.body[@"modelID"]) {
+                    [self->_btnChooseModel setTitle:result.body[@"txt"] forState:UIControlStateNormal];
+                }
+            } else {
+                self->_vinInfo = nil;
+                self.lblMessage.textColor = [[UIColor redColor] colorWithAlphaComponent:0.8];
+                self.lblMessage.text = @"此VIN码未能匹配到任何车型";
+            }
+        }];
+    }
+}
+
+
 -(void)textFieldDidEndEditing:(UITextField *)textField {
     if (textField == _tfVinCode.textField) {
         _tfVinCode.textField.text = [_tfVinCode.textField.text uppercaseString];
@@ -324,5 +435,12 @@
     });
 }
 
+
+
+#pragma mark - CamaraDelegate
+//识别核心初始化结果，判断核心是否初始化成功
+- (void)initVinTyperWithResult:(int)nInit{
+    NSLog(@"识别核心初始化结果nInit>>>%d<<<",nInit);
+}
 
 @end
