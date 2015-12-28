@@ -18,6 +18,7 @@
 #import <UnipeiApp-Swift.h>
 #import <Masonry/Masonry.h>
 #import "JPSensibleButton.h"
+#import "UNPAgreementVC.h"
 
 
 @interface UNPLoginVC () <UIPickerViewDataSource, UIPickerViewDelegate> {
@@ -119,23 +120,27 @@
              
              if (result.success) { // 登录成功
                  
-                 result.loginUsername = self.tfUsername.text;
-                 result.loginPassword = self.tfPassword.text;
-                 
-                 [JPAppStatus archiveShopLoginResult:result];
-                 NSLog(@">>>>>>>%@<<<<<<<<",[JPAppStatus loginInfo]);
-                 
-                 [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-                 
-                 [[NSNotificationCenter defaultCenter] postNotificationName:JP_NOTIFICATION_USER_LOGGED_IN object:nil];
-                 
-                 /// 根据isExamine进行跳转
-//                 if (![result.isExamine boolValue]) {
-//                     UIViewController *vc = [DymStoryboard repairShopFillProfileNC];
-//                     [self.navigationController pushViewController:vc animated:YES];
-//                 } else {
-//                     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//                 }
+                 //
+                 if ([result.status integerValue] == kJPLoginStatusNotActivated) {
+                     // 未激活
+                     UNPAgreementVC *vc = [UNPAgreementVC newFromStoryboard];
+                     [self.navigationController pushViewController:vc animated:YES];
+                     
+                 } else if ([result.status integerValue] == kJPLoginStatusProfileNotCompleted) {
+                     // 需要完善资料
+                 } else {
+                     // 正常登录
+                     
+                     result.loginUsername = self.tfUsername.text;
+                     result.loginPassword = self.tfPassword.text;
+                     
+                     [JPAppStatus archiveShopLoginResult:result];
+                     NSLog(@">>>>>>>%@<<<<<<<<",[JPAppStatus loginInfo]);
+                     
+                     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                     
+                     [[NSNotificationCenter defaultCenter] postNotificationName:JP_NOTIFICATION_USER_LOGGED_IN object:nil];
+                 }
                  
                  
              } else {

@@ -54,22 +54,20 @@
 		6BD283F11BF9B490000E9348 /* UNPMessageOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD283EF1BF9B490000E9348 /* UNPMessageOrderCell.m */; };
 		6BD283F21BF9B490000E9348 /* UNPMessageOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BD283F01BF9B490000E9348 /* UNPMessageOrderCell.xib */; };
 		6BD283FB1BFAD4C5000E9348 /* UNPSystemMessageDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD283F91BFAD4C5000E9348 /* UNPSystemMessageDetailVC.m */; };
-
-		943BA2241C2D27E700461411 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 943BA2231C2D27E700461411 /* UIView+Layout.m */; settings = {ASSET_TAGS = (); }; };
-		94F426541C2BD5E400E96FE3 /* CouponVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426521C2BD5E400E96FE3 /* CouponVC.m */; settings = {ASSET_TAGS = (); }; };
-		94F426551C2BD5E400E96FE3 /* CouponVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F426531C2BD5E400E96FE3 /* CouponVC.xib */; settings = {ASSET_TAGS = (); }; };
-		94F4265D1C2BD5F300E96FE3 /* IPDashedBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426571C2BD5F300E96FE3 /* IPDashedBorderedView.m */; settings = {ASSET_TAGS = (); }; };
-		94F4265E1C2BD5F300E96FE3 /* IPDashedLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426591C2BD5F300E96FE3 /* IPDashedLineView.m */; settings = {ASSET_TAGS = (); }; };
-		94F4266A1C2BD60600E96FE3 /* UnusedCoupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426621C2BD60600E96FE3 /* UnusedCoupon.m */; settings = {ASSET_TAGS = (); }; };
-		94F4266B1C2BD60600E96FE3 /* UnusedCoupon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F426631C2BD60600E96FE3 /* UnusedCoupon.xib */; settings = {ASSET_TAGS = (); }; };
-		94F4266C1C2BD60600E96FE3 /* UnusedCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426651C2BD60600E96FE3 /* UnusedCouponCell.m */; settings = {ASSET_TAGS = (); }; };
-		94F4266D1C2BD60600E96FE3 /* UnusedCouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F426661C2BD60600E96FE3 /* UnusedCouponCell.xib */; settings = {ASSET_TAGS = (); }; };
-		94F4266E1C2BD60600E96FE3 /* UsedCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426681C2BD60600E96FE3 /* UsedCouponCell.m */; settings = {ASSET_TAGS = (); }; };
-		94F4266F1C2BD60600E96FE3 /* UsedCouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F426691C2BD60600E96FE3 /* UsedCouponCell.xib */; settings = {ASSET_TAGS = (); }; };
-		94F426711C2BD6DA00E96FE3 /* UNPChatHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426701C2BD6DA00E96FE3 /* UNPChatHomeVC.m */; settings = {ASSET_TAGS = (); }; };
-		94F426741C2BF56100E96FE3 /* CouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426731C2BF56100E96FE3 /* CouponModel.m */; settings = {ASSET_TAGS = (); }; };
-		94F4267A1C2BF90100E96FE3 /* CouponModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426791C2BF90100E96FE3 /* CouponModelManager.m */; settings = {ASSET_TAGS = (); }; };
-
+		943BA2241C2D27E700461411 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 943BA2231C2D27E700461411 /* UIView+Layout.m */; };
+		94F426541C2BD5E400E96FE3 /* CouponVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426521C2BD5E400E96FE3 /* CouponVC.m */; };
+		94F426551C2BD5E400E96FE3 /* CouponVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F426531C2BD5E400E96FE3 /* CouponVC.xib */; };
+		94F4265D1C2BD5F300E96FE3 /* IPDashedBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426571C2BD5F300E96FE3 /* IPDashedBorderedView.m */; };
+		94F4265E1C2BD5F300E96FE3 /* IPDashedLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426591C2BD5F300E96FE3 /* IPDashedLineView.m */; };
+		94F4266A1C2BD60600E96FE3 /* UnusedCoupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426621C2BD60600E96FE3 /* UnusedCoupon.m */; };
+		94F4266B1C2BD60600E96FE3 /* UnusedCoupon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F426631C2BD60600E96FE3 /* UnusedCoupon.xib */; };
+		94F4266C1C2BD60600E96FE3 /* UnusedCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426651C2BD60600E96FE3 /* UnusedCouponCell.m */; };
+		94F4266D1C2BD60600E96FE3 /* UnusedCouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F426661C2BD60600E96FE3 /* UnusedCouponCell.xib */; };
+		94F4266E1C2BD60600E96FE3 /* UsedCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426681C2BD60600E96FE3 /* UsedCouponCell.m */; };
+		94F4266F1C2BD60600E96FE3 /* UsedCouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F426691C2BD60600E96FE3 /* UsedCouponCell.xib */; };
+		94F426711C2BD6DA00E96FE3 /* UNPChatHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426701C2BD6DA00E96FE3 /* UNPChatHomeVC.m */; };
+		94F426741C2BF56100E96FE3 /* CouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426731C2BF56100E96FE3 /* CouponModel.m */; };
+		94F4267A1C2BF90100E96FE3 /* CouponModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426791C2BF90100E96FE3 /* CouponModelManager.m */; };
 		EA02BBD11BBB722D008C7C73 /* JPDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EA02BBCE1BBB722D008C7C73 /* JPDatePicker.m */; };
 		EA02BBD51BBB7252008C7C73 /* JPDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA02BBD21BBB7252008C7C73 /* JPDatePicker.xib */; };
 		EA05189C1BCF48D500D8F82F /* UNPInquiryAddressModifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA05189B1BCF48D500D8F82F /* UNPInquiryAddressModifyVC.m */; };
@@ -99,6 +97,10 @@
 		EA38D4251BF459DA00C93243 /* MediaToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA38D4241BF459DA00C93243 /* MediaToolbox.framework */; };
 		EA38D4271BF459E700C93243 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA38D4261BF459E700C93243 /* AVFoundation.framework */; };
 		EA38D4291BF45A0700C93243 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA38D4281BF45A0700C93243 /* AudioToolbox.framework */; };
+		EA3A078A1C30D2130040B825 /* xlc_xy.html in Resources */ = {isa = PBXBuildFile; fileRef = EA3A07891C30D2130040B825 /* xlc_xy.html */; };
+		EA3A078E1C30D2E70040B825 /* UNPAgreementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3A078D1C30D2E70040B825 /* UNPAgreementVC.m */; };
+		EA3A07911C30D30C0040B825 /* UNPChangeInitPwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3A07901C30D30C0040B825 /* UNPChangeInitPwdVC.m */; };
+		EA3A07931C30D34B0040B825 /* Unipei_User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3A07921C30D34B0040B825 /* Unipei_User.storyboard */; };
 		EA431A111C2CD6FB004E7AD8 /* Unipei_4S.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA431A101C2CD6FB004E7AD8 /* Unipei_4S.storyboard */; };
 		EA431A151C2CDA96004E7AD8 /* JPBorderedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EA431A141C2CDA96004E7AD8 /* JPBorderedTextField.m */; };
 		EA431A191C2CF048004E7AD8 /* UNP4sQueryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA431A181C2CF048004E7AD8 /* UNP4sQueryVC.m */; };
@@ -472,6 +474,12 @@
 		EA38D4241BF459DA00C93243 /* MediaToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaToolbox.framework; path = System/Library/Frameworks/MediaToolbox.framework; sourceTree = SDKROOT; };
 		EA38D4261BF459E700C93243 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EA38D4281BF45A0700C93243 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EA3A07891C30D2130040B825 /* xlc_xy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = xlc_xy.html; sourceTree = "<group>"; };
+		EA3A078C1C30D2E70040B825 /* UNPAgreementVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNPAgreementVC.h; sourceTree = "<group>"; };
+		EA3A078D1C30D2E70040B825 /* UNPAgreementVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNPAgreementVC.m; sourceTree = "<group>"; };
+		EA3A078F1C30D30C0040B825 /* UNPChangeInitPwdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNPChangeInitPwdVC.h; sourceTree = "<group>"; };
+		EA3A07901C30D30C0040B825 /* UNPChangeInitPwdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNPChangeInitPwdVC.m; sourceTree = "<group>"; };
+		EA3A07921C30D34B0040B825 /* Unipei_User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Unipei_User.storyboard; sourceTree = "<group>"; };
 		EA431A101C2CD6FB004E7AD8 /* Unipei_4S.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Unipei_4S.storyboard; sourceTree = "<group>"; };
 		EA431A131C2CDA96004E7AD8 /* JPBorderedTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPBorderedTextField.h; sourceTree = "<group>"; };
 		EA431A141C2CDA96004E7AD8 /* JPBorderedTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPBorderedTextField.m; sourceTree = "<group>"; };
@@ -1158,6 +1166,17 @@
 			path = vin;
 			sourceTree = "<group>";
 		};
+		EA3A078B1C30D2A30040B825 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EA3A078C1C30D2E70040B825 /* UNPAgreementVC.h */,
+				EA3A078D1C30D2E70040B825 /* UNPAgreementVC.m */,
+				EA3A078F1C30D30C0040B825 /* UNPChangeInitPwdVC.h */,
+				EA3A07901C30D30C0040B825 /* UNPChangeInitPwdVC.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		EA431A121C2CDA5C004E7AD8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1220,8 +1239,10 @@
 				FA5E502A1C040F20004E04EE /* Unipei_Dealer.storyboard */,
 				FA5AB5701C2BDC5000E1FB6F /* Unipei_Lottery.storyboard */,
 				EA431A101C2CD6FB004E7AD8 /* Unipei_4S.storyboard */,
+				EA3A07921C30D34B0040B825 /* Unipei_User.storyboard */,
 				EA61F1C01BA6BD4600858DDC /* Images.xcassets */,
 				EA61F1C21BA6BD4600858DDC /* LaunchScreen.xib */,
+				EA3A07891C30D2130040B825 /* xlc_xy.html */,
 				EA61F1B31BA6BD4600858DDC /* Supporting Files */,
 			);
 			path = UnipeiApp;
@@ -1239,6 +1260,7 @@
 		EA61F2081BA6C23000858DDC /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				EA3A078B1C30D2A30040B825 /* User */,
 				EA431A161C2CF01A004E7AD8 /* 4S */,
 				FA4A191D1C2AA813008ECB4C /* Lottery */,
 				EA06F3401C06D2AD002C728D /* Intro */,
@@ -2008,6 +2030,7 @@
 				EA4E497C1BDF6E860012BC8F /* Common.storyboard in Resources */,
 				6BD283F21BF9B490000E9348 /* UNPMessageOrderCell.xib in Resources */,
 				EA38D41E1BF4572200C93243 /* license.lic in Resources */,
+				EA3A07931C30D34B0040B825 /* Unipei_User.storyboard in Resources */,
 				EA02BBD51BBB7252008C7C73 /* JPDatePicker.xib in Resources */,
 				6B9776691BF5726200226927 /* UNPPersonalInformationVC.xib in Resources */,
 				6B9776871BF5E95A00226927 /* UNPMessageClassifyCell.xib in Resources */,
@@ -2024,6 +2047,7 @@
 				6B9776781BF5794700226927 /* UNPAccountSecurityVC.xib in Resources */,
 				EA61F1C41BA6BD4600858DDC /* LaunchScreen.xib in Resources */,
 				FA5E502B1C040F20004E04EE /* Unipei_Dealer.storyboard in Resources */,
+				EA3A078A1C30D2130040B825 /* xlc_xy.html in Resources */,
 				FA4C76721BFDAF6A00E90477 /* JPDealerChooseCell.xib in Resources */,
 				94F4266D1C2BD60600E96FE3 /* UnusedCouponCell.xib in Resources */,
 				FA5AB5711C2BDC5000E1FB6F /* Unipei_Lottery.storyboard in Resources */,
@@ -2141,6 +2165,7 @@
 				EABE87AA1BA947FA00FEFC35 /* UNPHomepageVC.m in Sources */,
 				EAFB9EA11BBA5B810053A9D0 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				94F4266C1C2BD60600E96FE3 /* UnusedCouponCell.m in Sources */,
+				EA3A07911C30D30C0040B825 /* UNPChangeInitPwdVC.m in Sources */,
 				EA70A00D1C20FF88006C3793 /* UIView+TintMe.m in Sources */,
 				EABE46671BB5441D00901B88 /* UNPOfferSheetVC.m in Sources */,
 				EAFB9E6B1BBA5B810053A9D0 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
@@ -2220,6 +2245,7 @@
 				EA61F1E51BA6BE9100858DDC /* JPDesignSpec.m in Sources */,
 				EAB84F961BE0C2BC00D1A520 /* OrderApi_GetSysGoods.m in Sources */,
 				EAD3BBA01BDDC49F005DEDFB /* OrderApi_OrderList.m in Sources */,
+				EA3A078E1C30D2E70040B825 /* UNPAgreementVC.m in Sources */,
 				6B777DCD1BE8A129003DC752 /* MyOrderFilterSellernameCell.m in Sources */,
 				EA2489ED1BB12D2A0044E34D /* InquiryApi_FindGcategoryGrandchild.m in Sources */,
 				EAF6F6B21BE2230100099EE9 /* JPOrderTrackCell.m in Sources */,

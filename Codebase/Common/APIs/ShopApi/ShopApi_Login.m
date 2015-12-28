@@ -49,6 +49,7 @@
              , @"logo": @"body.logo"
              , @"unionID": @"body.unionID"
              , @"isMain":@"body.isMain"
+             , @"status": @"body.status"
              };
 }
 
