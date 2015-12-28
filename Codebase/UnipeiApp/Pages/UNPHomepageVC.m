@@ -22,9 +22,6 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "NoticeVC.h"
 
-#import "UNP4sQueryVC.h"
-
-
 @interface UNPHomepageVC () {
     UITableViewCell     *_headerCell;
     UITableViewCell     *_menuCell;
@@ -208,10 +205,8 @@
     } else if (section == 1) {
         return 1;
     } else if (section == 2) {
-        if (_noticeData.count == 0) {
-            return 1;
-        }
         return _noticeData.count;
+//        return 5;
     }
     
     return 0;
@@ -275,7 +270,7 @@
             
             _btnInquiry.ivLogo.image = [UIImage imageNamed:@"icon_home_inquiry"];
             _btnDealer.ivLogo.image = [UIImage imageNamed:@"icon_home_dealer"];
-            _btn4S.ivLogo.image = [UIImage imageNamed:@"home_btn_4s"];
+            _btn4S.ivLogo.image = [UIImage imageNamed:@"icon_home_4s"];
             
             _btnInquiry.lblTitle.text = @"询报价";
             _btnDealer.lblTitle.text = @"经销商";
@@ -293,15 +288,7 @@
             
             [[_btnDealer rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
                 self.tabBarController.selectedIndex = 2;
-                
             }];
-            
-            [[_btn4S rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-                UNP4sQueryVC *vc = [UNP4sQueryVC newFromStoryboard];
-                vc.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:vc animated:YES];
-            }];
-            
         }
         
         return _menuCell;
@@ -311,33 +298,18 @@
 //  {"id": 2,  "imgUrl": "servicer/images/notices/201512221137057608.png",  "createTime": 1450688400,   "title": "test1",  "updateTime": 0, "digest": "test1"   "url": "http://www.dev.jiaparts.com/2"},
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsItemCell" forIndexPath:indexPath];
-            
+        
         UILabel *lblMessage = (UILabel *)([cell.contentView viewWithTag:100]);
+        lblMessage.text = [NSString stringWithFormat:@"%@",_noticeData[indexPath.row][@"title"]];
         
         UILabel *lblTime = (UILabel *)([cell.contentView viewWithTag:101]);
-        
-        UIImageView *ivIsNew = (UIImageView *)[cell.contentView viewWithTag:102];
-        
-        if (_noticeData.count == 0) {
-            
-            lblMessage.text = @"暂无公告";
-            lblTime.text = nil;
-            
-        }else{
-            BOOL isTop = [_noticeData[indexPath.row][@"isTop"] boolValue];
-            if (isTop) {
-                ivIsNew.hidden = NO;
-            }
-            //TODO 判断ivIsnew是否显示
-            lblMessage.text = [NSString stringWithFormat:@"%@",_noticeData[indexPath.row][@"title"]];
-            
-            CGFloat ff = [_noticeData[indexPath.row][@"createTime"] doubleValue];
-            lblTime.text = [JPUtils dateStringFromStamp:ff];
-
-        }
+        CGFloat ff = [_noticeData[indexPath.row][@"createTime"] doubleValue];
+        lblTime.text = [JPUtils dateStringFromStamp:ff];
         
         return cell;
+        
     }
+    
     
     return [UITableViewCell new];
 }
@@ -377,15 +349,10 @@
     
     if (indexPath.section == 2) {
         
-        if (_noticeData.count > 0) {
-            
-            NoticeVC *vc = [[NoticeVC alloc] init];
-            vc.hidesBottomBarWhenPushed = YES;
-            vc.dataDic = _noticeData[indexPath.row];
-            [self.navigationController pushViewController:vc animated:YES];
-            
-        }
-
+        NoticeVC *vc = [[NoticeVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.dataDic = _noticeData[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
 //        [[JLToast makeTextQuick:@"公告系统正在完善中"] show];
     }
 }

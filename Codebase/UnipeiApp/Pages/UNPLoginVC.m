@@ -18,8 +18,6 @@
 #import <UnipeiApp-Swift.h>
 #import <Masonry/Masonry.h>
 #import "JPSensibleButton.h"
-#import "UNPRegistedVC.h"
-#import "UNPAgreementVC.h"
 
 
 @interface UNPLoginVC () <UIPickerViewDataSource, UIPickerViewDelegate> {
@@ -31,7 +29,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnPeek;
 @property (weak, nonatomic) IBOutlet UITextField *tfPassword;
 @property (weak, nonatomic) IBOutlet UITextField *tfUsername;
-@property (weak, nonatomic) IBOutlet UIButton *btnRegiste;
 
 @end
 
@@ -90,7 +87,6 @@
     }];
     
     RAC(self.btnLogin, enabled) = signInValidSignal;
-    RAC(self.btnRegiste, enabled) = signInValidSignal;
     
 //    [signInValidSignal subscribeNext:^(NSNumber *signInValid) {
 //        @strongify(self)
@@ -123,28 +119,23 @@
              
              if (result.success) { // 登录成功
                  
-                 //
-                 if ([result.status integerValue] == kJPLoginStatusNotActivated) {
-                     // 未激活
-                     UNPAgreementVC *vc = [UNPAgreementVC newFromStoryboard];
-                     vc.loginInfo = result;
-                     [self.navigationController pushViewController:vc animated:YES];
-                     
-                 } else if ([result.status integerValue] == kJPLoginStatusProfileNotCompleted) {
-                     // 需要完善资料
-                 } else {
-                     // 正常登录
-                     
-                     result.loginUsername = self.tfUsername.text;
-                     result.loginPassword = self.tfPassword.text;
-                     
-                     [JPAppStatus archiveShopLoginResult:result];
-                     NSLog(@">>>>>>>%@<<<<<<<<",[JPAppStatus loginInfo]);
-                     
-                     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-                     
-                     [[NSNotificationCenter defaultCenter] postNotificationName:JP_NOTIFICATION_USER_LOGGED_IN object:nil];
-                 }
+                 result.loginUsername = self.tfUsername.text;
+                 result.loginPassword = self.tfPassword.text;
+                 
+                 [JPAppStatus archiveShopLoginResult:result];
+                 NSLog(@">>>>>>>%@<<<<<<<<",[JPAppStatus loginInfo]);
+                 
+                 [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                 
+                 [[NSNotificationCenter defaultCenter] postNotificationName:JP_NOTIFICATION_USER_LOGGED_IN object:nil];
+                 
+                 /// 根据isExamine进行跳转
+//                 if (![result.isExamine boolValue]) {
+//                     UIViewController *vc = [DymStoryboard repairShopFillProfileNC];
+//                     [self.navigationController pushViewController:vc animated:YES];
+//                 } else {
+//                     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//                 }
                  
                  
              } else {
@@ -156,12 +147,6 @@
          }
          
      }];
-    
-    //注册 跳注册页面
-    [[self.btnRegiste rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        UNPRegistedVC *vc = [[UNPRegistedVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
     
     ///
     [self updateServerPicker];

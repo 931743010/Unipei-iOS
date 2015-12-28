@@ -23,12 +23,13 @@
 -(Class)responseModelClass {
     return [ShopApi_Login_Result class];
 }
-
--(NSString *)apiVersionString {
-    return @"V2.2";
-}
-
+//-(NSString *)apiVersionString{
+//    
+//    return @"V2.2";
+//    
+//}
 @end
+
 
 
 
@@ -49,7 +50,6 @@
              , @"logo": @"body.logo"
              , @"unionID": @"body.unionID"
              , @"isMain":@"body.isMain"
-             , @"status": @"body.status"
              };
 }
 

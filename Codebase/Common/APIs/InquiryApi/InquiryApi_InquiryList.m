@@ -96,8 +96,6 @@
         return @"已拒绝";
     } else if (status == kJPInquiryStatusInvalidated) {
         return @"已失效";
-    } else if (status == kJPInquiryStatusHandling) {
-        return @"正在处理中";
     }
     
     return nil;

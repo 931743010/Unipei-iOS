@@ -14,7 +14,6 @@
 #import "JPSidePopVC.h"
 #import <Masonry/Masonry.h>
 #import "UNPIntroVC.h"
-#import "UNP4sQueryVC.h"
 
 @interface UNPDeveloperVC () {
     NSArray             *_testCases;
@@ -92,9 +91,8 @@
     
     if (indexPath.section == 0) {
         
-        UNP4sQueryVC *vc = [UNP4sQueryVC newFromStoryboard];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        UNPIntroVC *vc = [UNPIntroVC new];
+        [self presentViewController:vc animated:NO completion:nil];
         
         return;
     }
@@ -117,7 +115,7 @@
     
     if (indexPath.section == 0) {
         
-        cell.textLabel.text = @"4S查询";
+        cell.textLabel.text = @"引导页面";
         
         return cell;
     }

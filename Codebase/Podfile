@@ -1,5 +1,5 @@
 platform :ios, '8.0'
-   
+
 inhibit_all_warnings!
 
 link_with 'UnipeiApp'
@@ -28,4 +28,3 @@ pod 'DYMRollingBanner', '~>2.1.3'
 pod 'UIDeviceUtil', '~> 1.1.2'
 pod 'ELCImagePickerController', '~> 0.2.0'
 pod 'AXRatingView', '~> 1.0.3'
-pod 'MJRefresh', '~> 2.4.7'

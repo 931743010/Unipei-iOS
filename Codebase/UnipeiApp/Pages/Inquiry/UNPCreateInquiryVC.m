@@ -169,7 +169,6 @@
 
 
 -(void)handleVinCodeRec:(NSNotification *)note {
-    
     self.vinCode = note.object[@"vinCode"];
     
     //            cjmc = "奇瑞汽车";
@@ -369,12 +368,8 @@
         if (indexPath.row == 0) {
 //            return 48;
             return 70;
-        } else if (indexPath.row == 1) { // 选择车型按钮
-
-            return UITableViewAutomaticDimension;
-//            CGFloat height = _btnChooseModel.intrinsicContentSize.height;
-//            return height * 2;
-//            return _btnChooseModel.intrinsicContentSize.height * 2 + 32;
+        } else if (indexPath.row == 1) {
+            return _btnChooseModel.intrinsicContentSize.height * 2 + 32;
 //            return 80;
         } else if (indexPath.row == 2) {
             

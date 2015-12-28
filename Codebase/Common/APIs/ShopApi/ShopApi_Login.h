@@ -10,13 +10,6 @@
 
 static NSString  *JP_NOTIFICATION_USER_LOGGED_IN = @"JP_NOTIFICATION_USER_LOGGED_IN";
 
-
-typedef NS_ENUM(NSInteger, EJPLoginStatus) {
-    kJPLoginStatusNotActivated          = 0
-    , kJPLoginStatusOK                  = 1
-    , kJPLoginStatusProfileNotCompleted = 2
-};
-
 /// 修理厂登录API
 @interface ShopApi_Login : DymRequest
 
@@ -48,7 +41,6 @@ typedef NS_ENUM(NSInteger, EJPLoginStatus) {
 @property (copy, nonatomic) NSString * fax;
 @property (copy, nonatomic) NSString * isMain;
 @property (nonatomic, copy) NSString *channelID;
-@property (nonatomic, copy) NSString *status;
 
 
 -(void)save;

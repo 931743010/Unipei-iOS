@@ -16,8 +16,7 @@ typedef NS_ENUM(NSInteger, EJPButtonStyle) {
 // 由你配UI设计规范按钮
 @interface JPSubmitButton : UIButton
 
-@property (assign, nonatomic) EJPButtonStyle    style;
-@property (assign, nonatomic) CGFloat           verticalWhiteSpace;
+@property (assign, nonatomic) EJPButtonStyle     style;
 
 -(instancetype)initWithStyle:(EJPButtonStyle)style;
 
