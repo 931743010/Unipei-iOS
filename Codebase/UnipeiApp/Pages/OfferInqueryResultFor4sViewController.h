@@ -10,4 +10,7 @@
 
 @interface OfferInqueryResultFor4sViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property (strong, nonatomic) NSArray *allfoursList;
+@property (strong, nonatomic) NSString *titleContent;
+
 @end

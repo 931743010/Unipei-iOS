@@ -19,6 +19,8 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "NSString+GGAddOn.h"
 #import "JPDesignSpec.h"
+#import "OfferInqueryResultFor4sViewController.h"
+
 
 @interface UNP4sQueryVC () <UITextFieldDelegate> {
     
@@ -48,6 +50,10 @@
 
 +(instancetype)newFromStoryboard {
     return [[UIStoryboard storyboardWithName:@"Unipei_4S" bundle:nil] instantiateViewControllerWithIdentifier:@"UNP4sQueryVC"];
+}
+
++(instancetype)viewFromStoryboard {
+    return [[DymStoryboard unipei_Lottery_Storyboard] instantiateViewControllerWithIdentifier:@"lotterydraw"];
 }
 
 - (void)viewDidLoad {
@@ -171,9 +177,20 @@
         [[DymRequest commonApiSignal:api queue:self.apiQueue] subscribeNext:^(DymBaseRespModel *result) {
             if (result.success) {
                 NSArray *allfoursList = result.body[@"allfoursList"];
+                OfferInqueryResultFor4sViewController *offerVC = [self getOfferInqueryResultFor4sVC];
+                offerVC.allfoursList = allfoursList;
+                offerVC.titleContent= self->_btnChooseModel.titleLabel.text;
+                [self.navigationController pushViewController:offerVC animated:YES];
             }
         }];
     }
+}
+
+
+-(OfferInqueryResultFor4sViewController *)getOfferInqueryResultFor4sVC{
+    OfferInqueryResultFor4sViewController *offerVC = (OfferInqueryResultFor4sViewController *)
+    [[DymStoryboard unipei_Lottery_Storyboard] instantiateViewControllerWithIdentifier:@"offerInquery4s"];
+    return offerVC;
 }
 
 

@@ -9,7 +9,7 @@
 #import "OfferInqueryResultFor4sViewController.h"
 #import "OfferInquery4sCell.h"
 #import "OfferInquery4sHeaderView.h"
-
+#import "NSString+GGAddOn.h"
 
 @interface OfferInqueryResultFor4sViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,9 +27,17 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    self.navigationItem.title = @"4S报价查询结果";
 
     OfferInquery4sHeaderView *headerView = [OfferInquery4sHeaderView new];
-    headerView.lblCarName.text = @"长安铃木奥拓2013款1.0L手动20周年限量版-木奥拓2013款1.0L手动20周年限量版";
+    
+    NSString *title = [self.titleContent stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet ]];
+    
+    [title stringByReplacingOccurrencesOfString: @"\r" withString:@""];
+    [title stringByReplacingOccurrencesOfString: @"\n" withString:@""];
+    
+    headerView.lblCarName.text = title;
     self.tableView.tableHeaderView = headerView;
 }
 
@@ -37,11 +45,38 @@
 
 #pragma mark UITableView DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return [_allfoursList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSDictionary *data= _allfoursList[indexPath.row];
+
+//    {
+//        AMOUNT = 1;
+//        MODELID = 41001001;
+//        NAME = "\U71c3\U6cb9\U6cf5";
+//        NOTE = "\U542bABS\U7535\U8111";
+//        OENO = AU7243U39U2;
+//        PARTID = 41001001000001;
+//        PRICE = "30941.63";
+//        STANDCODE = 66;
+//    }
+    
+//    @property (weak, nonatomic) IBOutlet UILabel *price;
+//
+//    @property (weak, nonatomic) IBOutlet UILabel *lblName;
+//    @property (weak, nonatomic) IBOutlet UILabel *lblCode;
+//    @property (weak, nonatomic) IBOutlet UILabel *lblOeno;
+//    @property (weak, nonatomic) IBOutlet UILabel *lblNumber;
+    
     OfferInquery4sCell *cell = [tableView dequeueReusableCellWithIdentifier:@"offerInquery4sCell" forIndexPath:indexPath];
+    cell.price.text = [data[@"PRICE"] stringValue];
+    cell.lblName.text = data[@"NAME"];
+    cell.lblCode.text = data[@"STANDCODE"];
+    cell.lblOeno.text = data[@"OENO"];
+    cell.lblNumber.text = [data[@"AMOUNT"] stringValue];
+//    41001001 MODELID
     return cell;
 }
 
