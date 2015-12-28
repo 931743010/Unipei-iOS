@@ -41,6 +41,8 @@ static NSString *NOTIFY_String_carModelSelected = @"carModelSelected";
 
 @property (nonatomic, strong, readonly) NSMutableDictionary        *allBrands;
 @property (nonatomic, strong, readonly) NSArray                    *sectionTitles;
+/// 是否隐藏不确定选项，默认为No
+@property (nonatomic, assign) BOOL              hideUnsureOptions;
 
 -(NSString *)fullName;
 

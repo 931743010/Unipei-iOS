@@ -279,7 +279,7 @@
         cell.lblQuality.text = nil;
         NSNumber *amountStr = [JPUtils numberValueSafe:goodsItem[@"quantity"]];
         if (amountStr) {
-            cell.lblAmount.text = [NSString stringWithFormat:@"x %ld", [amountStr integerValue]];
+            cell.lblAmount.text = [NSString stringWithFormat:@"x %ld", (long)[amountStr integerValue]];
         } else {
             cell.lblAmount.text = nil;
         }

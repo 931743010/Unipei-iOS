@@ -26,6 +26,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     copy->_allBrands = [self.allBrands mutableCopyWithZone:zone];
     copy->_sectionTitles = [self.sectionTitles copyWithZone:zone];
     
+    copy.hideUnsureOptions = self.hideUnsureOptions;
+    
     return copy;
 }
 
@@ -201,11 +203,13 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
                 series = [NSMutableArray array];
             }
             
-            JPCarSeries *defaultItem = [JPCarSeries new];
-            defaultItem.makeid = brand.makeid;
-            defaultItem.seriesid = @0;
-            defaultItem.name = @"不确定车系";
-            [series insertObject:defaultItem atIndex:0];
+            if (!self.hideUnsureOptions) {
+                JPCarSeries *defaultItem = [JPCarSeries new];
+                defaultItem.makeid = brand.makeid;
+                defaultItem.seriesid = @0;
+                defaultItem.name = @"不确定车系";
+                [series insertObject:defaultItem atIndex:0];
+            }
             
             _seriesVM.items = series;
         }
@@ -227,7 +231,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
             NSArray *years = result.yearList;
             NSMutableArray *yearsWithIDs = [NSMutableArray array];
             
-            [yearsWithIDs addObject:[self defaultYearWithSeriesID:series.seriesid]];
+            if (!self.hideUnsureOptions) {
+                [yearsWithIDs addObject:[self defaultYearWithSeriesID:series.seriesid]];
+            }
             
             for (NSNumber *year in years) {
                 [yearsWithIDs addObject:@{@"year": year, @"id": series.seriesid}];
@@ -260,13 +266,15 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
                 models = [NSMutableArray array];
             }
             
-            JPCarModel *defaultItem = [JPCarModel new];
-            defaultItem.modelid = @0;
-            defaultItem.name = @"不确定车型";
-            defaultItem.seriesid = series.seriesid;
-            defaultItem.makeid = series.makeid;
-            defaultItem.year = year;
-            [models insertObject:defaultItem atIndex:0];
+            if (!self.hideUnsureOptions) {
+                JPCarModel *defaultItem = [JPCarModel new];
+                defaultItem.modelid = @0;
+                defaultItem.name = @"不确定车型";
+                defaultItem.seriesid = series.seriesid;
+                defaultItem.makeid = series.makeid;
+                defaultItem.year = year;
+                [models insertObject:defaultItem atIndex:0];
+            }
             
             _modelVM.items = models;
         }

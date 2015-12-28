@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString      *apiVersion;
 
 @property (nonatomic, strong) NSString      *custom_organIdKey;
+/// organID的类型，默认是NSNumber,可以重新
 @property (nonatomic, strong) Class         custom_organIdClass;
 @property (nonatomic, strong) Class         custom_responseModelClass;
 

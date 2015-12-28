@@ -20,7 +20,7 @@
 
 //    return @"http://172.23.2.63:9080/commonApi/";  // 陈欢
 
-//首页
+//首页公告
 static NSString *PATH_commonApi_getPapSysnoticeList = @"commonApi/getPapSysnoticeList.do";
 
 //供应商
@@ -33,6 +33,7 @@ static NSString *PATH_dealerApi_getSysDealer = @"dealerApi/getSysDealer.do";
 /// 修理厂用户注册
 static NSString *PATH_userApi_login = @"userApi/login.do";
 static NSString *PATH_userApi_bindChannelID = @"userApi/bindChannelID.do";
+static NSString *PATH_userApi_saveApplyService = @"userApi/saveApplyService.do";
 
 //个人信息相关
 static NSString *PATH_userApi_updatepassword = @"userApi/updatepassword.do";
@@ -112,7 +113,7 @@ static NSString *PATH_inquiryApi_deleteReceiveAddressById = @"inquiryApi/deleteR
 static NSString *PATH_inquiryApi_findState = @"inquiryApi/findState.do";
 static NSString *PATH_inquiryApi_findCity = @"inquiryApi/findCity.do";
 static NSString *PATH_inquiryApi_findDistrict = @"inquiryApi/findDistrict.do";
-
+static NSString *PAth_inquiryApi_Coupon =@"commonApi/getCouponManage.do";//优惠劵
 
 /// 订单相关
 static NSString *PATH_orderApi_orderList = @"orderApi/orderList.do";    // 订单列表

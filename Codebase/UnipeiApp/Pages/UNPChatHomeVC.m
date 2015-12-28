@@ -19,6 +19,7 @@
 #import "JPDesignSpec.h"
 #import "JPAppStatus.h"
 #import "JPRedDotView.h"
+#import "CouponVC.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MWPhotoBrowser/MWPhotoBrowser.h>
 
@@ -101,8 +102,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _imageArr = @[@[@"1-4",@"2-1"],@[@"1-8"]];
-    _titleArr = @[@[@"管理收货地址",@"消息中心"],@[@"设置"]];
+    _imageArr = @[@[@"1-4",@"2-1",@"2-4"],@[@"1-8"]];
+    _titleArr = @[@[@"管理收货地址",@"消息中心",@"优惠劵"],@[@"设置"]];
     
     self.navigationItem.title = @"个人中心";
     
@@ -256,7 +257,10 @@
         
         return 1;
         
-    }return 2;
+    }else if (section == 1){
+        return 3;
+    }
+    return 2;
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -329,6 +333,11 @@
             UNPMessageCenterVC *vc = [[UNPMessageCenterVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
+        }else if (indexPath.row == 2){ //优惠劵
+            CouponVC *coupon = [[CouponVC alloc]init];
+            coupon.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:coupon animated:YES];
+        
         }
     
     }else if (indexPath.section == 2){

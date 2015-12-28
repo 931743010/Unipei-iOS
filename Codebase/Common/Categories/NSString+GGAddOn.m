@@ -9,6 +9,7 @@
 #import "NSString+GGAddOn.h"
 #import <CommonCrypto/CommonDigest.h>
 
+
 @implementation NSString (GGAddOn)
 
 -(NSString *)stringLimitedToLength:(NSUInteger)aLength
