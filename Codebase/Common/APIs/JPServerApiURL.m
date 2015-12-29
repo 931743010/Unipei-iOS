@@ -82,7 +82,7 @@ static BOOL has_loaded_env = NO;
     return @[
              @"http://172.23.16.80/"
              , @"http://img1.unipei.com/"
-             , @"http://172.23.6.30/"           // 武汉测试
+             , @"http://172.23.6.9/"
              , @"http://101.251.214.180:8080/"
              ];
 }
