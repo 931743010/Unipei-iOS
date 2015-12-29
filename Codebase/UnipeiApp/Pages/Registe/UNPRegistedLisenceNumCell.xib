@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="营业执照注册号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SF6-5N-SBS">
-                        <rect key="frame" x="23" y="13" width="120" height="17"/>
+                        <rect key="frame" x="8" y="13" width="120" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="D5K-2T-oF9"/>
                         </constraints>
@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="点击输入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2eb-SA-lbP">
-                        <rect key="frame" x="143" y="13" width="169" height="17"/>
+                        <rect key="frame" x="128" y="13" width="184" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
@@ -40,7 +40,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="SF6-5N-SBS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="23" id="Brd-Zo-Ypb"/>
+                    <constraint firstItem="SF6-5N-SBS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Brd-Zo-Ypb"/>
                     <constraint firstItem="SF6-5N-SBS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="M7v-SV-SbZ"/>
                     <constraint firstItem="2eb-SA-lbP" firstAttribute="centerY" secondItem="SF6-5N-SBS" secondAttribute="centerY" id="SGE-5T-oQq"/>
                     <constraint firstAttribute="trailing" secondItem="yDH-6S-ZyK" secondAttribute="trailing" id="TBL-FH-QeL"/>

@@ -265,6 +265,7 @@
         _upLoadPicCell.addPhotoView.buttonSize = 56;
         _upLoadPicCell.addPhotoView.imagePickedBlock = ^(void) {
             @strongify(self)
+            NSIndexPath *indexPath = [tableView indexPathForCell:_upLoadPicCell];
             [self.tableView reloadData];
         };
         NSArray *btnArr = @[_upLoadPicCell.btnLicense,_upLoadPicCell.btnStore,_upLoadPicCell.btnCard];
