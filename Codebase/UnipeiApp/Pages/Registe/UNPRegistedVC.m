@@ -18,6 +18,7 @@
 #import "UNPRegistedLisenceNumCell.h"
 #import "JPUtils.h"
 #import "CommonApi_UploadImage.h"
+#import <UnipeiApp-Swift.h>
 #import <Masonry/Masonry.h>
 
 @interface UNPRegistedVC ()<UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate>
@@ -299,6 +300,8 @@
         _confirmCell = [tableView dequeueReusableCellWithIdentifier:cellID ];
         _confirmCell.btnConfirm.style = kJPButtonOrange;
         _confirmCell.backgroundColor = [JPDesignSpec colorSilver];
+        //通过参数判断按钮是否可点击
+        _confirmCell.btnConfirm.enabled = [self btnConfirmIsEnabled];
         [_confirmCell.btnConfirm addTarget:self action:@selector(confirmToRegisted:) forControlEvents:UIControlEventTouchUpInside];
         _confirmCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -424,7 +427,14 @@
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
     return 44;
 }
-
+//btnConfirm是否可点击
+-(BOOL)btnConfirmIsEnabled{
+    
+    UIImage *image = _upLoadPicCell.addPhotoView.pickedPhotos.firstObject;
+    BOOL enabled = (_organname.length > 0 && _name.length > 0 && _phone.length > 0 && _province.length > 0 && _registration.length > 0 && image);
+    return enabled;
+    
+}
 #pragma mark - 推荐人、上传附件
 -(void)recommendBtnClick:(UIButton *)btn{
     
@@ -475,8 +485,12 @@
 #pragma mark - 提交注册
 -(void)confirmToRegisted:(UIButton *)btn{
     
-    UIImage *image = _upLoadPicCell.addPhotoView.pickedPhotos[0];
-    
+    NSLog(@"fuck fuck fuck");
+
+    UIImage *image = _upLoadPicCell.addPhotoView.pickedPhotos.firstObject;
+    if (!image) {
+        return;
+    }
     CommonApi_UploadImage *uploadImage = [[CommonApi_UploadImage alloc] initWithParams:
                                           @{@"pathType": @(_upLoadPath)
                                             , @"fileType": @(kJPUploadFileTypeJPEG)
@@ -492,20 +506,20 @@
             
             DymCommonApi *api = [DymCommonApi new];
             api.relativePath = PATH_userApi_saveApplyService;
-            api.params = @{@"organname":_organname,
-                           @"name":_name,
-                           @"phone":_phone,
-                           @"province":_province,
-                           @"city":_city,
-                           @"area":_area,
-                           @"address":_address,
-                           @"recommend":_recommend,
-                           @"phototype":_phototype,
-                           @"photo":result.picPath,
-                           @"recomType":_recomType,
-                           @"registration":_registration,
-                           @"servicetype":_servicetype
-                           };
+            api.params = [NSDictionary dictionaryWithObjectsAndKeys:_organname,@"organname",
+                                                                    _name,@"name",
+                                                                    _phone,@"phone",
+                                                                    _province,@"province",
+                                                                    _city,@"city",
+                                                                    _area,@"area",
+                                                                    _address,@"address",
+                                                                    _recommend,@"recommend",
+                                                                    _phototype,@"phototype",
+                                                                    result.picPath,@"photo",
+                                                                    _recomType,@"recomType",
+                                                                    _registration,@"registration",
+                                                                    _servicetype,@"servicetype",
+                                                                    nil];
             
             @weakify(self)
             [[DymRequest commonApiSignal:api queue:self.apiQueue] subscribeNext:^(DymBaseRespModel *result) {
@@ -528,7 +542,7 @@
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    
+
     if (_textFieldType == kJPRegistedTextFieldTypeOrganName) {
         _organname = textField.text;
     }else if (_textFieldType == kJPRegistedTextFieldTypeName){
@@ -542,7 +556,10 @@
     }else if (_textFieldType == kJPRegistedTextFieldTypeRegistration){
         _registration = textField.text;
     }
-    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:_confirmCell];
+    NSLog(@"%ld",indexPath.row);
+    //每次输入完刷新提交注册的cell，刷新btnConfirm的状态
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
