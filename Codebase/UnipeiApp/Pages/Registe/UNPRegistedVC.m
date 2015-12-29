@@ -132,7 +132,7 @@
 //}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    @weakify(self)
+//    @weakify(self)
     if (indexPath.row == 0) {
         
         static NSString *organName = @"organName";
@@ -316,7 +316,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     _currentIndexPath = indexPath;
-    NSLog(@"%ld",indexPath.row);
+//    NSLog(@"%ld",indexPath.row);
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -559,7 +559,7 @@
         _registration = textField.text;
     }
     NSIndexPath *indexPath = [self.tableView indexPathForCell:_confirmCell];
-    NSLog(@"%ld",indexPath.row);
+//    NSLog(@"%ld",indexPath.row);
     //每次输入完刷新提交注册的cell，刷新btnConfirm的状态
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }

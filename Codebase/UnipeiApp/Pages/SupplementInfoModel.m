@@ -25,7 +25,7 @@
     NSUInteger unitFlags = kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay | kCFCalendarUnitHour | kCFCalendarUnitMinute | kCFCalendarUnitSecond;
     NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
     for (int i=0; i<20; i++) {
-        NSString *year = [NSString stringWithFormat:@"%ld年",[dateComponent year]-i];
+        NSString *year = [NSString stringWithFormat:@"%ld年",(long)([dateComponent year]-i)];
         [yearArr addObject:year];
     }
     return yearArr;

@@ -308,7 +308,7 @@
                 cell.dataArray = [SupplementInfoModel arrayWithFactoryType];
             }
             
-            NSString *value = [_uesrSelectDic valueForKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
+            NSString *value = [_uesrSelectDic valueForKey:[NSString stringWithFormat:@"%ld", (long)indexPath.row]];
             [cell configWithStr:[SupplementInfoModel arrayWithInfo][indexPath.row]andValue:value.length ? value : @"点击选择"];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -364,7 +364,7 @@
 -(void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     _btnValue = _pickerArray[row];
     [self.infoTab reloadData];
-    [_uesrSelectDic setValue:_btnValue forKey:[NSString stringWithFormat:@"%ld",_numTag-200]];
+    [_uesrSelectDic setValue:_btnValue forKey:[NSString stringWithFormat:@"%ld",(long)(_numTag-200)]];
     [UIView animateWithDuration:0.5 animations:^{
         self->_pickerView.y  = self.view.frame.size.height;
         

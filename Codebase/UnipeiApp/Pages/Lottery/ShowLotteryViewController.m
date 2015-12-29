@@ -103,7 +103,7 @@ static NSString *cellName = @"UnusedCouponCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row==0) {
-        NSString *idName = [NSString stringWithFormat:@"showLottery%ld",indexPath.row];
+        NSString *idName = [NSString stringWithFormat:@"showLottery%ld",(long)indexPath.row];
         UITableViewCell  *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier: idName];
         cell.textLabel.font = [UIFont systemFontOfSize:13];
         cell.textLabel.text = @"红包已经放入账户中，请在[我]页查看";
@@ -150,9 +150,9 @@ static NSString *cellName = @"UnusedCouponCell";
         make.edges.equalTo(footerView).insets(UIEdgeInsetsMake(8, 16, 16, 16));
     }];
     
-    @weakify(self)
+//    @weakify(self)
     [[btnUseNow rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self)
+//        @strongify(self)
 
         //TODO
         

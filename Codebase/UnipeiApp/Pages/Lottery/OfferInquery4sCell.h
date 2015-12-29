@@ -11,7 +11,6 @@
 
 
 @interface OfferInquery4sCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @property (weak, nonatomic) IBOutlet UIView *contrainerView;
 
