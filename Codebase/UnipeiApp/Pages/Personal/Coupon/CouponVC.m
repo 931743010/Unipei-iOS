@@ -109,15 +109,15 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
     self.navigationItem.rightBarButtonItem = item;
     [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         if (!_isShowIllustrate) {
-            [UIView animateWithDuration:1 animations:^{
-                _illustrateView.y = 0;
+            [UIView animateWithDuration:0.5 animations:^{
+                self->_illustrateView.y = 0;
             }];
-            _isShowIllustrate = YES;
+            self->_isShowIllustrate = YES;
         }else{
-            [UIView animateWithDuration:1 animations:^{
-                _illustrateView.y = -250;
+            [UIView animateWithDuration:0.5 animations:^{
+                self->_illustrateView.y = -250;
             }];
-            _isShowIllustrate = NO;
+            self->_isShowIllustrate = NO;
         }
     }];
 
@@ -132,7 +132,13 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
     label.textColor = [UIColor lightGrayColor];
     [_illustrateView addSubview:label];
 }
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [UIView animateWithDuration:0.5 animations:^{
+        self->_illustrateView.y = -250;
+        
+    }];
+     _isShowIllustrate = NO;
+}
 #pragma mark - 加载数据
 -(void)loadData{
     @weakify(self);
@@ -146,9 +152,9 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
         @strongify(self);
         if (result.success) {
             NSDictionary *countDic = result.body[@"UseCondition"];
-            _unusedCount = [countDic[@"UnUsed"] intValue];
-            _usedCount = [countDic[@"Used"] intValue];
-            _pastCount = [countDic[@"Past"] intValue];
+            self->_unusedCount = [countDic[@"UnUsed"] intValue];
+            self->_usedCount = [countDic[@"Used"] intValue];
+            self->_pastCount = [countDic[@"Past"] intValue];
             [self initView];
         }
     }];

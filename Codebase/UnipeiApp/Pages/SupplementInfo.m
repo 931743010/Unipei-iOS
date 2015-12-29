@@ -27,17 +27,15 @@
 #define screen_Height [UIScreen mainScreen].bounds.size.height
 @interface SupplementInfo ()<UITableViewDataSource,UITableViewDelegate,supplementCellDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 {
-    UIView              *_pickerView;
-    UIPickerView        *_picker;
+    UIPickerView        *_pickerView;
     NSArray             *_pickerArray;
     NSString            *_btnValue;
     NSInteger           _numTag;
     NSArray             *_userInfoArray;
     NSMutableDictionary *_uesrSelectDic;
     NSArray             *_succeededUploadAPIs;
-    JPSensibleButton *_submitBtn;
-    
-    JPAddPhotoView *_addPhotosView;
+    JPSensibleButton    *_submitBtn;
+    JPAddPhotoView      *_addPhotosView;
     
 }
 @property(nonatomic,retain)UITableView *infoTab;
@@ -227,16 +225,7 @@
                                 }
                                 
                                 , @"organPhotos":photos
-                                
-//                                ,@"organName":_userInfoArray[0]
-//                                ,@"address":_userInfoArray[1]
-//                                ,@"phone":_userInfoArray[2]
-                                
-
-                               
-                               
-                                
-                                ,};
+                             };
                 
                 @weakify(self)
                 [[DymRequest commonApiSignal:api queue:nil] subscribeNext:^(DymBaseRespModel *result) {
@@ -261,10 +250,10 @@
 
 }
 -(void)loadPickerView{
-    _picker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-64, self.view.frame.size.width, 200)];
-    _picker.delegate = self;
-    _picker.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
-    [self.view addSubview:_picker];
+    _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-64, self.view.frame.size.width, 200)];
+    _pickerView.delegate = self;
+    _pickerView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
+    [self.view addSubview:_pickerView];
 
 }
 #pragma mark - 加载数据
@@ -355,9 +344,9 @@
 -(void)showPickerViewWithDate:(NSArray *)array withTag:(NSInteger)num{
     _numTag = num;
     _pickerArray = array;
-    [_picker reloadAllComponents];
+    [_pickerView reloadAllComponents];
     [UIView animateWithDuration:0.5 animations:^{
-        _picker.y  = self.view.frame.size.height-200;
+        self->_pickerView.y  = self.view.frame.size.height-200;
 
     }];
 
@@ -377,7 +366,7 @@
     [self.infoTab reloadData];
     [_uesrSelectDic setValue:_btnValue forKey:[NSString stringWithFormat:@"%ld",_numTag-200]];
     [UIView animateWithDuration:0.5 animations:^{
-        _picker.y  = self.view.frame.size.height;
+        self->_pickerView.y  = self.view.frame.size.height;
         
     }];
 }

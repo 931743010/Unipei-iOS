@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
 };
 @interface UnusedCoupon ()<UITableViewDataSource,UITableViewDelegate>
 {
-    int _page;
+    int       _page;
     NSString *_typeStr;
 }
 @property (weak, nonatomic) IBOutlet UITableView *unUsedTable;

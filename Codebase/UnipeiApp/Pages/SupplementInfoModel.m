@@ -22,16 +22,15 @@
     NSMutableArray *yearArr = [[NSMutableArray alloc]init];
     NSDate *now = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSUInteger unitFlags = kCFCalendarUnitYear | kCFCalendarUnitMonth | kCFCalendarUnitDay | kCFCalendarUnitHour | kCFCalendarUnitMinute | kCFCalendarUnitSecond;
     NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
     for (int i=0; i<20; i++) {
-        NSString *year = [NSString stringWithFormat:@"%ld年",[dateComponent year]-i ];
+        NSString *year = [NSString stringWithFormat:@"%ld年",[dateComponent year]-i];
         [yearArr addObject:year];
     }
     return yearArr;
 }
 +(NSArray *)arrayWithUsurInfo:(NSDictionary *)dic {
-  //  NSMutableArray *mArray = [[NSMutableArray alloc]init];
     return @[dic[@"organName"],dic[@"address"],dic[@"phone"]];
 }
 @end
