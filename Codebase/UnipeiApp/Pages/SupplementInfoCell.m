@@ -36,19 +36,19 @@
 - (void)awakeFromNib {
     [_lblContent mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
-        make.left.equalTo(self.nameLabel).with.offset(80);
+        make.left.equalTo(self.nameLabel).with.offset(84);
     }];
     
     [_tfContent mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
-        make.left.equalTo(self.nameLabel).with.offset(80);
+        make.left.equalTo(self.nameLabel).with.offset(84);
         make.right.equalTo(self.contentView).with.offset(-40);
         
     }];
     
     [_btnContent mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
-        make.left.equalTo(self.nameLabel).with.offset(80);
+        make.left.equalTo(self.nameLabel).with.offset(84);
         make.right.equalTo(self.contentView).with.offset(-40);
         make.height.equalTo(@40);
     }];
@@ -56,8 +56,7 @@
 
 -(void)doInit {
     _lblContent = [[UILabel alloc]init];
-    _lblContent.font = [UIFont systemFontOfSize:14];
-    _lblContent.textColor = [UIColor lightGrayColor];
+    _lblContent.font = [UIFont systemFontOfSize:17];
     [self.contentView addSubview:_lblContent];
     
     
@@ -94,6 +93,9 @@
          _tfContent.placeholder = valueStr;
      }else if (self.typeCell == 2){
          _btnContent.hidden = NO;
+         _btnContent.titleLabel.font = [UIFont systemFontOfSize:17];
+         UIColor *btnColor = [valueStr isEqualToString:@"点击选择"]?[UIColor colorWithWhite:0.5 alpha:0.4]:[UIColor blackColor];
+         [_btnContent setTitleColor:btnColor forState:UIControlStateNormal];
          [_btnContent setTitle:valueStr forState:UIControlStateNormal];
      }
     self.nameLabel.text = str;

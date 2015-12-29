@@ -50,7 +50,6 @@
     [self loadData];
     self.title = @"资料完善";
     [self initVC];
-    _btnValue = @"点击选择";
     _uesrSelectDic = [[NSMutableDictionary alloc]init];
 }
 -(UITableView *)infoTab{
@@ -69,7 +68,7 @@
     alertLabel.text = @"*为必填项";
     alertLabel.textColor = [UIColor grayColor];
     alertLabel.font = [UIFont systemFontOfSize:12];
-    alertLabel.backgroundColor = [UIColor lightGrayColor];
+    alertLabel.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.4];
     self.infoTab.tableHeaderView = alertLabel;
     
     [self.infoTab registerNib:[UINib nibWithNibName:@"SupplementInfoCell" bundle:nil] forCellReuseIdentifier:@"cellName"];
@@ -88,44 +87,35 @@
     [self loadPickerView];
  
 }
-#warning 点击提交按钮事件
-
 -(BOOL)canCommit {
     
     UITextField *tfPhone = (UITextField *)[self.infoTab viewWithTag:303];
     UITextField *tfEmail = (UITextField *)[self.infoTab viewWithTag:304];
-    if (tfPhone.text.length <= 0) {
-        [[JLToast makeTextQuick:@"座机号码不能为空"] show];
+    if (![GGPredicate checkNumeric:tfPhone.text]) {
+        [[JLToast makeTextQuick:@"座机号码格式不正确！"] show];
         [tfPhone becomeFirstResponder];
         return NO;
     } else if (![GGPredicate checkEmail:tfEmail.text]) {
-        [[JLToast makeTextQuick:@"邮箱格式不正确"] show];
+        [[JLToast makeTextQuick:@"邮箱格式不正确！"] show];
         [tfEmail becomeFirstResponder];
         return NO;
-    }
-    
-//    ,@"foundDate":_uesrSelectDic[@"5"]
-//    ,@"shopArea":_uesrSelectDic[@"6"]
-//    ,@"positionCount":_uesrSelectDic[@"7"]
-//    ,@"technicianCount":_uesrSelectDic[@"8"]
-//    ,@"parkingDigits":_uesrSelectDic[@"9"]
-    else if ([_uesrSelectDic[@"5"] length] <= 0) {
-        [[JLToast makeTextQuick:@"请选择成立年份"] show];
+    } else if ([_uesrSelectDic[@"5"] length] <= 0) {
+        [[JLToast makeTextQuick:@"请选择成立年份！"] show];
         return NO;
     } else if ([_uesrSelectDic[@"6"] length] <= 0) {
-        [[JLToast makeTextQuick:@"请选择店铺面积"] show];
+        [[JLToast makeTextQuick:@"请选择店铺面积！"] show];
         return NO;
     } else if ([_uesrSelectDic[@"7"] length] <= 0) {
-        [[JLToast makeTextQuick:@"请选择工位数"] show];
+        [[JLToast makeTextQuick:@"请选择工位数!"] show];
         return NO;
     } else if ([_uesrSelectDic[@"8"] length] <= 0) {
-        [[JLToast makeTextQuick:@"请选择技师人数"] show];
+        [[JLToast makeTextQuick:@"请选择技师人数!"] show];
         return NO;
     } else if ([_uesrSelectDic[@"9"] length] <= 0) {
-        [[JLToast makeTextQuick:@"请选择停车位数"] show];
+        [[JLToast makeTextQuick:@"请选择停车位数!"] show];
         return NO;
     } else if (_addPhotosView.pickedPhotos.count <= 0) {
-        [[JLToast makeTextQuick:@"请选择门店照片"] show];
+        [[JLToast makeTextQuick:@"请选择门店照片!"] show];
         return NO;
     }
     
@@ -210,23 +200,43 @@
                 DymCommonApi *api = [DymCommonApi new];
                 api.apiVersion = @"V2.2";
                 api.relativePath = PATH_userApi_putPerfectOrgan;
-                api.custom_organIdKey = @"organID";
                 
                 NSArray *photos = [self uploadedImageInfos];
                 
-                 api.params = @{@"organID":self.loginInfo.organID
-                                , @"token": self.loginInfo.token
-                                ,@"organName":_userInfoArray[0]
-                                ,@"address":_userInfoArray[1]
-                                ,@"phone":_userInfoArray[2]
-                                ,@"foundDate":_uesrSelectDic[@"5"]
-                                ,@"shopArea":_uesrSelectDic[@"6"]
-                                ,@"positionCount":_uesrSelectDic[@"7"]
-                                ,@"technicianCount":_uesrSelectDic[@"8"]
-                                ,@"parkingDigits":_uesrSelectDic[@"9"]
-                                ,@"telphone":tfPhone.text
-                                ,@"email":tfEmail.text
-                                ,@"organPhotos":photos};
+                NSString *foundDate = _uesrSelectDic[@"5"];
+                foundDate = [foundDate stringByReplacingOccurrencesOfString:@"年" withString:@""];
+                
+                 api.params = @{
+                                @"token": self.loginInfo.token
+                                ,@"organID":self.loginInfo.organID
+                                
+                                ,@"serviceInfo":@{
+                                     @"shopArea":_uesrSelectDic[@"6"]
+                                    ,@"positionCount":_uesrSelectDic[@"7"]
+                                    ,@"technicianCount":_uesrSelectDic[@"8"]
+                                    ,@"parkingDigits":_uesrSelectDic[@"9"]
+
+                                }
+                                
+                                ,@"organInfo":@{
+                                     @"email":tfEmail.text
+                                    ,@"foundDate":foundDate
+                                    ,@"telphone":tfPhone.text
+                                    ,@"parkingDigits":@""
+                                    
+                                }
+                                
+                                , @"organPhotos":photos
+                                
+//                                ,@"organName":_userInfoArray[0]
+//                                ,@"address":_userInfoArray[1]
+//                                ,@"phone":_userInfoArray[2]
+                                
+
+                               
+                               
+                                
+                                ,};
                 
                 @weakify(self)
                 [[DymRequest commonApiSignal:api queue:nil] subscribeNext:^(DymBaseRespModel *result) {
@@ -253,7 +263,7 @@
 -(void)loadPickerView{
     _picker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-64, self.view.frame.size.width, 200)];
     _picker.delegate = self;
-    _picker.backgroundColor = [UIColor lightGrayColor];
+    _picker.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
     [self.view addSubview:_picker];
 
 }
@@ -364,11 +374,7 @@
 }
 -(void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     _btnValue = _pickerArray[row];
-//    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:_numTag-200 inSection:0];
-    
     [self.infoTab reloadData];
-    
-//    [self.infoTab reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
     [_uesrSelectDic setValue:_btnValue forKey:[NSString stringWithFormat:@"%ld",_numTag-200]];
     [UIView animateWithDuration:0.5 animations:^{
         _picker.y  = self.view.frame.size.height;
