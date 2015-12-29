@@ -263,11 +263,12 @@
         _upLoadPicCell.addPhotoView.presentingVC = self;
         _upLoadPicCell.addPhotoView.maxPhotoCount = 1;
         _upLoadPicCell.addPhotoView.buttonSize = 56;
-        _upLoadPicCell.addPhotoView.imagePickedBlock = ^(void) {
-            @strongify(self)
-            NSIndexPath *indexPath = [tableView indexPathForCell:_upLoadPicCell];
-            [self.tableView reloadData];
-        };
+
+//        _upLoadPicCell.addPhotoView.imagePickedBlock = ^(void) {
+//            @strongify(self)
+//            NSIndexPath *indexPath = [tableView indexPathForCell:_upLoadPicCell];
+//            [self.tableView reloadData];
+//        };
         NSArray *btnArr = @[_upLoadPicCell.btnLicense,_upLoadPicCell.btnStore,_upLoadPicCell.btnCard];
         for (UIButton *btn in btnArr) {
             [btn addTarget:self action:@selector(upLoadBtnClick:) forControlEvents:UIControlEventTouchUpInside];
