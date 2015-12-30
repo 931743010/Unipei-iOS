@@ -113,8 +113,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshRollingBanners) name:JP_NOTIFICATION_USER_LOGGED_IN object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNotiveData) name:JP_NOTIFICATION_USER_LOGGED_IN object:nil];
+    
 //    [self refreshRollingBanners];
-    [self getNotiveData];
 }
 
 #pragma mark - 获取公告数据
