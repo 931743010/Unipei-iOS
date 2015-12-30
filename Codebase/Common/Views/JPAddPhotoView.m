@@ -218,7 +218,9 @@
             [self browsePhoto:x withPickEnabled:pickEnabled];
 
         }
-        
+        if (_btnClickBlock) {
+            _btnClickBlock();
+        }
     }];
     
     if (button.status!=kJPPickerEmpty) {

@@ -264,6 +264,11 @@
         _upLoadPicCell.addPhotoView.maxPhotoCount = 1;
         _upLoadPicCell.addPhotoView.buttonSize = 56;
 
+        _upLoadPicCell.addPhotoView.btnClickBlock = ^{
+        
+            [self hideServerPicker];
+            
+        };
 //        _upLoadPicCell.addPhotoView.imagePickedBlock = ^(void) {
 //            @strongify(self)
 //            NSIndexPath *indexPath = [tableView indexPathForCell:_upLoadPicCell];
@@ -324,7 +329,9 @@
         
         [self showServerPicker];
         
-    }else if (indexPath.row == 4){
+    }else{
+        [self hideServerPicker];
+        if (indexPath.row == 4){
         
             NSLog(@"choose province");
             UNPChooseProvinceVC *vc = [UNPChooseProvinceVC new];
@@ -335,7 +342,7 @@
             [self.view endEditing:YES];
         
     }
-    
+    }
 }
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -541,6 +548,7 @@
 #pragma mark - textfielddelegate
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     self.textFieldType = textField.tag;
+    [self hideServerPicker];
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
@@ -559,9 +567,9 @@
         _registration = textField.text;
     }
     NSIndexPath *indexPath = [self.tableView indexPathForCell:_confirmCell];
-//    NSLog(@"%ld",indexPath.row);
+    NSArray *indexArr = [NSArray arrayWithObject:indexPath];
     //每次输入完刷新提交注册的cell，刷新btnConfirm的状态
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadRowsAtIndexPaths:indexArr withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -34,7 +34,7 @@
 //@property (nonatomic, copy, readonly) NSArray                       *remotePhotos;
 
 @property (nonatomic, copy) dispatch_block_t    imagePickedBlock;
-
+@property (nonatomic, strong) void(^btnClickBlock)();
 /// 
 -(void)showImages:(NSArray *)images pickEnabled:(BOOL)pickEnabled;
 
