@@ -36,6 +36,9 @@ static NSString *default_key_have_seen_intro_before = @"default_key_have_seen_in
 }
 
 +(BOOL)showServerList {
+#warning ONLY FOR TESTING!!!!!!!!!!
+    return YES;
+    
 #if DEBUG
     return YES;
 #else
