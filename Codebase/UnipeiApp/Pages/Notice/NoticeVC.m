@@ -26,7 +26,7 @@
     _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [_webView setBackgroundColor:[UIColor whiteColor]];
     //    自动对页面进行缩放以适应屏幕
-    [_webView setScalesPageToFit:YES];
+//    [_webView setScalesPageToFit:YES];
     //    设置代理
     [_webView setDelegate:self];
     
