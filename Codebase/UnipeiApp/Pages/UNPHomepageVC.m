@@ -21,7 +21,7 @@
 #import <UnipeiApp-Swift.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "NoticeVC.h"
-
+#import "UNPWebVC.h"
 #import "UNP4sQueryVC.h"
 
 
@@ -242,9 +242,16 @@
 //                                    , [UIImage imageNamed:@"rolling_banner_2"]
 ////                                    , @"http://epaper.syd.com.cn/sywb/res/1/20080108/42241199752656275.jpg"
 //                                    ];
-            
+            @weakify(self)
             [_rollingBannerVC addBannerTapHandler:^(NSInteger whichIndex) {
+                @strongify(self)
 //                NSLog(@"banner tapped, index = %@", @(whichIndex));
+                id bannerURL = self->_activityPicList[whichIndex][@"posterurl"];
+                if (bannerURL) {
+                    UNPWebVC *webVC = [[UNPWebVC alloc] initWithUrl:bannerURL naviTitle:@"活动详情"];
+                    webVC.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:webVC animated:YES];
+                }
             }];
             
             // Install it
