@@ -45,6 +45,7 @@
     NSString                             *_servicetype;
     NSString                             *_phototype;
     NSString                             *_recomType;
+    NSString                             *_roughAdress;
     //上传头像的接口路径
     EJPServerImagePath                   _upLoadPath;
     //标记上一次点击的btn
@@ -84,10 +85,8 @@
             if (_addressViewModel.districtVM.selectedItem) {
                 self->_area = [JPUtils stringValueSafe:(_addressViewModel.districtVM.selectedItem)[@"id"]];
             }
-            
-            UNPRegistedNormalCell *cell = [self.tableView cellForRowAtIndexPath:_currentIndexPath];
-            cell.lblChoose.text = [self->_addressViewModel fullAddress];
-            
+            _roughAdress = [self->_addressViewModel fullAddress];
+            [self.tableView reloadData];
         }
     }];
     
@@ -144,6 +143,7 @@
         cell.lblTitle.text = @"修理厂名称";
         cell.tfContent.tag = kJPRegistedTextFieldTypeOrganName;
         cell.lblTitle.textColor = [JPDesignSpec colorMajor];
+        cell.tfContent.text = _organname;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -160,6 +160,11 @@
         cell.tfContent.hidden = YES;
         cell.lblChoose.hidden = NO;
         cell.ivChoose.hidden = NO;
+        if (_servicetype == nil) {
+            cell.lblChoose.text = @"请选择修理厂类别";
+        }else{
+            cell.lblChoose.text = _servicetype;
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
         return cell;
@@ -174,6 +179,7 @@
 
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"老板姓名";
+        cell.tfContent.text = _name;
         cell.tfContent.tag = kJPRegistedTextFieldTypeName;
         cell.lblTitle.textColor = [JPDesignSpec colorMajor];
         cell.tfContent.placeholder = @"点击输入";
@@ -191,6 +197,7 @@
 
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"老板手机号";
+        cell.tfContent.text = _phone;
         cell.tfContent.tag = kJPRegistedTextFieldTypePhone;
         cell.lblTitle.textColor = [JPDesignSpec colorMajor];
         cell.tfContent.keyboardType = UIKeyboardTypeNumberPad;
@@ -212,7 +219,11 @@
         cell.tfContent.hidden = YES;
         cell.lblChoose.hidden = NO;
         cell.ivChoose.hidden = NO;
-        cell.lblChoose.text = @"请选择省市区";
+        if (_roughAdress == nil) {
+            cell.lblChoose.text = @"请选择省市区";
+        }else{
+            cell.lblChoose.text = _roughAdress;
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
         return cell;
@@ -228,6 +239,7 @@
         cell.tfContent.delegate = self;
         cell.lblTitle.hidden = YES;
         cell.tfContent.placeholder = @"请输入详细地址";
+        cell.tfContent.text = _address;
         cell.tfContent.tag = kJPRegistedTextFieldTypeAdress;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -241,6 +253,7 @@
         _referrerCell = [tableView dequeueReusableCellWithIdentifier:cellID ];
         _referrerCell.tfName.delegate = self;
         _referrerCell.tfName.tag = kJPRegistedTextFieldTypeRecommend;
+        _referrerCell.tfName.text = _recommend;
         NSArray *btnArr = @[_referrerCell.btnDealer,_referrerCell.btnSalesman];
         for (UIButton *btn in btnArr) {
             [btn addTarget:self action:@selector(recommendBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -295,6 +308,7 @@
         _lisenceNumCell.tfLisence.delegate = self;
         _lisenceNumCell.tfLisence.tag = kJPRegistedTextFieldTypeRegistration;
         _lisenceNumCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        _lisenceNumCell.tfLisence.text = _registration;
         
         return _lisenceNumCell;
 
