@@ -91,7 +91,7 @@
     }];
     
     RAC(self.btnLogin, enabled) = signInValidSignal;
-    RAC(self.btnRegiste, enabled) = signInValidSignal;
+//    RAC(self.btnRegiste, enabled) = signInValidSignal;
     
 //    [signInValidSignal subscribeNext:^(NSNumber *signInValid) {
 //        @strongify(self)
