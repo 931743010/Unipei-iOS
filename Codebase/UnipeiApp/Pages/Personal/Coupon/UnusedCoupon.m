@@ -12,6 +12,7 @@
 #import "JPAppStatus.h"
 #import "CouponModelManager.h"
 #import <MJRefresh.h>
+
 typedef NS_ENUM(NSInteger, EJPCouponState) {
     kJPCouponStateAvailable = 0
     , kJPCouponStateUsed = 1
@@ -19,7 +20,7 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
 };
 @interface UnusedCoupon ()<UITableViewDataSource,UITableViewDelegate>
 {
-    int _page;
+    int       _page;
     NSString *_typeStr;
 }
 @property (weak, nonatomic) IBOutlet UITableView *unUsedTable;

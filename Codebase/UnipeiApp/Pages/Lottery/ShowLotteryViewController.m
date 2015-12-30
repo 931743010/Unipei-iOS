@@ -12,6 +12,8 @@
 #import "JPDesignSpec.h"
 #import "DymStoryboard.h"
 #import "UnusedCouponCell.h"
+#import "JPUtils.h"
+#import "JPSubmitButton.h"
 
 static NSString *cellName = @"UnusedCouponCell";
 
@@ -41,7 +43,7 @@ static NSString *cellName = @"UnusedCouponCell";
     }];
     
     _topBtn = [UIButton new];
-    [_topBtn setImage:[UIImage imageNamed:@"redenvelopeclock1"] forState:UIControlStateNormal];
+    [_topBtn setImage:[UIImage imageNamed:@"icon_cross_close"] forState:UIControlStateNormal];
     [_topBtn addTarget:self action:@selector(backView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_topBtn];
     [_topBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -101,7 +103,7 @@ static NSString *cellName = @"UnusedCouponCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row==0) {
-        NSString *idName = [NSString stringWithFormat:@"showLottery%ld",indexPath.row];
+        NSString *idName = [NSString stringWithFormat:@"showLottery%ld",(long)indexPath.row];
         UITableViewCell  *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier: idName];
         cell.textLabel.font = [UIFont systemFontOfSize:13];
         cell.textLabel.text = @"红包已经放入账户中，请在[我]页查看";
@@ -132,7 +134,32 @@ static NSString *cellName = @"UnusedCouponCell";
     return 60;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
+    footerView.backgroundColor = [UIColor colorWithWhite:250/255.0 alpha:1];
+    
+    UIColor *lineColor = [UIColor colorWithWhite:230/255.0 alpha:1];
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
+    [JPUtils installTopLine:footerView color:lineColor insets:insets];
+    
+    UIButton *btnUseNow = [[JPSubmitButton alloc] initWithStyle:kJPButtonOrange];
+    [btnUseNow setTitle:@"立即使用" forState:UIControlStateNormal];
+    [footerView addSubview:btnUseNow];
+    [btnUseNow mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(footerView).insets(UIEdgeInsetsMake(8, 16, 16, 16));
+    }];
+    
+//    @weakify(self)
+    [[btnUseNow rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+//        @strongify(self)
 
+        //TODO
+        
+    }];
+
+    return footerView;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

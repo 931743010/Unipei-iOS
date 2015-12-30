@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="91" id="KGk-i7-Jjw" customClass="SupplementInfoImage">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view tag="100" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Upt-U9-YMp" customClass="JPAddPhotoView">
+                        <rect key="frame" x="99" y="8" width="213" height="56"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="3Cx-pG-QHe"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKA-GY-jWj">
+                        <rect key="frame" x="15" y="35" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="74" id="FTh-QA-BNh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GKA-GY-jWj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="AJd-vq-6iB"/>
+                    <constraint firstItem="Upt-U9-YMp" firstAttribute="leading" secondItem="GKA-GY-jWj" secondAttribute="trailing" constant="10" id="OGe-8Q-C0W"/>
+                    <constraint firstAttribute="trailing" secondItem="Upt-U9-YMp" secondAttribute="trailing" constant="8" id="UBq-lN-ryD"/>
+                    <constraint firstItem="GKA-GY-jWj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YbH-7Z-qrj"/>
+                    <constraint firstItem="Upt-U9-YMp" firstAttribute="centerY" secondItem="GKA-GY-jWj" secondAttribute="centerY" id="aJF-ZY-ZDT"/>
+                    <constraint firstItem="GKA-GY-jWj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="jPJ-Ic-1y4"/>
+                    <constraint firstItem="Upt-U9-YMp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="nWC-k9-cB5"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="YbH-7Z-qrj"/>
+                        <exclude reference="aJF-ZY-ZDT"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="GKA-GY-jWj" id="cgx-US-MfT"/>
+                <outlet property="photoView" destination="Upt-U9-YMp" id="O1d-mk-KO5"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="329.5"/>
+        </tableViewCell>
+    </objects>
+</document>

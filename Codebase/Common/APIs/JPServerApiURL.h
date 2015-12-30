@@ -39,10 +39,11 @@ static NSString *PATH_userApi_saveApplyService = @"userApi/saveApplyService.do";
 static NSString *PATH_userApi_updatepassword = @"userApi/updatepassword.do";
 static NSString *PATH_userApi_findOrganAndUserInfo = @"userApi/findOrganAndUserInfo.do";
 static NSString *PATH_userApi_updateOrganInfo = @"userApi/updateOrganInfo.do";
+static NSString *PATH_userApi_getPerfectOrgan = @"userApi/getPerfectOrgan.do";
+static NSString *PATH_userApi_putPerfectOrgan = @"userApi/putPerfectOrgan.do";
 
 //退出登录
 static NSString *PATH_userApi_unBindChannelID = @"userApi/unBindChannelID.do";
-
 static NSString *PATH_commonApi_uploadImage = @"commonApi/uploadImage.do";
 // PAP 2.0
 static NSString *PATH_commonApi_findVersionInfo = @"commonApi/findVersionInfo.do";
