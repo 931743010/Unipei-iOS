@@ -73,6 +73,7 @@
     
 }
 
+
 @end
 
 @implementation UNPCreateInquiryVC
@@ -233,14 +234,7 @@
         _tfInputVin = (UITextField *)[_inputVinCell.contentView viewWithTag:100];
         _tfInputVin.delegate = self;
         _lblVinTitle = (UILabel *)[_inputVinCell.contentView viewWithTag:103];
-        _lblVinTitle.hidden = YES;  //1001
-//        )colorGrayDark {
-// colorSilver
-//        +(UIColor *)colorGray
-//        UIColor *lineColor = [JPDesignSpec colorGray];
-//        [JPUtils installTopLine:_lblVinTitle color:lineColor insets:UIEdgeInsetsMake(-4, 0, 0, 0)];
-//        _lblVinTitle.numberOfLines = 0;
-//        _lblVinTitle.lineBreakMode = NSLineBreakByWordWrapping;
+        _lblVinTitle.hidden = YES;
     }
     
     if (_chooseModelCell == nil) {
@@ -367,7 +361,27 @@
     if (indexPath.section == 0) {
         
         if (indexPath.row == 0) {
-//            return 48;
+            //没有内容不显示
+            UIButton *btnVin = (UIButton *)[_inputVinCell.contentView viewWithTag:1002];
+            UITextField *tfVin = (UITextField *)[_inputVinCell.contentView viewWithTag:100];
+            
+            if(_tfInputVin.text==nil ||[_tfInputVin.text isEqualToString:@""]){
+                if(_inquiryID){ //modify
+                    tfVin.hidden = btnVin.hidden  = YES ;
+                    return 0;
+                }else{  // create
+                    tfVin.hidden = btnVin.hidden  = NO ;
+                    return 70;
+                }
+            }else {
+                if(_inquiryID){ //修改并且有内容
+                    tfVin.hidden = NO;
+                    btnVin.hidden =  YES;
+                }else{  //添加
+                    tfVin.hidden = btnVin.hidden =  NO;
+                }
+            }
+ 
             return 70;
         } else if (indexPath.row == 1) { // 选择车型按钮
 
@@ -428,12 +442,10 @@
     if (indexPath.section == 0) {
         
         if (indexPath.row == 0) {
-            
+
             return _inputVinCell;
             
         } else if (indexPath.row == 1) {
-            
-//            [_btnChooseModel setTitle:@"adjkhsjkahdkjahsdjkhaskjdhakjsdhkjasdkjlasdjlasjdlasjdlkjaksdahsdkaskjdhaskjdhjkahskj" forState:UIControlStateNormal];
             return _chooseModelCell;
             
         } else if (indexPath.row == 2) {
@@ -683,7 +695,7 @@
 
 #pragma mark -- vin functions --
 - (IBAction)takeVinPhoto:(id)sender {
-    if(!_inquiryID){
+    if(!_inquiryID){ 
         DymNavigationController *nc = [[DymNavigationController alloc] initWithRootViewController:_cameraView];
         _cameraView.navigationController.navigationBarHidden = YES;
         [self presentViewController:nc animated:YES completion:nil];
