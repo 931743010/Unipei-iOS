@@ -146,7 +146,7 @@ static const NSInteger  pageSize = 20;
     UIImageView *dealerImageView =  cell.imageView1;  //cell本身就有个imageView。自定义的cell不能再命名这个名字
     [dealerImageView sd_setImageWithURL:logoURL placeholderImage:[UIImage imageNamed:@"icon_goods_logo_default"]];
 //    NSLog(@"==%@",dealer[@"brandName"]);
-    NSString * majorBand  = [NSString stringWithFormat:@"主营品牌: %@",[JPUtils stringReplaceNil:dealer[@"brandName"] defaultValue:@"暂无数据"]];
+    NSString * majorBand  = [NSString stringWithFormat:@"主营车系: %@",[JPUtils stringReplaceNil:dealer[@"brandName"] defaultValue:@"暂无数据"]];
     cell.brand.text =  majorBand;
     cell.dealerName.text = [dealer objectForKey:@"organName"];
 
