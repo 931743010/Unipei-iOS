@@ -23,7 +23,6 @@
     }
     return self;
 }
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
