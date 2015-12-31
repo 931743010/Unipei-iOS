@@ -23,7 +23,7 @@
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwD-dh-0pK">
                         <rect key="frame" x="0.0" y="58" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.70160590277777779" green="0.70160590277777779" blue="0.70160590277777779" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.83074889520202022" green="0.83074889520202022" blue="0.83074889520202022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="GzK-TK-vry"/>
                         </constraints>

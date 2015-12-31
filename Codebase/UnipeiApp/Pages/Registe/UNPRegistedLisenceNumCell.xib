@@ -50,10 +50,6 @@
                     <constraint firstItem="2eb-SA-lbP" firstAttribute="leading" secondItem="SF6-5N-SBS" secondAttribute="trailing" id="li9-wk-Pnu"/>
                 </constraints>
             </tableViewCellContentView>
-            <connections>
-                <outlet property="lblLisenceNum" destination="SF6-5N-SBS" id="4u4-7t-nDT"/>
-                <outlet property="tfLisence" destination="2eb-SA-lbP" id="I9S-Le-joX"/>
-            </connections>
         </tableViewCell>
     </objects>
 </document>

@@ -15,7 +15,6 @@
 #import "UNPChooseProvinceVC.h"
 #import "UNPAddressChooseVM.h"
 #import "JPSidePopVC.h"
-#import "UNPRegistedLisenceNumCell.h"
 #import "JPUtils.h"
 #import "CommonApi_UploadImage.h"
 #import <UnipeiApp-Swift.h>
@@ -26,7 +25,6 @@
     UNPRegistedConfirmCell               *_confirmCell;
     UNPRegistedReferrerCell              *_referrerCell;
     UNPRegistedUpLoadPicCell             *_upLoadPicCell;
-    UNPRegistedLisenceNumCell            *_lisenceNumCell;
     UIPickerView                         *_pickerView;
     NSArray                              *_pickerData;
     UNPAddressChooseVM                   *_addressViewModel;
@@ -65,7 +63,7 @@
     
     _upLoadPath = kServerUploadPathShopLicence;
     self.registedRecomType = kJPRegistedRecomTypeDealer;
-    self.registedPhototype = kJPRegistedPhotoTypeLisence;
+    self.registedPhototype = kJPRegistedPhotoTypeStore;
     
     _pickerData = @[@"一类",@"二类",@"三类"];
     
@@ -115,20 +113,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 10;
+    return 9;
 }
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    if (indexPath.row == 6) {
-//        return 75;
-//    }else if (indexPath.row == 7){
-//        return 100;
-//    }else if (indexPath.row == 9){
-//        return 60;
-//    }
-//    return 48;
-//    
-//}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
 //    @weakify(self)
@@ -282,11 +269,12 @@
             [self hideServerPicker];
             
         };
-//        _upLoadPicCell.addPhotoView.imagePickedBlock = ^(void) {
-//            @strongify(self)
-//            NSIndexPath *indexPath = [tableView indexPathForCell:_upLoadPicCell];
-//            [self.tableView reloadData];
-//        };
+        _upLoadPicCell.lblLisenceNum.textColor = [JPDesignSpec colorMajor];
+        _upLoadPicCell.tfLisence.delegate = self;
+        _upLoadPicCell.tfLisence.tag = kJPRegistedTextFieldTypeRegistration;
+        _upLoadPicCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        _upLoadPicCell.tfLisence.text = _registration;
+        
         NSArray *btnArr = @[_upLoadPicCell.btnLicense,_upLoadPicCell.btnStore,_upLoadPicCell.btnCard];
         for (UIButton *btn in btnArr) {
             [btn addTarget:self action:@selector(upLoadBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -299,21 +287,6 @@
         return _upLoadPicCell;
         
     }else if (indexPath.row == 8){
-    
-        static NSString *cellID = @"UNPRegistedLisenceNumCell";
-        UINib *nib = [UINib nibWithNibName:@"UNPRegistedLisenceNumCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:cellID];
-        _lisenceNumCell = [tableView dequeueReusableCellWithIdentifier:cellID ];
-        _lisenceNumCell.lblLisenceNum.textColor = [JPDesignSpec colorMajor];
-        _lisenceNumCell.tfLisence.delegate = self;
-        _lisenceNumCell.tfLisence.tag = kJPRegistedTextFieldTypeRegistration;
-        _lisenceNumCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        _lisenceNumCell.tfLisence.text = _registration;
-        
-        return _lisenceNumCell;
-
-        
-    }else if (indexPath.row == 9){
         
         static NSString *cellID = @"UNPRegistedConfirmCell";
         UINib *nib = [UINib nibWithNibName:@"UNPRegistedConfirmCell" bundle:nil];
@@ -488,23 +461,31 @@
     [btn setImage:[UIImage imageNamed:@"icon_radio_selected"] forState:UIControlStateNormal];
     
     switch (i) {
-        case 100:
-            self.registedPhototype = kJPRegistedPhotoTypeLisence;
-            _upLoadPath = kServerUploadPathShopLicence;
-            break;
-        case 101:
+        case 100:{
             self.registedPhototype = kJPRegistedPhotoTypeStore;
-            _upLoadPath = kServerUploadPathShopOffice;
+            _upLoadPath = kServerUploadPathShopLicence;
+            _upLoadPicCell.lisenceNumView.hidden = YES;
+            [self.tableView reloadData];
+        }
             break;
-        case 102:
+        case 101:{
             self.registedPhototype = kJPRegistedPhotoTypeCard;
+            _upLoadPath = kServerUploadPathShopOffice;
+            _upLoadPicCell.lisenceNumView.hidden = YES;
+        }
+            break;
+        case 102:{
+            self.registedPhototype = kJPRegistedPhotoTypeLisence;
             _upLoadPath = kServerUploadPathShopNamecard;
+            _upLoadPicCell.lisenceNumView.hidden = NO;
+        }
             break;
         default:
             break;
     }
     
 }
+
 #pragma mark - 提交注册
 -(void)confirmToRegisted:(UIButton *)btn{
     
@@ -580,10 +561,23 @@
     }else if (_textFieldType == kJPRegistedTextFieldTypeRegistration){
         _registration = textField.text;
     }
+    
     NSIndexPath *indexPath = [self.tableView indexPathForCell:_confirmCell];
     NSArray *indexArr = [NSArray arrayWithObject:indexPath];
     //每次输入完刷新提交注册的cell，刷新btnConfirm的状态
     [self.tableView reloadRowsAtIndexPaths:indexArr withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+}
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if (_textFieldType == kJPRegistedTextFieldTypeOrganName && range.location > 19) {
+        return NO;
+    }else if (_textFieldType == kJPRegistedTextFieldTypeName && range.location > 9){
+        return NO;
+    }else if (_textFieldType == kJPRegistedTextFieldTypePhone && range.location > 10){
+        return NO;
+    }
+    return YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

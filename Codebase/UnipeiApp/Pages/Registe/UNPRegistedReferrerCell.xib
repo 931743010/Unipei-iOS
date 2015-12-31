@@ -64,7 +64,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-cV-r31">
                         <rect key="frame" x="0.0" y="73" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.73232323232323226" green="0.73232323232323226" blue="0.73232323232323226" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.83927162247474751" green="0.83927162247474751" blue="0.83927162247474751" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="DKF-EL-8oX"/>
                         </constraints>
