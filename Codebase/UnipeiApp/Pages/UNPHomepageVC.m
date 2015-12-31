@@ -290,7 +290,7 @@
             _btn4S.lblTitle.text = @"4S报价";
             
 //            _btnDealer.lblTitle.textColor = [JPDesignSpec colorGray];
-            _btn4S.lblTitle.textColor = [JPDesignSpec colorGray];
+//            _btn4S.lblTitle.textColor = [JPDesignSpec colorGray];
             
             [JPUtils installRightLine:_btnInquiry color:[UIColor colorWithWhite:0.85 alpha:1] insets:UIEdgeInsetsMake(20, 0, 20, 0)];
             [JPUtils installRightLine:_btnDealer color:[UIColor colorWithWhite:0.85 alpha:1] insets:UIEdgeInsetsMake(20, 0, 20, 0)];

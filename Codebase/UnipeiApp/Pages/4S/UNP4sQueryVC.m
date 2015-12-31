@@ -171,7 +171,7 @@ static NSString *OE = @"OE号";
     } else if (oeString.length <= 0 && partString.length <= 0) {
         [[JLToast makeText:@"OE号和配件至少选填一项"] show];
     } else if (oeString.length > 0 && ![GGPredicate checkCharacter:oeString]) {
-        [[JLToast makeText:@"OE号必须由字母或数组组成"] show];
+        [[JLToast makeText:@"OE号必须由字母或数字组成"] show];
         [_tfOE.textField becomeFirstResponder];
     } else {
         
@@ -333,8 +333,10 @@ static NSString *OE = @"OE号";
     @weakify(self)
     if (textField == _tfVinCode.textField) {
         
+        [self formatingTfInputVin];
+        
         if (_vinString.length < 10) {
-            [[JLToast makeTextQuick:@"VIN码必须大于10位"] show];
+            [[JLToast makeTextQuick:@"VIN码不能少于10位"] show];
             return NO;
         } else {
             
@@ -373,7 +375,7 @@ static NSString *OE = @"OE号";
 -(void) validateVinCode{
   @weakify(self)
     if (_vinString.length < 10) {
-        [[JLToast makeTextQuick:@"VIN码必须大于10位"] show];
+        [[JLToast makeTextQuick:@"VIN码不能少于10位"] show];
     } else {
         DymCommonApi *api = [DymCommonApi new];
         api.relativePath = PATH_commonApi_getVinInfo;
