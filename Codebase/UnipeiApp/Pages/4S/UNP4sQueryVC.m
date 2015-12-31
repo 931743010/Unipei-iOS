@@ -23,7 +23,6 @@
 #import "CameraViewController.h"
 #import "DymNavigationController.h"
 
-
 static NSString *VIN = @"VIN码";
 static NSString *OE = @"OE号";
 
@@ -211,10 +210,17 @@ static NSString *OE = @"OE号";
         [[DymRequest commonApiSignal:api queue:self.apiQueue] subscribeNext:^(DymBaseRespModel *result) {
             if (result.success) {
                 NSArray *allfoursList = result.body[@"allfoursList"];
-                OfferInqueryResultFor4sViewController *offerVC = [self getOfferInqueryResultFor4sVC];
-                offerVC.allfoursList = allfoursList;
-                offerVC.titleContent= self->_btnChooseModel.titleLabel.text;
-                [self.navigationController pushViewController:offerVC animated:YES];
+                if(allfoursList.count >0){
+                    OfferInqueryResultFor4sViewController *offerVC = [self getOfferInqueryResultFor4sVC];
+                    offerVC.allfoursList = allfoursList;
+                    offerVC.titleContent= self->_btnChooseModel.titleLabel.text;
+                    [self.navigationController pushViewController:offerVC animated:YES];
+                }else{
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提醒" message:@"暂未查到数据！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                     [alert show];
+                    
+                }
+              
             }
         }];
     }

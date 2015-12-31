@@ -151,6 +151,7 @@
             cell.lblContent.text = [JPAppStatus loginInfo].loginUsername;
             
         }else if (indexPath.row == 2){
+            cell.ivSide.hidden = YES;
             cell.lblContent.text = _loginInfo.organName;
         }else if (indexPath.row == 3){
             cell.lblContent.text = _loginInfo.email;
@@ -183,7 +184,7 @@
             
             [UIImagePickerController pickImageWithDelegate:self presentingVC:self];
             
-        }else if (indexPath.row == 2||indexPath.row == 3||indexPath.row == 4||indexPath.row == 5||indexPath.row == 6) {
+        }else if (indexPath.row == 3||indexPath.row == 4||indexPath.row == 5||indexPath.row == 6) {
             
             UNPTextModifyVC *vc = [[UNPTextModifyVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
