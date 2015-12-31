@@ -20,11 +20,22 @@ static NSString *default_key_has_new_system_message = @"default_key_has_new_syst
 static NSString *default_key_has_new_business_message = @"default_key_has_new_business_message";
 
 static NSString *default_key_have_seen_intro_before = @"default_key_have_seen_intro_before";
+static NSString *default_key_recorded_app_version = @"default_key_recorded_app_version";
 
 #define ARCHIVE_KEY_ShopLoginResult     @"ARCHIVE_KEY_ShopLoginResult"
 
 
 @implementation JPAppStatus
+
+
++(NSString *)recordedAppVersion {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:default_key_recorded_app_version];
+}
+
++(void)setRecordedAppVersion:(NSString *)recordedAppVersion {
+    [[NSUserDefaults standardUserDefaults] setObject:recordedAppVersion forKey:default_key_recorded_app_version];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 +(BOOL)haveSeenIntroBefore {
     return [[NSUserDefaults standardUserDefaults] boolForKey:default_key_have_seen_intro_before];

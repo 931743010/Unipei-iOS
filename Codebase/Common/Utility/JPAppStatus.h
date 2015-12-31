@@ -25,6 +25,9 @@ typedef NS_ENUM(NSInteger, EJPPushMessageType) {
 
 @interface JPAppStatus : NSObject
 
++(NSString *)recordedAppVersion;
++(void)setRecordedAppVersion:(NSString *)recordedAppVersion;
+
 +(BOOL)haveSeenIntroBefore;
 +(void)setHaveSeenIntroBefore:(BOOL)haveSeenIntroBefore;
 

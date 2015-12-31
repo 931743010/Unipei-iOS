@@ -17,6 +17,7 @@
     UIView          *_viewIntro2;
     UIView          *_viewIntro3;
     UIView          *_viewIntro4;
+    UIView          *_viewIntro5;
     
     NSArray         *_viewIntros;
     NSArray         *_imageIntros;
@@ -34,8 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _leadingColor = [UIColor colorWithRed:62/255.0 green:132/255.0 blue:143/255.0 alpha:1];
-    _trailingColor = [UIColor colorWithRed:113/255.0 green:144/255.0 blue:25/255.0 alpha:1];
+    _leadingColor = [UIColor colorWithRed:153/255.0 green:217/255.0 blue:236/255.0 alpha:1];
+    _trailingColor = [UIColor colorWithRed:49/255.0 green:63/255.0 blue:112/255.0 alpha:1];
     
     _scrollView = [UIScrollView new];
     _scrollView.delegate = self;
@@ -52,14 +53,12 @@
     _viewIntro2 = [UIView new];
     _viewIntro3 = [UIView new];
     _viewIntro4 = [UIView new];
+    _viewIntro5 = [UIView new];
     
-//    _viewIntros = @[_viewIntro1, _viewIntro2, _viewIntro3, _viewIntro4];
-//    _imageIntros = @[@"intro_1", @"intro_2" ,@"intro_3", @"intro_4"];
-//    _imageBgIntros = @[@"intro_1_bg", @"intro_2_bg" ,@"intro_3_bg", @"intro_4_bg"];
+    _viewIntros = @[_viewIntro1, _viewIntro2, _viewIntro3, _viewIntro4, _viewIntro5];
+    _imageIntros = @[@"intro_1", @"intro_2" ,@"intro_3", @"intro_4", @"intro_5"];
+    _imageBgIntros = @[@"intro_1_bg", @"intro_2_bg" ,@"intro_3_bg", @"intro_4_bg", @"intro_5_bg"];
     
-    _viewIntros = @[_viewIntro1, _viewIntro3, _viewIntro4];
-    _imageIntros = @[@"intro_1" ,@"intro_3", @"intro_4"];
-    _imageBgIntros = @[@"intro_1_bg" ,@"intro_3_bg", @"intro_4_bg"];
     
     //
     [_viewIntros enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -68,12 +67,12 @@
     
     _btnStart = [UIButton new];
     [_btnStart setImage:[UIImage imageNamed:@"intro_login_btn"] forState:UIControlStateNormal];
-    [_viewIntro4 addSubview:_btnStart];
+    [_viewIntro5 addSubview:_btnStart];
     CGFloat horizGap = 30 * [UIScreen mainScreen].scale;
     [_btnStart mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(_viewIntro4.mas_leading).offset(horizGap);
-        make.trailing.equalTo(_viewIntro4.mas_trailing).offset(-horizGap);
-        make.centerY.equalTo(_viewIntro4.mas_centerY).offset(90 * [UIScreen mainScreen].scale);
+        make.leading.equalTo(_viewIntro5.mas_leading).offset(horizGap);
+        make.trailing.equalTo(_viewIntro5.mas_trailing).offset(-horizGap);
+        make.centerY.equalTo(_viewIntro5.mas_centerY).offset(90 * [UIScreen mainScreen].scale);
         make.width.equalTo(_btnStart.mas_height).multipliedBy(0.18);
     }];
     

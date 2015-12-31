@@ -64,8 +64,14 @@ void uncaughtExceptionHandler(NSException *exception) {
     [self addRoutes];
     
     
-    // 登录检测...
+    // Intro检测...
     @weakify(self)
+    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    if (![appVersion isEqualToString:[JPAppStatus recordedAppVersion]]) {
+        [JPAppStatus setRecordedAppVersion:appVersion];
+        [JPAppStatus setHaveSeenIntroBefore:NO];
+    }
+    
     if (![JPAppStatus haveSeenIntroBefore]) {
         [JPAppStatus setHaveSeenIntroBefore:YES];
         @strongify(self)
