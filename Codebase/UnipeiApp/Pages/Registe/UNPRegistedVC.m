@@ -465,7 +465,6 @@
             self.registedPhototype = kJPRegistedPhotoTypeStore;
             _upLoadPath = kServerUploadPathShopLicence;
             _upLoadPicCell.lisenceNumView.hidden = YES;
-            [self.tableView reloadData];
         }
             break;
         case 101:{
