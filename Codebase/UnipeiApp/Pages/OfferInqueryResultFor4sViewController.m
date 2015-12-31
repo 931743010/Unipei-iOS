@@ -82,7 +82,11 @@
 //    @property (weak, nonatomic) IBOutlet UILabel *lblNumber;
     
     OfferInquery4sCell *cell = [tableView dequeueReusableCellWithIdentifier:@"offerInquery4sCell" forIndexPath:indexPath];
-    cell.price.text = [data[@"PRICE"] stringValue];
+   
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setPositiveFormat:@"#######0.00;"];
+    cell.price.text = [formatter stringFromNumber:data[@"PRICE"]];
     cell.lblName.text = data[@"NAME"];
     cell.lblCode.text = data[@"STANDCODE"];
     cell.lblOeno.text = data[@"OENO"];
