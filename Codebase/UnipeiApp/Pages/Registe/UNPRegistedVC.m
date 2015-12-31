@@ -19,6 +19,7 @@
 #import "CommonApi_UploadImage.h"
 #import <UnipeiApp-Swift.h>
 #import <Masonry/Masonry.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface UNPRegistedVC ()<UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate>
 {
@@ -49,6 +50,10 @@
     //标记上一次点击的btn
     UIButton                             *_lastRecommendBtn;
     UIButton                             *_lastUploadBtn;
+    
+    
+    NSArray                              *_recommendedButtons;
+    NSArray                              *_uploadButtons;
     
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -99,15 +104,38 @@
     [header addSubview:lblNotice];
     
     self.tableView.tableHeaderView = header;
-    
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 70;
-    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self updateServerPicker];
     
+    [self registerCellNibs];
+    
 }
+
+-(void)registerCellNibs {
+    
+    UINib *nib = [UINib nibWithNibName:@"UNPRegistedNormalCell" bundle:nil];
+    
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"organNameCell"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"serviceTypeCell"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"nameCell"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"phoneCell"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"addressCell"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"detailAddressCell"];
+
+    
+    nib = [UINib nibWithNibName:@"UNPRegistedReferrerCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"UNPRegistedReferrerCell"];
+    
+    nib = [UINib nibWithNibName:@"UNPRegistedUpLoadPicCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"UNPRegistedUpLoadPicCell"];
+    
+    nib = [UINib nibWithNibName:@"UNPRegistedConfirmCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"UNPRegistedConfirmCell"];
+}
+
 #pragma mark -
 #pragma mark - table数据源
 
@@ -117,15 +145,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+//    
 //    @weakify(self)
     if (indexPath.row == 0) {
         
-        static NSString *organName = @"organName";
-        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:organName];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
-        }
+        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:@"organNameCell" forIndexPath:indexPath];
+        
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"修理厂名称";
         cell.tfContent.tag = kJPRegistedTextFieldTypeOrganName;
@@ -137,11 +162,8 @@
         
     }else if (indexPath.row == 1) {
         
-        static NSString *serviceType = @"serviceType";
-        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:serviceType ];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
-        }
+        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:@"serviceTypeCell" forIndexPath:indexPath];
+        
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"修理厂类别";
         cell.tfContent.hidden = YES;
@@ -158,11 +180,7 @@
         
     }else if (indexPath.row == 2){
         
-        static NSString *name = @"name";
-        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:name ];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
-        }
+        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:@"nameCell" forIndexPath:indexPath];
 
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"老板姓名";
@@ -176,11 +194,7 @@
 
     }else if (indexPath.row == 3){
         
-        static NSString *phone = @"phone";
-        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:phone ];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
-        }
+        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:@"phoneCell" forIndexPath:indexPath];
 
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"老板手机号";
@@ -195,11 +209,8 @@
 
     }else if (indexPath.row == 4){
         
-        static NSString *adress = @"adress";
-        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:adress];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
-        }
+        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addressCell" forIndexPath:indexPath];
+        
         cell.tfContent.delegate = self;
         cell.lblTitle.text = @"地址";
         cell.lblTitle.textColor = [JPDesignSpec colorMajor];
@@ -217,11 +228,7 @@
 
     }else if (indexPath.row == 5){
         
-        static NSString *detailAdress = @"detailAdress";
-        UNPRegistedNormalCell *cell = (UNPRegistedNormalCell *)[tableView dequeueReusableCellWithIdentifier:detailAdress ];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"UNPRegistedNormalCell" owner:self options:nil] objectAtIndex:0];
-        }
+        UNPRegistedNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detailAddressCell" forIndexPath:indexPath];
 
         cell.tfContent.delegate = self;
         cell.lblTitle.hidden = YES;
@@ -234,75 +241,84 @@
 
     }else if (indexPath.row == 6) {
         
-        static NSString *cellID = @"UNPRegistedReferrerCell";
-        UINib *nib = [UINib nibWithNibName:@"UNPRegistedReferrerCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:cellID];
-        _referrerCell = [tableView dequeueReusableCellWithIdentifier:cellID ];
-        _referrerCell.tfName.delegate = self;
-        _referrerCell.tfName.tag = kJPRegistedTextFieldTypeRecommend;
-        _referrerCell.tfName.text = _recommend;
-        NSArray *btnArr = @[_referrerCell.btnDealer,_referrerCell.btnSalesman];
-        for (UIButton *btn in btnArr) {
-            [btn addTarget:self action:@selector(recommendBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-            if (btn.tag == 100) {
-                _lastRecommendBtn = btn;
+        
+        if (_referrerCell == nil) {
+            
+            _referrerCell = [tableView dequeueReusableCellWithIdentifier:@"UNPRegistedReferrerCell" forIndexPath:indexPath];
+            
+            _referrerCell.tfName.delegate = self;
+            _referrerCell.tfName.tag = kJPRegistedTextFieldTypeRecommend;
+            _referrerCell.tfName.text = _recommend;
+            _recommendedButtons = @[_referrerCell.btnDealer,_referrerCell.btnSalesman];
+            for (UIButton *btn in _recommendedButtons) {
+                [btn addTarget:self action:@selector(recommendBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             }
+            
+            [self recommendBtnClick:_recommendedButtons.firstObject];
+            
+            _referrerCell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        _referrerCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return _referrerCell;
         
     }else if (indexPath.row == 7){
         
-        static NSString *cellID = @"UNPRegistedUpLoadPicCell";
-        UINib *nib = [UINib nibWithNibName:@"UNPRegistedUpLoadPicCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:cellID];
-        _upLoadPicCell = [tableView dequeueReusableCellWithIdentifier:cellID ];
-        _upLoadPicCell.lblTitle.textColor = [JPDesignSpec colorMajor];
-        
-        _upLoadPicCell.addPhotoView.presentingVC = self;
-        _upLoadPicCell.addPhotoView.maxPhotoCount = 1;
-        _upLoadPicCell.addPhotoView.buttonSize = 56;
-
-        _upLoadPicCell.addPhotoView.btnClickBlock = ^{
-        
-            [self hideServerPicker];
+        if (_upLoadPicCell == nil) {
             
-        };
-        _upLoadPicCell.lblLisenceNum.textColor = [JPDesignSpec colorMajor];
-        _upLoadPicCell.tfLisence.delegate = self;
-        _upLoadPicCell.tfLisence.tag = kJPRegistedTextFieldTypeRegistration;
-        _upLoadPicCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        _upLoadPicCell.tfLisence.text = _registration;
-        
-        NSArray *btnArr = @[_upLoadPicCell.btnLicense,_upLoadPicCell.btnStore,_upLoadPicCell.btnCard];
-        for (UIButton *btn in btnArr) {
-            [btn addTarget:self action:@selector(upLoadBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-            if (btn.tag == 100) {
-                _lastUploadBtn = btn;
+            _upLoadPicCell = [tableView dequeueReusableCellWithIdentifier:@"UNPRegistedUpLoadPicCell" forIndexPath:indexPath];
+
+            _upLoadPicCell.lblTitle.textColor = [JPDesignSpec colorMajor];
+            
+            _upLoadPicCell.addPhotoView.presentingVC = self;
+            _upLoadPicCell.addPhotoView.maxPhotoCount = 1;
+            _upLoadPicCell.addPhotoView.buttonSize = 56;
+            @weakify(self)
+            _upLoadPicCell.addPhotoView.btnClickBlock = ^{
+                
+                [self hideServerPicker];
+                
+            };
+            
+            _upLoadPicCell.addPhotoView.imagePickedBlock = ^(void) {
+                @strongify(self)
+                self->_confirmCell.btnConfirm.enabled = [self btnConfirmIsEnabled];
+            };
+            
+            _upLoadPicCell.lblLisenceNum.textColor = [JPDesignSpec colorMajor];
+            _upLoadPicCell.tfLisence.delegate = self;
+            _upLoadPicCell.tfLisence.tag = kJPRegistedTextFieldTypeRegistration;
+            _upLoadPicCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            _upLoadPicCell.tfLisence.text = _registration;
+            
+            _uploadButtons = @[_upLoadPicCell.btnLicense,_upLoadPicCell.btnStore,_upLoadPicCell.btnCard];
+            for (UIButton *btn in _uploadButtons) {
+                [btn addTarget:self action:@selector(upLoadBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             }
+            
+            [self upLoadBtnClick:_uploadButtons.firstObject];
         }
-        _upLoadPicCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return _upLoadPicCell;
         
     }else if (indexPath.row == 8){
         
-        static NSString *cellID = @"UNPRegistedConfirmCell";
-        UINib *nib = [UINib nibWithNibName:@"UNPRegistedConfirmCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:cellID];
-        _confirmCell = [tableView dequeueReusableCellWithIdentifier:cellID ];
-        _confirmCell.btnConfirm.style = kJPButtonOrange;
-        _confirmCell.backgroundColor = [JPDesignSpec colorSilver];
-        //通过参数判断按钮是否可点击
-        _confirmCell.btnConfirm.enabled = [self btnConfirmIsEnabled];
-        [_confirmCell.btnConfirm addTarget:self action:@selector(confirmToRegisted:) forControlEvents:UIControlEventTouchUpInside];
-        _confirmCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (_confirmCell == nil) {
+            
+            _confirmCell = [tableView dequeueReusableCellWithIdentifier:@"UNPRegistedConfirmCell" forIndexPath:indexPath];
+            
+            _confirmCell.btnConfirm.style = kJPButtonOrange;
+            _confirmCell.backgroundColor = [JPDesignSpec colorSilver];
+            
+            _confirmCell.btnConfirm.enabled = [self btnConfirmIsEnabled];
+            [_confirmCell.btnConfirm addTarget:self action:@selector(confirmToRegisted:) forControlEvents:UIControlEventTouchUpInside];
+            _confirmCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
         
         return _confirmCell;
         
     }
-    return nil;
+    
+    return [UITableViewCell new];
 }
 #pragma mark - table代理
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -427,7 +443,13 @@
 -(BOOL)btnConfirmIsEnabled{
     
     UIImage *image = _upLoadPicCell.addPhotoView.pickedPhotos.firstObject;
-    BOOL enabled = (_organname.length > 0 && _name.length > 0 && _phone.length > 0 && _province.length > 0 && _registration.length > 0 && image);
+    BOOL enabled;
+    
+    if (self.registedPhototype == kJPRegistedPhotoTypeLisence) {
+        enabled = (_organname.length > 0 && _name.length > 0 && _phone.length > 0 && _province.length > 0 && image && _registration.length > 0);
+    }else{
+        enabled = (_organname.length > 0 && _name.length > 0 && _phone.length > 0 && _province.length > 0 && image);
+    }
     return enabled;
     
 }
@@ -436,9 +458,9 @@
     
     NSInteger i = btn.tag;
     
-    [_lastRecommendBtn setImage:[UIImage imageNamed:@"icon_radio_unselected"] forState:UIControlStateNormal];
-    _lastRecommendBtn = btn;
-    [btn setImage:[UIImage imageNamed:@"icon_radio_selected"] forState:UIControlStateNormal];
+    [_recommendedButtons enumerateObjectsUsingBlock:^(UIButton *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.selected = (btn == obj);
+    }];
     
     switch (i) {
         case 100:
@@ -456,32 +478,38 @@
     
     NSInteger i = btn.tag;
     
-    [_lastUploadBtn setImage:[UIImage imageNamed:@"icon_radio_unselected"] forState:UIControlStateNormal];
-    _lastUploadBtn= btn;
-    [btn setImage:[UIImage imageNamed:@"icon_radio_selected"] forState:UIControlStateNormal];
+    [_uploadButtons enumerateObjectsUsingBlock:^(UIButton *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.selected = (btn == obj);
+    }];
+    
+    _upLoadPicCell.lisenceNumView.hidden = YES;
+    NSLayoutConstraint *con = _upLoadPicCell.constraintLisenceNumViewHeight;
+    con.constant = 0;
     
     switch (i) {
         case 100:{
             self.registedPhototype = kJPRegistedPhotoTypeStore;
             _upLoadPath = kServerUploadPathShopLicence;
-            _upLoadPicCell.lisenceNumView.hidden = YES;
         }
             break;
         case 101:{
             self.registedPhototype = kJPRegistedPhotoTypeCard;
             _upLoadPath = kServerUploadPathShopOffice;
-            _upLoadPicCell.lisenceNumView.hidden = YES;
         }
             break;
         case 102:{
             self.registedPhototype = kJPRegistedPhotoTypeLisence;
             _upLoadPath = kServerUploadPathShopNamecard;
+            
             _upLoadPicCell.lisenceNumView.hidden = NO;
+            con.constant = 44;
         }
             break;
         default:
             break;
     }
+    
+    [self.tableView reloadData];
     
 }
 
@@ -561,12 +589,10 @@
         _registration = textField.text;
     }
     
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:_confirmCell];
-    NSArray *indexArr = [NSArray arrayWithObject:indexPath];
-    //每次输入完刷新提交注册的cell，刷新btnConfirm的状态
-    [self.tableView reloadRowsAtIndexPaths:indexArr withRowAnimation:UITableViewRowAnimationAutomatic];
+    _confirmCell.btnConfirm.enabled = [self btnConfirmIsEnabled];
     
 }
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
     if (_textFieldType == kJPRegistedTextFieldTypeOrganName && range.location > 19) {

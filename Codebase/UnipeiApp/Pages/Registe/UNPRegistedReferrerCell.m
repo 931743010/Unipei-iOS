@@ -11,13 +11,14 @@
 @implementation UNPRegistedReferrerCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    NSArray *buttons = @[_btnDealer, _btnSalesman];
+    [buttons enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj setImage:[UIImage imageNamed:@"icon_radio_unselected"] forState:UIControlStateNormal];
+        [obj setImage:[UIImage imageNamed:@"icon_radio_selected"] forState:UIControlStateSelected];
+    }];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end

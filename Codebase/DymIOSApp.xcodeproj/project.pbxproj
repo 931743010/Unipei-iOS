@@ -27,8 +27,6 @@
 		6B6E5F5B1C2D0D39005C9ED7 /* UNPRegistedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B6E5F531C2D0D39005C9ED7 /* UNPRegistedVC.xib */; };
 		6B6E5F5F1C2D0E22005C9ED7 /* UNPRegistedConfirmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6E5F5D1C2D0E22005C9ED7 /* UNPRegistedConfirmCell.m */; };
 		6B6E5F601C2D0E22005C9ED7 /* UNPRegistedConfirmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B6E5F5E1C2D0E22005C9ED7 /* UNPRegistedConfirmCell.xib */; };
-		6B6E5F641C2D48CA005C9ED7 /* UNPRegistedLisenceNumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6E5F621C2D48CA005C9ED7 /* UNPRegistedLisenceNumCell.m */; };
-		6B6E5F651C2D48CA005C9ED7 /* UNPRegistedLisenceNumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B6E5F631C2D48CA005C9ED7 /* UNPRegistedLisenceNumCell.xib */; };
 		6B777D731BE844C4003DC752 /* MyOrderFilterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B777D721BE844C4003DC752 /* MyOrderFilterVC.m */; };
 		6B777D7A1BE84514003DC752 /* MyOrderFilterClearCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B777D751BE84514003DC752 /* MyOrderFilterClearCell.m */; };
 		6B777D7B1BE84514003DC752 /* MyOrderFilterStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B777D771BE84514003DC752 /* MyOrderFilterStatusCell.m */; };
@@ -363,9 +361,6 @@
 		6B6E5F5C1C2D0E22005C9ED7 /* UNPRegistedConfirmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNPRegistedConfirmCell.h; sourceTree = "<group>"; };
 		6B6E5F5D1C2D0E22005C9ED7 /* UNPRegistedConfirmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNPRegistedConfirmCell.m; sourceTree = "<group>"; };
 		6B6E5F5E1C2D0E22005C9ED7 /* UNPRegistedConfirmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UNPRegistedConfirmCell.xib; sourceTree = "<group>"; };
-		6B6E5F611C2D48C9005C9ED7 /* UNPRegistedLisenceNumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNPRegistedLisenceNumCell.h; sourceTree = "<group>"; };
-		6B6E5F621C2D48CA005C9ED7 /* UNPRegistedLisenceNumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNPRegistedLisenceNumCell.m; sourceTree = "<group>"; };
-		6B6E5F631C2D48CA005C9ED7 /* UNPRegistedLisenceNumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UNPRegistedLisenceNumCell.xib; sourceTree = "<group>"; };
 		6B777D711BE844C4003DC752 /* MyOrderFilterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderFilterVC.h; sourceTree = "<group>"; };
 		6B777D721BE844C4003DC752 /* MyOrderFilterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderFilterVC.m; sourceTree = "<group>"; };
 		6B777D741BE84514003DC752 /* MyOrderFilterClearCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderFilterClearCell.h; sourceTree = "<group>"; };
@@ -1055,9 +1050,6 @@
 				6B6E5F5C1C2D0E22005C9ED7 /* UNPRegistedConfirmCell.h */,
 				6B6E5F5D1C2D0E22005C9ED7 /* UNPRegistedConfirmCell.m */,
 				6B6E5F5E1C2D0E22005C9ED7 /* UNPRegistedConfirmCell.xib */,
-				6B6E5F611C2D48C9005C9ED7 /* UNPRegistedLisenceNumCell.h */,
-				6B6E5F621C2D48CA005C9ED7 /* UNPRegistedLisenceNumCell.m */,
-				6B6E5F631C2D48CA005C9ED7 /* UNPRegistedLisenceNumCell.xib */,
 			);
 			path = Registe;
 			sourceTree = "<group>";
@@ -2169,7 +2161,6 @@
 				EA38D41D1BF4572200C93243 /* EditVinViewController.xib in Resources */,
 				EA61F1C11BA6BD4600858DDC /* Images.xcassets in Resources */,
 				EAC12A2A1BAD4EDC00DA7325 /* UNPChooseItemCell.xib in Resources */,
-				6B6E5F651C2D48CA005C9ED7 /* UNPRegistedLisenceNumCell.xib in Resources */,
 				6B6E5F601C2D0E22005C9ED7 /* UNPRegistedConfirmCell.xib in Resources */,
 				EAD578CB1BFDA13C0059DC04 /* Unipei_Inquiry.storyboard in Resources */,
 				6B97766E1BF5729E00226927 /* UNPTextModifyVC.xib in Resources */,
@@ -2360,7 +2351,6 @@
 				EA61F1DB1BA6BE7200858DDC /* UIViewController+PSContainment.m in Sources */,
 				EA38D41B1BF4572200C93243 /* CameraViewController.mm in Sources */,
 				94F426711C2BD6DA00E96FE3 /* UNPChatHomeVC.m in Sources */,
-				6B6E5F641C2D48CA005C9ED7 /* UNPRegistedLisenceNumCell.m in Sources */,
 				EA9C68E71BABBDEF00001DCF /* JPOfferItemCell.m in Sources */,
 				6B9776771BF5794700226927 /* UNPAccountSecurityVC.m in Sources */,
 				EA61F1D81BA6BE6400858DDC /* JLToastCenter.swift in Sources */,
