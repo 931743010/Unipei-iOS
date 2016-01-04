@@ -103,14 +103,15 @@
     lblNotice.text = @"橙色项为必填项";
     [header addSubview:lblNotice];
     
+    //先注册cell
+    [self registerCellNibs];
+
     self.tableView.tableHeaderView = header;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 70;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self updateServerPicker];
-    
-    [self registerCellNibs];
     
 }
 
