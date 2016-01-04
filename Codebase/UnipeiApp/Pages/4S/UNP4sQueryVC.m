@@ -206,8 +206,9 @@ static NSString *OE = @"OE号";
         }
         
         api.params = params;
-        
+        _btnSubmit.enabled = NO;
         [[DymRequest commonApiSignal:api queue:self.apiQueue] subscribeNext:^(DymBaseRespModel *result) {
+            _btnSubmit.enabled = YES;
             if (result.success) {
                 NSArray *allfoursList = result.body[@"allfoursList"];
                 if(allfoursList.count >0){
