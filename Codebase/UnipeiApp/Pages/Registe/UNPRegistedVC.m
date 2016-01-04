@@ -66,10 +66,6 @@
     @weakify(self)
     self.navigationItem.title = @"修理厂注册";
     
-    _upLoadPath = kServerUploadPathShopLicence;
-    self.registedRecomType = kJPRegistedRecomTypeDealer;
-    self.registedPhototype = kJPRegistedPhotoTypeStore;
-    
     _pickerData = @[@"一类",@"二类",@"三类"];
     
     _addressViewModel = [UNPAddressChooseVM new];
@@ -491,17 +487,17 @@
     switch (i) {
         case 100:{
             self.registedPhototype = kJPRegistedPhotoTypeStore;
-            _upLoadPath = kServerUploadPathShopLicence;
+            _upLoadPath = kServerUploadPathShopOffice;
         }
             break;
         case 101:{
             self.registedPhototype = kJPRegistedPhotoTypeCard;
-            _upLoadPath = kServerUploadPathShopOffice;
+            _upLoadPath = kServerUploadPathShopNamecard;
         }
             break;
         case 102:{
             self.registedPhototype = kJPRegistedPhotoTypeLisence;
-            _upLoadPath = kServerUploadPathShopNamecard;
+            _upLoadPath = kServerUploadPathShopLicence;
             
             _upLoadPicCell.lisenceNumView.hidden = NO;
             con.constant = 44;
@@ -531,6 +527,8 @@
                                             , @"image": image}];
     [self.apiQueue addObject:uploadImage];
     
+    _confirmCell.btnConfirm.enabled = NO;
+
     [[DymRequest commonApiSignal:uploadImage queue:self.apiQueue] subscribeNext:^(CommonApi_UploadImage_Result *result){
         if (result.success) {
             
@@ -539,27 +537,30 @@
             
             DymCommonApi *api = [DymCommonApi new];
             api.relativePath = PATH_userApi_saveApplyService;
+            api.apiVersion = @"V2.2";
             api.params = [NSDictionary dictionaryWithObjectsAndKeys:_organname,@"organname",
                                                                     _name,@"name",
                                                                     _phone,@"phone",
                                                                     _province,@"province",
                                                                     _city,@"city",
                                                                     _area,@"area",
-                                                                    _address,@"address",
-                                                                    _recommend,@"recommend",
+                                                                    [JPUtils stringValueSafe:_address],@"address",
+                                                                    [JPUtils stringValueSafe:_recommend],@"recommend",
                                                                     _phototype,@"phototype",
                                                                     result.picPath,@"photo",
                                                                     _recomType,@"recomType",
-                                                                    _registration,@"registration",
-                                                                    _servicetype,@"servicetype",
+                                                                    [JPUtils stringValueSafe:_registration],@"registration",
+                                                                    [JPUtils stringValueSafe:_servicetype],@"servicetype",
                                                                     nil];
             
             @weakify(self)
             [[DymRequest commonApiSignal:api queue:self.apiQueue] subscribeNext:^(DymBaseRespModel *result) {
-                
+
                 @strongify(self)
                 if (result.success) {
                     
+                    _confirmCell.btnConfirm.enabled = YES;
+
                     [self.navigationController popViewControllerAnimated:YES];
                     
                 }
