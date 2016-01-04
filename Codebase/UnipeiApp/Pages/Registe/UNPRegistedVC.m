@@ -48,8 +48,8 @@
     //上传头像的接口路径
     EJPServerImagePath                   _upLoadPath;
     //标记上一次点击的btn
-    UIButton                             *_lastRecommendBtn;
-    UIButton                             *_lastUploadBtn;
+//    UIButton                             *_lastRecommendBtn;
+//    UIButton                             *_lastUploadBtn;
     
     
     NSArray                              *_recommendedButtons;
@@ -508,7 +508,6 @@
         default:
             break;
     }
-    
     [self.tableView reloadData];
     
 }
