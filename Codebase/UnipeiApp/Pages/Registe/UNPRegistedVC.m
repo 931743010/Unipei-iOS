@@ -89,6 +89,7 @@
                 self->_area = [JPUtils stringValueSafe:(_addressViewModel.districtVM.selectedItem)[@"id"]];
             }
             _roughAdress = [self->_addressViewModel fullAddress];
+            _confirmCell.btnConfirm.enabled = [self btnConfirmIsEnabled];
             [self.tableView reloadData];
         }
     }];
@@ -509,6 +510,7 @@
         default:
             break;
     }
+    _confirmCell.btnConfirm.enabled = [self btnConfirmIsEnabled];
     [self.tableView reloadData];
     
 }
