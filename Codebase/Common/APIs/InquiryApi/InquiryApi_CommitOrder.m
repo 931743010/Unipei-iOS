@@ -41,6 +41,8 @@
     return map;
 }
 
-
+-(NSString *)apiVersionString{
+    return @"V2.2";
+}
 
 @end

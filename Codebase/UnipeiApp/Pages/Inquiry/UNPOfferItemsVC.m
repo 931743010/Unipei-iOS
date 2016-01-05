@@ -55,12 +55,6 @@
     return [[DymStoryboard unipeiInquiry_Storyboard] instantiateViewControllerWithIdentifier:@"UNPOfferItemsVC"];
 }
 
--(RACSignal *)getInquiryDetail {
-    
-    id params = @{@"inquiryid": _inquiryID ? [JPUtils numberValueSafe:_inquiryID] : [JPUtils numberValueSafe:_quoid]};
-    
-    return [DymRequest commonApiSignalWithClass:[InquiryApi_GetInquiryInfo class] queue:self.apiQueue params:params];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -200,6 +194,11 @@
     // 请求方案数据
     [self getSchemas];
 }
+
+
+#pragma mark -- Query method --
+
+
 
 -(void)getSchemas {
     @weakify(self)
@@ -429,7 +428,9 @@
     _viewTopBar.hidden = !show;
 }
 
-#pragma mark - signals
+#pragma mark -- Signals --
+
+
 -(RACSignal *)getSchemaSignal {
     id params = @{@"inquiryid": [JPUtils numberValueSafe:_inquiryID], @"quoid": [JPUtils numberValueSafe:_quoid]};
     
@@ -450,6 +451,15 @@
     
     return [DymRequest commonApiSignal:acceptAPI queue:self.apiQueue];
 }
+
+-(RACSignal *)getInquiryDetail {
+    
+    id params = @{@"inquiryid": _inquiryID ? [JPUtils numberValueSafe:_inquiryID] : [JPUtils numberValueSafe:_quoid]};
+    
+    return [DymRequest commonApiSignalWithClass:[InquiryApi_GetInquiryInfo class] queue:self.apiQueue params:params];
+}
+
+#pragma mark action method
 
 -(void)actionAccept:(id)sender {
     

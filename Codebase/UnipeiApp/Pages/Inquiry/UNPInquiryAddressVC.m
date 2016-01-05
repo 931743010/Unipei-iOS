@@ -19,6 +19,9 @@
 #import "UNPChooseCouponVC.h"
 #import "DymNavigationController.h"
 #import "LotteryDrawViewController.h"
+#import "JPAppStatus.h"
+#import "LotteryDrawViewController.h"
+#import "ShowLotteryViewController.h"
 
 
 static NSString *keyLogisticCompany = @"logisticscompany";
@@ -49,6 +52,8 @@ static NSString *keyLogisticCompany = @"logisticscompany";
     BOOL                _dontUseCoupon; // 选择了『不使用优惠券』时 == YES
     
     NSUInteger          _pendingRequestCount;
+    
+    DymBaseRespModel    *_nextResult;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UNPTwoButtonsBarView *bottomView;
@@ -60,6 +65,11 @@ static NSString *keyLogisticCompany = @"logisticscompany";
 +(instancetype)newFromStoryboard {
     return [[DymStoryboard unipeiInquiry_Storyboard] instantiateViewControllerWithIdentifier:@"UNPInquiryAddressVC"];
 }
+
++(instancetype)viewFromStoryboard {
+    return [[DymStoryboard unipei_Lottery_Storyboard] instantiateViewControllerWithIdentifier:@"lotterydraw"];
+}
+
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -158,20 +168,38 @@ static NSString *keyLogisticCompany = @"logisticscompany";
                 
                 [[JLToast makeTextQuick:@"方案已确认"] show];
                 
-                if (self.navigationController.presentingViewController == nil) {
-                    [self.navigationController popToRootViewControllerAnimated:YES];
-                } else {
-                    [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                self->_nextResult = result;
+                //    {
+                //        Amount = 30;
+                //        CouponSn = 1536543195;
+                //        OrderMinAmount = "全场通用";
+                //        State = 0;
+                //        Title = "手机app武汉测试联盟获取优惠券";
+                //        Validity = "有效期至 2016-01-30 17:26";
+                //    }
+                 NSNumber *status = result.body[@"Status"];
+//                State: 0/1/2  0 没有优惠券，1，固定优惠券（Coupon 数据），2随机优惠券 
+                if (status.intValue==2) {
+                    [self goToDrawLottery];
+                }else if (status.intValue==1) {  //固定优惠券,跳转到现实页面
+                    NSDictionary *coupon = result.body[@"Coupon"];
+                    [self goToShowLottery:coupon];
+                }else{  //0,没有优惠券,直接返回
+                    if (self.navigationController.presentingViewController == nil) {
+                        [self.navigationController popToRootViewControllerAnimated:YES];
+                    } else {
+                        [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                    }
                 }
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName:JP_NOTIFICATION_INQUIRY_CHANGED object:nil];
-                
+        
+
+//                [[NSNotificationCenter defaultCenter] postNotificationName:JP_NOTIFICATION_INQUIRY_CHANGED object:nil];
+   
                 /// wait 3 sec
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    LotteryDrawViewController *lotteryDrawVC = (LotteryDrawViewController *)[UNPInquiryAddressVC viewFromStoryboard];
-                    [[JPUtils topMostVC] presentViewController:lotteryDrawVC animated:YES completion:nil];
-                });
-                
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    LotteryDrawViewController *lotteryDrawVC = (LotteryDrawViewController *)[UNPInquiryAddressVC viewFromStoryboard];
+//                    [[JPUtils topMostVC] presentViewController:lotteryDrawVC animated:YES completion:nil];
+//                });
                 
             } else {
                 
@@ -206,9 +234,7 @@ static NSString *keyLogisticCompany = @"logisticscompany";
     
     [self.observerQueue addObject:observer];
 }
-+(instancetype)viewFromStoryboard {
-    return [[DymStoryboard unipei_Lottery_Storyboard] instantiateViewControllerWithIdentifier:@"lotterydraw"];
-}
+
 
 //判断空格
 - (BOOL) isBlankString:(NSString *)string {
@@ -398,6 +424,21 @@ static NSString *keyLogisticCompany = @"logisticscompany";
     [self modifyWithAddress:address];
 }
 
+-(void)goToDrawLottery{
+    LotteryDrawViewController *lotteryDrawVC = (LotteryDrawViewController *)[UNPInquiryAddressVC viewFromStoryboard];
+    lotteryDrawVC.lotteryParam =  _nextResult;
+    [self.navigationController pushViewController:lotteryDrawVC animated:YES];
+    
+}
+
+-(void)goToShowLottery:(NSDictionary *) coupon{
+    ShowLotteryViewController *showLotteryVC = [[ShowLotteryViewController alloc] initWithNibName:@"ShowLotteryViewController" bundle:nil];
+    showLotteryVC.coupon = coupon;
+    [self presentViewController:showLotteryVC animated:YES completion:nil];
+}
+
+
+
 #pragma mark - requests
 -(void)handleReuqstFinished {
     _pendingRequestCount--;
@@ -415,7 +456,6 @@ static NSString *keyLogisticCompany = @"logisticscompany";
         if (result.success) {
             self->_logisticCompanies = result.body[@"logisticsList"];
         }
-        
         [self handleReuqstFinished];
     }];
 }
@@ -436,7 +476,6 @@ static NSString *keyLogisticCompany = @"logisticscompany";
         
         @strongify(self)
         if (result.success) {
-//            NSLog(@"%@", result.body);
             self->_coupons = result.body[@"list"];
         }
         
@@ -463,7 +502,29 @@ static NSString *keyLogisticCompany = @"logisticscompany";
     }];
 }
 
+
+
+
+
+
 #pragma mark - signals
+
+
+-(RACSignal *)getLotterySignal {
+
+    DymCommonApi *api = [DymCommonApi new];
+    api.relativePath = PATH_inquiryApi_lottery;
+    api.apiVersion = @"V2.2";
+ 
+    
+    NSString *promoid = _nextResult.body[@"promoid"];
+    api.params = @{@"promoid": promoid};
+          api.params = @{@"organid": [JPAppStatus loginInfo].unionID
+                          , @"promoid": promoid
+                         };
+    return [DymRequest commonApiSignal:api queue:self.apiQueue];
+}
+
 -(RACSignal *)getAddressesSignal {
     return [DymRequest commonApiSignalWithClass:[InquiryApi_FindReceiveAddress class] queue:self.apiQueue params:nil];
 }
@@ -538,32 +599,7 @@ static NSString *keyLogisticCompany = @"logisticscompany";
     return 44;
 }
 
-#pragma mark - UITextField delegate
 
-//-(void)textFiledEditChanged:(NSNotification *)notification {
-//    UITextField *textField = notification.object;
-//    
-//    if (textField == _tfLogistic) {
-//        
-//        [JPUtils restrictTextField:textField maxLength:kMaxLength];
-//    }
-//}
-//
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-//    NSLog(@"%@, %@", textField.text, string);
-//    if (range.length != 0) {
-//        return YES;
-//    }
-//    
-//    BOOL isCharacter = [GGPredicate checkCharacter:string];
-//    BOOL isHan = [GGPredicate containsHan:string];
-//    
-//    if (!isCharacter && !isHan) {
-//        return NO;
-//    }
-//    
-//    return YES;
-//}
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     [self hidePickerView:nil];

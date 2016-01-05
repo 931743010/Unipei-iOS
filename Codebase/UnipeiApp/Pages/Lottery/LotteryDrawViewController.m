@@ -2,7 +2,7 @@
 //  LotteryDrawViewController.m
 //  DymIOSApp
 //
-//  Created by MacBook on 12/23/15.
+//  Created by QinJun on 12/23/15.
 //  Copyright © 2015 Dong Yiming. All rights reserved.
 //
 
@@ -13,6 +13,9 @@
 #import "JPDesignSpec.h"
 #import "DymStoryboard.h"
 #import "ShowLotteryViewController.h"
+#import "DymCommonApi.h"
+#import "JPAppStatus.h"
+#import <UnipeiApp-Swift.h>
 
 
 static CGFloat deleyTime = 1.0f;
@@ -138,33 +141,58 @@ static int angle = 10;
 
 
 -(void)abortDraw:(UIButton *)sender{
-    NSLog(@"===abortDraw");
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 -(void) showLotteryView:(UIButton *)sender{
     sender.layer.zPosition = 100;
     [sender spinButtonWithTime:deleyTime direction:angle];
-    [self performSelector:@selector(delayShowLotteryView) withObject:nil afterDelay:deleyTime];
+//    [self drawLottery];
+    [self performSelector:@selector(drawLottery) withObject:nil afterDelay:deleyTime];
 }
 
--(void)delayShowLotteryView{
-//    LotteryDrawViewController *lotteryDrawVC = (LotteryDrawViewController *)[LotteryDrawViewController viewFromStoryboard];
-//    [self.navigationController pushViewController:lotteryDrawVC animated:YES];
 
+
+#pragma mark --singnal
+-(RACSignal *)getLotterySignal {
     
-    ShowLotteryViewController *showLotteryVC = [[ShowLotteryViewController alloc] initWithNibName:@"ShowLotteryViewController" bundle:nil];
-    
-    [self presentViewController:showLotteryVC animated:YES completion:nil];
-    
+    DymCommonApi *api = [DymCommonApi new];
+    api.relativePath = PATH_inquiryApi_lottery;
+    api.apiVersion = @"V2.2";
+
+    NSString *promoid = self.lotteryParam.body[@"PromoID"];
+    api.params = @{@"organid": [[JPAppStatus loginInfo].organID stringValue]
+                   , @"promoid": promoid
+                   };
+    return [DymRequest commonApiSignal:api queue:self.apiQueue];
 }
+
+//调用摇奖借口
+-(void)drawLottery{
+    [self showLoadingView:YES];
+    @weakify(self)
+    [[self getLotterySignal] subscribeNext:^(DymBaseRespModel *result) {
+        @strongify(self)
+        [self showLoadingView:NO];
+//        {"header":{"msg":"您已经抽过奖了","code":"400","success":false},"body":{}}
+        if(result.success){
+            NSDictionary *coupon = result.body[@"Coupon"];
+            ShowLotteryViewController *showLotteryVC = [[ShowLotteryViewController alloc] initWithNibName:@"ShowLotteryViewController" bundle:nil];
+            showLotteryVC.coupon = coupon;
+            [self presentViewController:showLotteryVC animated:YES completion:nil];
+            
+        }else{
+            [[JLToast makeTextQuick:result.msg] show];
+        }
+    }];
+ 
+}
+
+
+
 
 
 #pragma mark  utilty
-+(instancetype)viewFromStoryboard {
-    return [[DymStoryboard unipei_Lottery_Storyboard] instantiateViewControllerWithIdentifier:@"showlottery"];
-}
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
