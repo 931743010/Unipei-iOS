@@ -10,4 +10,12 @@
 #import "CouponModel.h"
 @interface UnusedCouponCell : UITableViewCell
 -(void)configWithModel:(CouponModel *)model;
+
+@property (weak, nonatomic) IBOutlet UIView *couponView;
+@property (weak, nonatomic) IBOutlet UILabel *couponNum;
+@property (weak, nonatomic) IBOutlet UILabel *couponPrice;
+@property (weak, nonatomic) IBOutlet UIButton *couponFull;
+@property (weak, nonatomic) IBOutlet UIButton *couponTime;
+@property (weak, nonatomic) IBOutlet UILabel *couponTitle;
+
 @end

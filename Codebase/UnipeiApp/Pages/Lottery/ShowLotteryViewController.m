@@ -12,8 +12,9 @@
 #import "JPDesignSpec.h"
 #import "DymStoryboard.h"
 #import "UnusedCouponCell.h"
-#import "JPUtils.h"
 #import "JPSubmitButton.h"
+#import "JPUtils.h"
+
 
 static NSString *cellName = @"UnusedCouponCell";
 
@@ -85,12 +86,14 @@ static NSString *cellName = @"UnusedCouponCell";
     }];
     
     
+
+    
+    
 }
 
 -(void)backView:(UIButton *)sender{
     [self dismissViewControllerAnimated:YES completion:^{
     }];
-    NSLog(@"--backView--");
 }
 
 
@@ -101,7 +104,7 @@ static NSString *cellName = @"UnusedCouponCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+
     if (indexPath.row==0) {
         NSString *idName = [NSString stringWithFormat:@"showLottery%ld",(long)indexPath.row];
         UITableViewCell  *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier: idName];
@@ -113,7 +116,42 @@ static NSString *cellName = @"UnusedCouponCell";
     }else if(indexPath.row==1){
         UnusedCouponCell  *cell2 = [_tableView dequeueReusableCellWithIdentifier:cellName];
         cell2.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell2;
+        cell2.couponPrice.text =[JPUtils stringValueSafe:self.coupon[@"amount"] defaultValue:@"0"];
+        cell2.couponNum.text =[JPUtils stringValueSafe:self.coupon[@"couponsn"] defaultValue:@"0"];
+    //    property (weak, nonatomic) IBOutlet UIView *couponView;
+        //    @property (weak, nonatomic) IBOutlet UILabel *couponNum;    券号
+        //    @property (weak, nonatomic) IBOutlet UILabel *couponPrice;  //钱
+        //    @property (weak, nonatomic) IBOutlet UIButton *couponFull;   条件限制
+        //    @property (weak, nonatomic) IBOutlet UIButton *couponTime;   时间限制
+        //    @property (weak, nonatomic) IBOutlet UILabel *couponTitle;   //真送钱
+        
+//        {
+//            "header":{"msg":"操作成功","code":"200","success":true},
+//            "body":{
+//                "Msg":"您今天的抽奖次数已用完，欢迎明天再来",
+//                "Coupon":{
+//                    "Validity":"有效期至 2016-02-04 14:11",
+//                    "CouponSn":"1600558019",
+//                    "State":0,
+//                    "Amount":15,
+//                    "OrderMinAmount":"满100元可用",
+//                    "Title":"随机大放送30-90"
+//       }
+
+        NSString *validity =  [JPUtils stringValueSafe:self.coupon[@"Validity"]];
+        NSString *couponsn =  [JPUtils stringValueSafe:self.coupon[@"CouponSn"]];
+//        NSString *state =  [JPUtils stringValueSafe:self.coupon[@"State"]];
+        NSString *amount =  [JPUtils stringValueSafe:self.coupon[@"Amount"]];
+        NSString *orderMinAmount =  [JPUtils stringValueSafe:self.coupon[@"OrderMinAmount"]];
+        NSString *title =  [JPUtils stringValueSafe:self.coupon[@"Title"]];
+        
+        cell2.couponNum.text =couponsn;
+        cell2.couponPrice.text = amount;
+        [cell2.couponTime setTitle:validity forState:UIControlStateNormal];
+        [cell2.couponFull setTitle:orderMinAmount forState:UIControlStateNormal];
+        cell2.couponTitle.text = title;
+
+       return cell2;
     }
     return nil;
 }
@@ -153,8 +191,8 @@ static NSString *cellName = @"UnusedCouponCell";
 //    @weakify(self)
     [[btnUseNow rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
 //        @strongify(self)
-
-        //TODO
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
         
     }];
 

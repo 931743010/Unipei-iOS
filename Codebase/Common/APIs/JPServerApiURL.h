@@ -102,6 +102,7 @@ static NSString *PATH_inquiryApi_getInquiryInfo = @"inquiryApi/getInquiryInfo.do
 static NSString *PATH_inquiryApi_getScheme = @"inquiryApi/getScheme.do";
 static NSString *PATH_inquiryApi_inquiryListUpdate = @"inquiryApi/inquiryListUpdate.do";
 static NSString *PATH_inquiryApi_commitOrder = @"inquiryApi/commitOrder.do";
+static NSString *PATH_inquiryApi_lottery = @"inquiryApi/lottery.do";
 
 static NSString *PATH_inquiryApi_addReciveAddress = @"inquiryApi/addReceiveAddress.do";
 static NSString *PATH_inquiryApi_updateReciveAddress = @"inquiryApi/updateReceiveAddress.do";

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DymBaseRespModel.h"
+#import "DymBaseVC.h"
 
-@interface LotteryDrawViewController : UIViewController
+@interface LotteryDrawViewController : DymBaseVC
+
+@property(nonatomic,strong) DymBaseRespModel  *lotteryParam;
+
 
 @end

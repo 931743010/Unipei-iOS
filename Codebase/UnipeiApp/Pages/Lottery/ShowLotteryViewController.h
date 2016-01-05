@@ -10,4 +10,6 @@
 
 @interface ShowLotteryViewController : UIViewController
 
+@property(nonatomic,strong) NSDictionary *coupon;
+
 @end

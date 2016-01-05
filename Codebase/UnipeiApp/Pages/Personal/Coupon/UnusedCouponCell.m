@@ -11,13 +11,6 @@
 #import <Masonry.h>
 @interface UnusedCouponCell()
 
-@property (weak, nonatomic) IBOutlet UIView *couponView;
-@property (weak, nonatomic) IBOutlet UILabel *couponNum;
-@property (weak, nonatomic) IBOutlet UILabel *couponPrice;
-@property (weak, nonatomic) IBOutlet UIButton *couponFull;
-@property (weak, nonatomic) IBOutlet UIButton *couponTime;
-@property (weak, nonatomic) IBOutlet UILabel *couponTitle;
-
 @end
 @implementation UnusedCouponCell
 
