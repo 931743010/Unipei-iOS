@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet IPDashedBorderedView *lineView;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
-@property (weak, nonatomic) IBOutlet UILabel *lblCode;
+//@property (weak, nonatomic) IBOutlet UILabel *lblCode;
 @property (weak, nonatomic) IBOutlet UILabel *lblOeno;
 @property (weak, nonatomic) IBOutlet UILabel *lblNumber;
 

@@ -165,6 +165,9 @@ static NSString *OE = @"OE号";
     NSString *oeString = _tfOE.textField.text.trim;
     NSString *partString = _tfPart.textField.text.trim;
     
+//    if (_vinString.length < 10) {
+//        [[JLToast makeTextQuick:@"VIN码不能少于10位"] show];
+
     if (_vinInfo[@"modelID"] == nil && _carModelChooseVM.modelVM.selectedItem == nil) {
         [[JLToast makeText:@"请先选择车型"] show];
     } else if (oeString.length <= 0 && partString.length <= 0) {
@@ -339,10 +342,12 @@ static NSString *OE = @"OE号";
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     @weakify(self)
     if (textField == _tfVinCode.textField) {
-        
+
         [self formatingTfInputVin];
-        
+//        [self formatVINInput:textField.text];
+
         if (_vinString.length < 10) {
+//         if (textField.text.length < 10) {
             [[JLToast makeTextQuick:@"VIN码不能少于10位"] show];
             return NO;
         } else {
@@ -418,7 +423,7 @@ static NSString *OE = @"OE号";
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (textField == _tfVinCode.textField) {
-        
+        _vinString = [_vinString stringByAppendingString:string];
         _vinString = [textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
         
         if (range.length == 0) {
@@ -437,6 +442,15 @@ static NSString *OE = @"OE号";
 
 -(void)formatingTfInputVin {
     NSString *formatedString = [JPUtils vinFormatedString:_vinString];
+    _tfVinCode.textField.text = formatedString;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _tfVinCode.textField.text = [_tfVinCode.textField.text uppercaseString];
+    });
+}
+
+-(void)formatVINInput:(NSString *) text {
+    NSString *formatedString = [JPUtils vinFormatedString:text];
     _tfVinCode.textField.text = formatedString;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

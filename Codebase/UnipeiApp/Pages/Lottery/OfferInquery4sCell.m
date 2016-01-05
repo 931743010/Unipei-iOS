@@ -33,7 +33,6 @@
     
     self.contentView.backgroundColor = [JPDesignSpec colorSilver];
  //设置虚线
-//    IPDashedLineView *dashView = [IPDashedLineView new];
     _lineView.lineColor = [UIColor colorWithWhite:0.5 alpha:0.2];
     _lineView.lengthPattern = @[@2, @1];
 
@@ -41,15 +40,6 @@
         make.height.equalTo(@1);
     }];
     
-    
-    
-    
-//    [_lblCode setContentHuggingPriority:1010
-//                               forAxis:UILayoutConstraintAxisHorizontal];
-//    [_lblNumber setContentHuggingPriority:1010
-//                                forAxis:UILayoutConstraintAxisHorizontal];
-    
-//    _lblName
     [_lblName setContentCompressionResistancePriority:UILayoutPriorityRequired
                                               forAxis:UILayoutConstraintAxisHorizontal];
     [_lblOeno setContentCompressionResistancePriority:UILayoutPriorityRequired
