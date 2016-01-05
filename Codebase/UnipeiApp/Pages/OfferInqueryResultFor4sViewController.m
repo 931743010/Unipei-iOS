@@ -73,22 +73,20 @@
 //        PRICE = "30941.63";
 //        STANDCODE = 66;
 //    }
-    
+
 //    @property (weak, nonatomic) IBOutlet UILabel *price;
-//
 //    @property (weak, nonatomic) IBOutlet UILabel *lblName;
 //    @property (weak, nonatomic) IBOutlet UILabel *lblCode;
 //    @property (weak, nonatomic) IBOutlet UILabel *lblOeno;
 //    @property (weak, nonatomic) IBOutlet UILabel *lblNumber;
     
     OfferInquery4sCell *cell = [tableView dequeueReusableCellWithIdentifier:@"offerInquery4sCell" forIndexPath:indexPath];
-   
-    
+
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setPositiveFormat:@"#######0.00;"];
     cell.price.text = [formatter stringFromNumber:data[@"PRICE"]];
     cell.lblName.text = data[@"NAME"];
-    cell.lblCode.text = data[@"STANDCODE"];
+//    cell.lblCode.text = data[@"STANDCODE"];
     cell.lblOeno.text = data[@"OENO"];
     cell.lblNumber.text = [data[@"AMOUNT"] stringValue];
 //    41001001 MODELID
