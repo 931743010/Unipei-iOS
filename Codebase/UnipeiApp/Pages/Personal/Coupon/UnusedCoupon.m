@@ -130,7 +130,7 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
   
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 133;
+    return 150;
 }
 
 - (void)didReceiveMemoryWarning {

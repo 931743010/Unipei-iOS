@@ -16,6 +16,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kG-JU-fv2">
                         <rect key="frame" x="18" y="17" width="284" height="110"/>
+
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优惠劵号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igP-0u-ipT">
                                 <rect key="frame" x="10" y="16" width="56" height="14"/>
@@ -27,13 +28,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34352637" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKu-y2-Kc4">
+
                                 <rect key="frame" x="66" y="17" width="51" height="12"/>
+
+
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avv-RG-u8J">
+
                                 <rect key="frame" x="16" y="60" width="25" height="30"/>
+
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="xEf-jB-Yjs"/>
                                     <constraint firstAttribute="height" constant="30" id="z6b-vd-Bpk"/>
@@ -43,7 +49,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFx-V1-p4e">
+
                                 <rect key="frame" x="143" y="60" width="49" height="24"/>
+
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="满200可用">
                                     <color key="titleColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,7 +86,9 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqS-lw-6Zm">
+
                                 <rect key="frame" x="143" y="74" width="86" height="24"/>
+
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="2015.12.16 09:50 ">
                                     <color key="titleColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,12 +96,14 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="由你配真送钱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ko-9r-rZG">
                                 <rect key="frame" x="125" y="43" width="96" height="20"/>
+
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EK3-zp-AqH">
                                 <rect key="frame" x="41" y="50" width="68" height="40"/>
+
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="xjz-bs-HAw"/>
                                 </constraints>
@@ -117,21 +129,24 @@
                             <constraint firstItem="IKu-y2-Kc4" firstAttribute="leading" secondItem="igP-0u-ipT" secondAttribute="trailing" id="TLw-mN-5aQ"/>
                             <constraint firstItem="IKu-y2-Kc4" firstAttribute="centerY" secondItem="igP-0u-ipT" secondAttribute="centerY" id="VmP-Q9-tFj"/>
                             <constraint firstItem="Tdk-1y-aHw" firstAttribute="top" secondItem="Axy-HX-gXA" secondAttribute="bottom" constant="2" id="VsL-Wk-Hlj"/>
-                            <constraint firstItem="avv-RG-u8J" firstAttribute="top" secondItem="igP-0u-ipT" secondAttribute="bottom" constant="30" id="Wy6-bR-8fv"/>
+                            <constraint firstItem="avv-RG-u8J" firstAttribute="top" secondItem="igP-0u-ipT" secondAttribute="bottom" constant="38" id="Wy6-bR-8fv"/>
                             <constraint firstItem="7ko-9r-rZG" firstAttribute="leading" secondItem="EK3-zp-AqH" secondAttribute="trailing" constant="16.5" id="bUM-tU-KXO"/>
                             <constraint firstItem="cFx-V1-p4e" firstAttribute="leading" secondItem="Axy-HX-gXA" secondAttribute="trailing" constant="2" id="cmT-7S-XEL"/>
                             <constraint firstItem="MqS-lw-6Zm" firstAttribute="leading" secondItem="cFx-V1-p4e" secondAttribute="leading" id="d8k-n1-s2J"/>
                             <constraint firstItem="MqS-lw-6Zm" firstAttribute="centerY" secondItem="Tdk-1y-aHw" secondAttribute="centerY" id="due-To-BmB"/>
                             <constraint firstItem="MqS-lw-6Zm" firstAttribute="centerY" secondItem="Axy-HX-gXA" secondAttribute="centerY" id="e6P-Co-OOt"/>
+                            <constraint firstItem="7ko-9r-rZG" firstAttribute="leading" secondItem="3kG-JU-fv2" secondAttribute="leading" constant="125" id="ecq-Kw-KIt"/>
                             <constraint firstItem="igP-0u-ipT" firstAttribute="top" secondItem="tam-Nc-deb" secondAttribute="bottom" constant="6" id="kTx-Bb-Fae"/>
                             <constraint firstItem="avv-RG-u8J" firstAttribute="leading" secondItem="3kG-JU-fv2" secondAttribute="leading" constant="16" id="lK7-dx-Ufg"/>
                             <constraint firstItem="tam-Nc-deb" firstAttribute="top" secondItem="3kG-JU-fv2" secondAttribute="top" id="sWA-Fl-Ybd"/>
+                            <constraint firstAttribute="trailing" secondItem="7ko-9r-rZG" secondAttribute="trailing" constant="8" id="scB-wC-Bs1"/>
                             <constraint firstItem="7ko-9r-rZG" firstAttribute="top" secondItem="IKu-y2-Kc4" secondAttribute="bottom" constant="14" id="uSz-xA-2Hd"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="PyK-66-30e"/>
                                 <exclude reference="RFi-HV-Q80"/>
+                                <exclude reference="bUM-tU-KXO"/>
                                 <exclude reference="cmT-7S-XEL"/>
                                 <exclude reference="e6P-Co-OOt"/>
                             </mask>
