@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
     UIView *_illustrateView;
     
     BOOL _isShowIllustrate;
+    UIView *_blackView;
 }
 @property (weak, nonatomic) IBOutlet JPTabsView *tabSelect;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -111,16 +112,23 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
         if (!_isShowIllustrate) {
             [UIView animateWithDuration:0.5 animations:^{
                 self->_illustrateView.y = 0;
+                self->_blackView.alpha = 0.5;
             }];
             self->_isShowIllustrate = YES;
         }else{
             [UIView animateWithDuration:0.5 animations:^{
                 self->_illustrateView.y = -250;
+                self->_blackView.alpha = 0;
             }];
             self->_isShowIllustrate = NO;
         }
     }];
-
+    
+    _blackView = [[UIView alloc]initWithFrame:self.view.bounds];
+    _blackView.backgroundColor = [UIColor blackColor];
+    _blackView.alpha = 0;
+    [self.view addSubview:_blackView];
+    
     _illustrateView = [[UIView alloc]initWithFrame:CGRectMake(0, -250, [UIScreen mainScreen].bounds.size.width, 250)];
     _illustrateView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_illustrateView];
@@ -135,6 +143,7 @@ typedef NS_ENUM(NSInteger, EJPCouponState) {
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [UIView animateWithDuration:0.5 animations:^{
         self->_illustrateView.y = -250;
+        self->_blackView.alpha = 0;
         
     }];
      _isShowIllustrate = NO;
