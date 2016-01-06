@@ -78,9 +78,9 @@
 		94F426711C2BD6DA00E96FE3 /* UNPChatHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426701C2BD6DA00E96FE3 /* UNPChatHomeVC.m */; };
 		94F426741C2BF56100E96FE3 /* CouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426731C2BF56100E96FE3 /* CouponModel.m */; };
 		94F4267A1C2BF90100E96FE3 /* CouponModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426791C2BF90100E96FE3 /* CouponModelManager.m */; };
-		94F7DD771C3CA1CD00DB28F2 /* SupplementInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F7DD721C3CA1CD00DB28F2 /* SupplementInfoModel.m */; settings = {ASSET_TAGS = (); }; };
-		94F7DD781C3CA1CD00DB28F2 /* SupplementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F7DD741C3CA1CD00DB28F2 /* SupplementVC.m */; settings = {ASSET_TAGS = (); }; };
-		94F7DD791C3CA1CD00DB28F2 /* UNPSupplementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F7DD761C3CA1CD00DB28F2 /* UNPSupplementVC.m */; settings = {ASSET_TAGS = (); }; };
+		94F7DD771C3CA1CD00DB28F2 /* SupplementInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F7DD721C3CA1CD00DB28F2 /* SupplementInfoModel.m */; };
+		94F7DD781C3CA1CD00DB28F2 /* SupplementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F7DD741C3CA1CD00DB28F2 /* SupplementVC.m */; };
+		94F7DD791C3CA1CD00DB28F2 /* UNPSupplementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F7DD761C3CA1CD00DB28F2 /* UNPSupplementVC.m */; };
 		EA02BBD11BBB722D008C7C73 /* JPDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EA02BBCE1BBB722D008C7C73 /* JPDatePicker.m */; };
 		EA02BBD51BBB7252008C7C73 /* JPDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA02BBD21BBB7252008C7C73 /* JPDatePicker.xib */; };
 		EA05189C1BCF48D500D8F82F /* UNPInquiryAddressModifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA05189B1BCF48D500D8F82F /* UNPInquiryAddressModifyVC.m */; };

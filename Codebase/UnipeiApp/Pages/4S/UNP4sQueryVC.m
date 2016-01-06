@@ -342,8 +342,11 @@ static NSString *OE = @"OE号";
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     @weakify(self)
     if (textField == _tfVinCode.textField) {
-
+        
+        _vinString = [textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
         [self formatingTfInputVin];
+        
 //        [self formatVINInput:textField.text];
 
         if (_vinString.length < 10) {
@@ -442,6 +445,7 @@ static NSString *OE = @"OE号";
 
 -(void)formatingTfInputVin {
     NSString *formatedString = [JPUtils vinFormatedString:_vinString];
+
     _tfVinCode.textField.text = formatedString;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
