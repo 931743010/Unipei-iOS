@@ -20,7 +20,7 @@
 #import "JPSensibleButton.h"
 #import "UNPRegistedVC.h"
 #import "UNPAgreementVC.h"
-#import "SupplementInfo.h"
+#import "SupplementVC.h"
 
 
 @interface UNPLoginVC () <UIPickerViewDataSource, UIPickerViewDelegate> {
@@ -133,7 +133,7 @@
                      
                  } else if ([result.status integerValue] == kJPLoginStatusProfileNotCompleted) {
                      // 需要完善资料
-                     SupplementInfo *supplementVC = [[SupplementInfo alloc]init];
+                     SupplementVC *supplementVC = [SupplementVC newFromStoryboard];
                      supplementVC.loginInfo = result;
                      [self.navigationController pushViewController:supplementVC animated:YES];
                      

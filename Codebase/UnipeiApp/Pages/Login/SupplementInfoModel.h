@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface SupplementInfoModel : NSObject
-+(NSArray *)arrayWithInfo;
 +(NSArray *)arrayWithArea;
 +(NSArray *)arrayWithFactoryType;
 +(NSArray *)arrayWithYear;
-+(NSArray *)arrayWithUsurInfo:(NSDictionary *)dic;
 @end

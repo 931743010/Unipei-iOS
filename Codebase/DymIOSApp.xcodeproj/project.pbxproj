@@ -64,13 +64,7 @@
 		6BD283F11BF9B490000E9348 /* UNPMessageOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD283EF1BF9B490000E9348 /* UNPMessageOrderCell.m */; };
 		6BD283F21BF9B490000E9348 /* UNPMessageOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BD283F01BF9B490000E9348 /* UNPMessageOrderCell.xib */; };
 		6BD283FB1BFAD4C5000E9348 /* UNPSystemMessageDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD283F91BFAD4C5000E9348 /* UNPSystemMessageDetailVC.m */; };
-		94052A411C30DDBE004E9EF0 /* SupplementInfoImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 94052A3F1C30DDBE004E9EF0 /* SupplementInfoImage.m */; };
-		94052A421C30DDBE004E9EF0 /* SupplementInfoImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94052A401C30DDBE004E9EF0 /* SupplementInfoImage.xib */; };
 		943BA2241C2D27E700461411 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 943BA2231C2D27E700461411 /* UIView+Layout.m */; };
-		943E699A1C2FC22B00A43C94 /* SupplementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 943E69991C2FC22B00A43C94 /* SupplementInfo.m */; };
-		943E699E1C2FC7E700A43C94 /* SupplementInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 943E699C1C2FC7E700A43C94 /* SupplementInfoCell.m */; };
-		943E699F1C2FC7E700A43C94 /* SupplementInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 943E699D1C2FC7E700A43C94 /* SupplementInfoCell.xib */; };
-		943E69A21C2FCB6A00A43C94 /* SupplementInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 943E69A11C2FCB6A00A43C94 /* SupplementInfoModel.m */; };
 		94F426541C2BD5E400E96FE3 /* CouponVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426521C2BD5E400E96FE3 /* CouponVC.m */; };
 		94F426551C2BD5E400E96FE3 /* CouponVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F426531C2BD5E400E96FE3 /* CouponVC.xib */; };
 		94F4265D1C2BD5F300E96FE3 /* IPDashedBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426571C2BD5F300E96FE3 /* IPDashedBorderedView.m */; };
@@ -84,6 +78,9 @@
 		94F426711C2BD6DA00E96FE3 /* UNPChatHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426701C2BD6DA00E96FE3 /* UNPChatHomeVC.m */; };
 		94F426741C2BF56100E96FE3 /* CouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426731C2BF56100E96FE3 /* CouponModel.m */; };
 		94F4267A1C2BF90100E96FE3 /* CouponModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F426791C2BF90100E96FE3 /* CouponModelManager.m */; };
+		94F7DD771C3CA1CD00DB28F2 /* SupplementInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F7DD721C3CA1CD00DB28F2 /* SupplementInfoModel.m */; settings = {ASSET_TAGS = (); }; };
+		94F7DD781C3CA1CD00DB28F2 /* SupplementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F7DD741C3CA1CD00DB28F2 /* SupplementVC.m */; settings = {ASSET_TAGS = (); }; };
+		94F7DD791C3CA1CD00DB28F2 /* UNPSupplementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F7DD761C3CA1CD00DB28F2 /* UNPSupplementVC.m */; settings = {ASSET_TAGS = (); }; };
 		EA02BBD11BBB722D008C7C73 /* JPDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EA02BBCE1BBB722D008C7C73 /* JPDatePicker.m */; };
 		EA02BBD51BBB7252008C7C73 /* JPDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA02BBD21BBB7252008C7C73 /* JPDatePicker.xib */; };
 		EA05189C1BCF48D500D8F82F /* UNPInquiryAddressModifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA05189B1BCF48D500D8F82F /* UNPInquiryAddressModifyVC.m */; };
@@ -422,18 +419,8 @@
 		6BD283F81BFAD4C5000E9348 /* UNPSystemMessageDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNPSystemMessageDetailVC.h; sourceTree = "<group>"; };
 		6BD283F91BFAD4C5000E9348 /* UNPSystemMessageDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNPSystemMessageDetailVC.m; sourceTree = "<group>"; };
 		794C96B07E19AE8C50B211E7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		94052A3E1C30DDBE004E9EF0 /* SupplementInfoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementInfoImage.h; sourceTree = "<group>"; };
-		94052A3F1C30DDBE004E9EF0 /* SupplementInfoImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementInfoImage.m; sourceTree = "<group>"; };
-		94052A401C30DDBE004E9EF0 /* SupplementInfoImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupplementInfoImage.xib; sourceTree = "<group>"; };
 		943BA2221C2D27E700461411 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		943BA2231C2D27E700461411 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
-		943E69981C2FC22B00A43C94 /* SupplementInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementInfo.h; sourceTree = "<group>"; };
-		943E69991C2FC22B00A43C94 /* SupplementInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementInfo.m; sourceTree = "<group>"; };
-		943E699B1C2FC7E700A43C94 /* SupplementInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementInfoCell.h; sourceTree = "<group>"; };
-		943E699C1C2FC7E700A43C94 /* SupplementInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementInfoCell.m; sourceTree = "<group>"; };
-		943E699D1C2FC7E700A43C94 /* SupplementInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupplementInfoCell.xib; sourceTree = "<group>"; };
-		943E69A01C2FCB6A00A43C94 /* SupplementInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementInfoModel.h; sourceTree = "<group>"; };
-		943E69A11C2FCB6A00A43C94 /* SupplementInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementInfoModel.m; sourceTree = "<group>"; };
 		94F426511C2BD5E400E96FE3 /* CouponVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponVC.h; sourceTree = "<group>"; };
 		94F426521C2BD5E400E96FE3 /* CouponVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponVC.m; sourceTree = "<group>"; };
 		94F426531C2BD5E400E96FE3 /* CouponVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponVC.xib; sourceTree = "<group>"; };
@@ -455,6 +442,12 @@
 		94F426731C2BF56100E96FE3 /* CouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponModel.m; sourceTree = "<group>"; };
 		94F426781C2BF90100E96FE3 /* CouponModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponModelManager.h; sourceTree = "<group>"; };
 		94F426791C2BF90100E96FE3 /* CouponModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponModelManager.m; sourceTree = "<group>"; };
+		94F7DD711C3CA1CD00DB28F2 /* SupplementInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementInfoModel.h; sourceTree = "<group>"; };
+		94F7DD721C3CA1CD00DB28F2 /* SupplementInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementInfoModel.m; sourceTree = "<group>"; };
+		94F7DD731C3CA1CD00DB28F2 /* SupplementVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementVC.h; sourceTree = "<group>"; };
+		94F7DD741C3CA1CD00DB28F2 /* SupplementVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementVC.m; sourceTree = "<group>"; };
+		94F7DD751C3CA1CD00DB28F2 /* UNPSupplementVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNPSupplementVC.h; sourceTree = "<group>"; };
+		94F7DD761C3CA1CD00DB28F2 /* UNPSupplementVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNPSupplementVC.m; sourceTree = "<group>"; };
 		C90B8C9FCB6C092032C124C0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EA01A6501B953D4B00CD6405 /* UIImagePickerController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Helper.h"; sourceTree = "<group>"; };
 		EA01A6511B953D4B00CD6405 /* UIImagePickerController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Helper.m"; sourceTree = "<group>"; };
@@ -1081,23 +1074,6 @@
 			path = Personal;
 			sourceTree = "<group>";
 		};
-		943E69941C2FC0DF00A43C94 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				943E69981C2FC22B00A43C94 /* SupplementInfo.h */,
-				943E69991C2FC22B00A43C94 /* SupplementInfo.m */,
-				943E699B1C2FC7E700A43C94 /* SupplementInfoCell.h */,
-				943E699C1C2FC7E700A43C94 /* SupplementInfoCell.m */,
-				943E699D1C2FC7E700A43C94 /* SupplementInfoCell.xib */,
-				943E69A01C2FCB6A00A43C94 /* SupplementInfoModel.h */,
-				943E69A11C2FCB6A00A43C94 /* SupplementInfoModel.m */,
-				94052A3E1C30DDBE004E9EF0 /* SupplementInfoImage.h */,
-				94052A3F1C30DDBE004E9EF0 /* SupplementInfoImage.m */,
-				94052A401C30DDBE004E9EF0 /* SupplementInfoImage.xib */,
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
 		94F426501C2BD5A500E96FE3 /* Coupon */ = {
 			isa = PBXGroup;
 			children = (
@@ -1123,6 +1099,19 @@
 				94F426791C2BF90100E96FE3 /* CouponModelManager.m */,
 			);
 			path = Coupon;
+			sourceTree = "<group>";
+		};
+		94F7DD701C3CA1CD00DB28F2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				94F7DD711C3CA1CD00DB28F2 /* SupplementInfoModel.h */,
+				94F7DD721C3CA1CD00DB28F2 /* SupplementInfoModel.m */,
+				94F7DD731C3CA1CD00DB28F2 /* SupplementVC.h */,
+				94F7DD741C3CA1CD00DB28F2 /* SupplementVC.m */,
+				94F7DD751C3CA1CD00DB28F2 /* UNPSupplementVC.h */,
+				94F7DD761C3CA1CD00DB28F2 /* UNPSupplementVC.m */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		E88FE363954C27426677EC12 /* Pods */ = {
@@ -1351,8 +1340,8 @@
 		EA61F2081BA6C23000858DDC /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				94F7DD701C3CA1CD00DB28F2 /* Login */,
 				EA3A078B1C30D2A30040B825 /* User */,
-				943E69941C2FC0DF00A43C94 /* Login */,
 				EA431A161C2CF01A004E7AD8 /* 4S */,
 				6B6E5F1F1C2BE940005C9ED7 /* Registe */,
 				FA4A191D1C2AA813008ECB4C /* Lottery */,
@@ -2129,7 +2118,6 @@
 				94F4266F1C2BD60600E96FE3 /* UsedCouponCell.xib in Resources */,
 				6B6E5F551C2D0D39005C9ED7 /* UNPRegistedNormalCell.xib in Resources */,
 				6B6E5F591C2D0D39005C9ED7 /* UNPRegistedUpLoadPicCell.xib in Resources */,
-				94052A421C30DDBE004E9EF0 /* SupplementInfoImage.xib in Resources */,
 				EA4E497C1BDF6E860012BC8F /* Common.storyboard in Resources */,
 				6BD283F21BF9B490000E9348 /* UNPMessageOrderCell.xib in Resources */,
 				EA38D41E1BF4572200C93243 /* license.lic in Resources */,
@@ -2164,7 +2152,6 @@
 				6B6E5F601C2D0E22005C9ED7 /* UNPRegistedConfirmCell.xib in Resources */,
 				EAD578CB1BFDA13C0059DC04 /* Unipei_Inquiry.storyboard in Resources */,
 				6B97766E1BF5729E00226927 /* UNPTextModifyVC.xib in Resources */,
-				943E699F1C2FC7E700A43C94 /* SupplementInfoCell.xib in Resources */,
 				EA70A0071C20FF0F006C3793 /* test in Resources */,
 				94F426551C2BD5E400E96FE3 /* CouponVC.xib in Resources */,
 				6B9776731BF5769200226927 /* UNPPersonalInformationCell.xib in Resources */,
@@ -2256,6 +2243,7 @@
 				EAFB9E861BBA5B810053A9D0 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
 				EAA912DC1BB94395009FB9CC /* JPEmptyView.m in Sources */,
 				6B6E5F581C2D0D39005C9ED7 /* UNPRegistedUpLoadPicCell.m in Sources */,
+				94F7DD781C3CA1CD00DB28F2 /* SupplementVC.m in Sources */,
 				EABD04CF1BFEEA3700DDDBAB /* UnipeiAppDelegate+JLRoutes.m in Sources */,
 				EA4E49931BDF76ED0012BC8F /* InquiryApi_FindReceiveAddressById.m in Sources */,
 				EA2489F11BB12E720044E34D /* UNPCarPartsChooseVM.m in Sources */,
@@ -2294,12 +2282,10 @@
 				EA0518A31BCF83AA00D8F82F /* UNPChooseCityVC.m in Sources */,
 				94F426741C2BF56100E96FE3 /* CouponModel.m in Sources */,
 				EA4E49981BDF77310012BC8F /* InquiryApi_UpdateDefaultAddress.m in Sources */,
-				943E699E1C2FC7E700A43C94 /* SupplementInfoCell.m in Sources */,
 				EA61F2031BA6BEB300858DDC /* DymRequest.m in Sources */,
 				EA4E49911BDF76ED0012BC8F /* InquiryApi_FindDistrict.m in Sources */,
 				EAB76DF71C043580008B92AA /* JPRedDotView.m in Sources */,
 				6BAA98C71BD77AE800A02628 /* MineBigCell.m in Sources */,
-				943E69A21C2FCB6A00A43C94 /* SupplementInfoModel.m in Sources */,
 				EA61F1E61BA6BE9100858DDC /* JPAppStatus.m in Sources */,
 				EABE46651BB5441D00901B88 /* UNPMyInquiryVC.m in Sources */,
 				94F426541C2BD5E400E96FE3 /* CouponVC.m in Sources */,
@@ -2309,7 +2295,6 @@
 				EAFB9E651BBA5B810053A9D0 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
 				6B9775FB1BF322E600226927 /* UnipeiAppDelegate+APNS.m in Sources */,
 				EA10729A1BB8DE330093823F /* InquiryApi_InquiryDetail.m in Sources */,
-				943E699A1C2FC22B00A43C94 /* SupplementInfo.m in Sources */,
 				EA83550F1BB23F3100A8A2E6 /* KLAudioManager.m in Sources */,
 				EA0A5A541BF9BA6900B51049 /* JPGuessMyKey.m in Sources */,
 				EAD29EFB1BB26FB500CFE7DB /* amrFileCodec.m in Sources */,
@@ -2322,6 +2307,7 @@
 				EA38D41F1BF4572200C93243 /* TopView.m in Sources */,
 				EAC12A1C1BAD48B000DA7325 /* UNPChooseYearVC.m in Sources */,
 				EA61F2051BA6BEB300858DDC /* DymUrlArgumentsFilter.m in Sources */,
+				94F7DD771C3CA1CD00DB28F2 /* SupplementInfoModel.m in Sources */,
 				EA0518A01BCF839400D8F82F /* UNPChooseProvinceVC.m in Sources */,
 				FA2A488C1BFF12F2002F2B11 /* AllCarBrandView.m in Sources */,
 				6B1D2FD01BD8B332001C9289 /* MyOrderVC.m in Sources */,
@@ -2343,6 +2329,7 @@
 				EAFB9E8F1BBA5B810053A9D0 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
 				FA4C766C1BFD9F4200E90477 /* JPDealerChooseBrandVC.m in Sources */,
 				EABE46611BB5441D00901B88 /* UNPCreateInquiryVC.m in Sources */,
+				94F7DD791C3CA1CD00DB28F2 /* UNPSupplementVC.m in Sources */,
 				EADDC9A01C116296009084B8 /* UNPWebVC.m in Sources */,
 				EA4E49951BDF76ED0012BC8F /* InquiryApi_UpdateReciveAddress.m in Sources */,
 				EABE46641BB5441D00901B88 /* UNPInquiryDetailVC.m in Sources */,
@@ -2393,7 +2380,6 @@
 				FA4A191B1C2AA7AE008ECB4C /* UIButton+Rotate.m in Sources */,
 				EABE46601BB5441D00901B88 /* UNPCreateInquiryDealersVC.m in Sources */,
 				EA61F1F01BA6BE9100858DDC /* GTMBase64.m in Sources */,
-				94052A411C30DDBE004E9EF0 /* SupplementInfoImage.m in Sources */,
 				6B1D2FDA1BD8C903001C9289 /* XMBadgeView.m in Sources */,
 				EA0518A91BCF84AD00D8F82F /* UNPAddressChooseVM.m in Sources */,
 				94F4266E1C2BD60600E96FE3 /* UsedCouponCell.m in Sources */,
